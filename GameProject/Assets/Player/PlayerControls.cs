@@ -46,9 +46,16 @@ public class PlayerControls : MonoBehaviour
     private void Controls()
     {
         movDirTemp = Input.GetAxisRaw("Horizontal");
-        jumpTemp = Input.GetButtonDown("Jump");
-        crouchTemp = Input.GetKeyDown(KeyCode.X);
+        if(Input.GetButtonDown("Jump"))
+        {
+            jumpTemp = true;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            crouchTemp = true;
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -57,7 +64,7 @@ public class PlayerControls : MonoBehaviour
         ResetTemp();
     }
 
-
+    //Checks if the player is standing on the ground
     private void CheckGround()
     {
         bool wasGrounded = grounded;
@@ -99,6 +106,8 @@ public class PlayerControls : MonoBehaviour
             velocity *= airDragMultiplier;
         }
 
+
+        //Enables and Disables collider whenever player is crouching
         if (crouchTemp)
         {
             if (cSwitch)
