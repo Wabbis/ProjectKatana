@@ -5,26 +5,16 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
-    public LayerMask layerMask;
-    public GameObject facingDirection;
-    public Vector2 _direction;
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
-
-    void Start()
-    {
-        _direction = Vector2.right * Time.deltaTime * 1.0f;
-        int i = 0;
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Waypoint")) 
-        {
-            waypoints[i] = go;
-            i++;
-        }
-    }
+    public float attackRange = 0.2f;
+    public float evadeRange = 10f;
+    public float _rayDistance = 7f;
 
     private void Awake()
     {
         InitStateMachine();
+        Debug.Log("Enemy woken");
     }
 
     private void InitStateMachine()
@@ -49,4 +39,9 @@ public class RangedEnemy : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
     
+    public void Attack()
+    {
+        // Do attack stuff
+
+    }
 }

@@ -4,7 +4,8 @@ using System;
 using UnityEngine;
 
 public class AttackState : BaseState
-{ 
+{
+    private float _attackCooldown;
     private RangedEnemy _rangedEnemy;
 
     public AttackState(RangedEnemy rangedEnemy) : base(rangedEnemy.gameObject)
@@ -14,11 +15,21 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
+
+
         if (_rangedEnemy == null)
         {
             return typeof(PatrolState);
         }
+        _attackCooldown -= Time.deltaTime;
 
+        if (_attackCooldown <= 0f)
+        {
+            Debug.Log("ATTACK!");
+            _rangedEnemy.Attack();
+        }
+
+      
         return null;
     }
 }
