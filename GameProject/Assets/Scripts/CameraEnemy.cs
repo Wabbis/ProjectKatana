@@ -14,24 +14,27 @@ public class CameraEnemy : MonoBehaviour
 
     private Vector3 originalSize;           // Viewconen alkuperäinen koko
     public float warningConeMultiplier;     // Viewconen laajennuskerroin Warning-tilassa
-    public float dangerConeMultiplier;      // ViewConen laajennuskerroin Danger-tilassa
+    public float alarmConeMultiplier;      // ViewConen laajennuskerroin Alarm-tilassa
+
+    public GameObject enemyTriggerArea;
 
     public Sprite viewConeSafeSprite;
     public Sprite viewConeWarningSprite;
-    public Sprite viewConeDangerSprite;
+    public Sprite viewConeAlarmSprite;
 
-    public Color green;
-    public Color yellow;
-    public Color red;
+    public Color safeColor;
+    public Color warningColor;
+    public Color AlertColor;
 
     private Light2D cameraLight;
     private SpriteRenderer spriteRenderer;
 
     private bool clockwise;
     private bool warningState;              // Warning-tilan bool
-    private bool alarmState;                // Danger-tilan bool
+    private bool alarmState;                // Alarm-tilan bool
 
     private bool tweaningPaused;
+    private int tweenID;                     // LeanTween-operaatiolle annettava uniikki ID, jolla voidaan esim. pysäyttää operaatio
 
 
     // Start is called before the first frame update
@@ -41,8 +44,11 @@ public class CameraEnemy : MonoBehaviour
         cameraLight = GetComponentInChildren<Light2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        enemyTriggerArea.SetActive(false);
+
         spriteRenderer.sprite = viewConeSafeSprite;
         originalSize = gameObject.transform.localScale;
+        tweenID = 0;
 
         StartCoroutine(Rotate(angle / 2, rotationTime / 2));    // Ensimmäinen rotaatio puolet tavallisesta
     }
@@ -52,35 +58,13 @@ public class CameraEnemy : MonoBehaviour
     {
         // Katsoo ettei kameralla rotaatio-käynnissä
 
-        if(!LeanTween.isTweening() && !tweaningPaused)
+        if(!LeanTween.isTweening(tweenID) && !tweaningPaused)
         {
             StartCoroutine(Rotate(angle, rotationTime));
         }
 
-        if(warningState)
-            LeanTween.pauseAll();                                        // Pysäytetään kameran rotaatio
-    }
-
-    IEnumerator Rotate(float angle, float rotationTime)
-    {
-        clockwise = !clockwise;
-
-        LeanTween.pauseAll();
-        tweaningPaused = true;
-        yield return new WaitForSeconds(stopTimer);
-        tweaningPaused = false;
-        LeanTween.resumeAll();
-
-        if (clockwise)
-        {
-            LeanTween.rotateAroundLocal(gameObject, Vector3.forward, angle, rotationTime);
-        }
-        else
-        {
-            LeanTween.rotateAroundLocal(gameObject, Vector3.back, angle, rotationTime);
-        }
-
-        yield return null;
+        if(warningState || alarmState)
+            LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -88,12 +72,12 @@ public class CameraEnemy : MonoBehaviour
         if(collision.gameObject.CompareTag("Player") && collision is CapsuleCollider2D)
         {
             warningState = true;
-            LeanTween.pauseAll();                                        // Pysäytetään kameran rotaatio
+            LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
 
             spriteRenderer.sprite = viewConeWarningSprite;
-            cameraLight.color = yellow;
+            cameraLight.color = warningColor;
             cameraLight.intensity = 0.8f;
-            gameObject.transform.localScale *= warningConeMultiplier;   // Muutetaan viewconen kokoa suuremmaksi
+            StartCoroutine(LerpViewConeSize(originalSize * warningConeMultiplier));   // Muutetaan viewconen kokoa suuremmaksi
 
             StartCoroutine(WarningState());                             // Siirrytään Warning-tilaan
         }
@@ -106,40 +90,58 @@ public class CameraEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator WarningState()
+    IEnumerator LerpViewConeSize(Vector3 desiredSize)
     {
-        yield return new WaitForSeconds(safetyTimer);               // Katsotaan onko tietyn ajan kuluessa Warning-tila päällä eli onko pelaaja näkökentässä
+        float timer = 0;
 
-        if(warningState)
+        while(timer < 1f)
         {
-            Debug.Log("ALARM!");
-            alarmState = true;
-            warningState = false;
-
-            spriteRenderer.sprite = viewConeDangerSprite;
-            cameraLight.color = red;
-            cameraLight.intensity = 2f;
-            gameObject.transform.localScale = originalSize * dangerConeMultiplier;
-
-            GetComponent<PolygonCollider2D>().enabled = false;
-            StartCoroutine(FollowPlayer());                     // Laitetaan kamera seuraamaan pelaajaa
-        }
-        else
-        {
-            Debug.Log("Target lost");
-            spriteRenderer.sprite = viewConeSafeSprite;
-            cameraLight.color = green;
-            cameraLight.intensity = 0.5f;
-            gameObject.transform.localScale = originalSize;
-            LeanTween.resumeAll();
+            //Debug.Log("Lerping");
+            transform.localScale = Vector3.Lerp(gameObject.transform.localScale, desiredSize, Time.deltaTime * 10f);
+            timer += Time.deltaTime;
+            yield return null;
         }
 
         yield return null;
     }
 
-    IEnumerator FollowPlayer()
+    IEnumerator WarningState()
     {
-        while (alarmState)
+        yield return new WaitForSeconds(safetyTimer);               // Katsotaan onko tietyn ajan kuluessa Warning-tila päällä eli onko pelaaja näkökentässä
+        //StopCoroutine("LerpViewConeSize");
+
+        if(warningState)
+        {
+            StartCoroutine(AlarmState());                     // Laitetaan kamera seuraamaan pelaajaa
+        }
+        else if(!alarmState)
+        {
+            spriteRenderer.sprite = viewConeSafeSprite;
+            cameraLight.color = safeColor;
+            cameraLight.intensity = 0.5f;
+
+            StartCoroutine(LerpViewConeSize(originalSize));
+            LeanTween.resume(tweenID);
+        }
+
+        yield return null;
+    }
+
+    IEnumerator AlarmState()
+    {
+        alarmState = true;
+        warningState = false;
+
+        spriteRenderer.sprite = viewConeAlarmSprite;
+        cameraLight.color = AlertColor;
+        cameraLight.intensity = 2f;
+        StartCoroutine(LerpViewConeSize(originalSize * alarmConeMultiplier));
+
+        GetComponent<PolygonCollider2D>().enabled = false;
+
+        enemyTriggerArea.SetActive(true);
+
+        while (true)
         {
             Vector3 dir = player.transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -159,5 +161,36 @@ public class CameraEnemy : MonoBehaviour
         //    yield return null;
         //}
 
+    }
+
+    IEnumerator Rotate(float angle, float rotationTime)
+    {
+        clockwise = !clockwise;
+
+        if(tweenID != 0)
+        {
+            LeanTween.pause(tweenID);
+            tweaningPaused = true;
+            yield return new WaitForSeconds(stopTimer);
+            tweaningPaused = false;
+            LeanTween.resume(tweenID);
+        }
+
+        if (clockwise)
+        {
+            tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.forward, angle, rotationTime).id;
+        }
+        else
+        {
+            tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.back, angle, rotationTime).id;
+        }
+
+        yield return null;
+    }
+
+    // Voidaan kutsua toisesta skriptistä
+    public void StartAlarmState()
+    {
+        StartCoroutine(AlarmState());                     // Laitetaan kamera seuraamaan pelaajaa
     }
 }

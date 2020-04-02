@@ -97,7 +97,7 @@ public class PlayerControls : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 canCrouch = false;
-                Debug.Log("Head");
+                //Debug.Log("Head");
             }
         }
     }
