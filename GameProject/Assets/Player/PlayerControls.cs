@@ -11,8 +11,11 @@ public class PlayerControls : MonoBehaviour
     public Collider2D playerCollider;
     public Transform headCheck;
     public Transform groundCheck;
-    public const float checkRadius = 0.02f;
+    public const float groundCheckRadius = 0.02f;
+    public const float headCheckRadius = 1.0f;
     public bool grounded;
+    public bool canCrouch;
+    
 
     //Player Statistics
     public float playerSpeed;
@@ -26,7 +29,7 @@ public class PlayerControls : MonoBehaviour
     private Vector2 currentVelocity;
 
 
-    private bool cSwitch = true;
+    private bool isCrouching = false;
 
     //Getter and Setter for player controls
     public bool GetControl() { return hasControl; }
@@ -60,6 +63,7 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         CheckGround();
+        CheckHead();
         Movement();
         ResetTemp();
     }
@@ -69,7 +73,7 @@ public class PlayerControls : MonoBehaviour
     {
         bool wasGrounded = grounded;
         grounded = false;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, checkRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -80,8 +84,22 @@ public class PlayerControls : MonoBehaviour
                     Debug.Log("Landed");
                 }
             }
-        }
+        } 
+    }
 
+    //Checks if the player can stand up
+    private void CheckHead()
+    {
+        canCrouch = true;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(headCheck.position, headCheckRadius);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                canCrouch = false;
+                //Debug.Log("Head");
+            }
+        }
     }
 
     /*
@@ -110,15 +128,18 @@ public class PlayerControls : MonoBehaviour
         //Enables and Disables collider whenever player is crouching
         if (crouchTemp)
         {
-            if (cSwitch)
+            if (!isCrouching)
             {
                 playerCollider.enabled = false;
-                cSwitch = false;
+                isCrouching = true;
             }
             else
             {
-                playerCollider.enabled = true;
-                cSwitch = true;
+                if (canCrouch)
+                {
+                    playerCollider.enabled = true;
+                    isCrouching = false;
+                }  
             }
         }
 
@@ -140,5 +161,16 @@ public class PlayerControls : MonoBehaviour
         movDirTemp = 0;
         jumpTemp = false;
         crouchTemp = false;
+    }
+
+
+
+
+
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
     }
 }

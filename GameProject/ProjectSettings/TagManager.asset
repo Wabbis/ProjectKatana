@@ -7,6 +7,8 @@ TagManager:
   - Waypoint
   - Environment
   - Enemy
+  - EndLevel
+  - Camera
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy
   - back
   - Player
-  - 
+  - Camera
   - 
   - 
   - 

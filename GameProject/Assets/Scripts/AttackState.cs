@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AttackState : BaseState
 {
+
     private float _attackCooldown;
     private RangedEnemy _rangedEnemy;
 
@@ -15,7 +16,10 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
-
+        if (!_rangedEnemy._target)
+        {
+            return typeof(PatrolState);
+        }
 
         if (_rangedEnemy == null)
         {
@@ -29,7 +33,7 @@ public class AttackState : BaseState
             _rangedEnemy.Attack();
         }
 
-      
+
         return null;
     }
 }
