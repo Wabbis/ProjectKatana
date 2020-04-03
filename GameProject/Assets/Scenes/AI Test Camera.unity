@@ -6388,7 +6388,7 @@ PrefabInstance:
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2142293595}
+      objectReference: {fileID: 887940611}
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -6413,7 +6413,7 @@ PrefabInstance:
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1278973868}
+      objectReference: {fileID: 2142293595}
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6427,7 +6427,7 @@ PrefabInstance:
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
@@ -6462,7 +6462,7 @@ PrefabInstance:
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba40a44c550ecf49b7753b1d1997352, type: 3}
