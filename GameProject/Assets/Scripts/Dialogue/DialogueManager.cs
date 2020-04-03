@@ -19,11 +19,13 @@ public class DialogueManager : MonoBehaviour {
 	public GameObject npc;
 	public GameObject portrait;
 	public Sprite portrait1;
-	
+    public Sprite portrait2;
 
-	//public Animator animator;
 
-	private Queue<string> sentences;
+    //public Animator animator;
+
+    private bool canCont;
+    private Queue<string> sentences;
 	private Queue<string> sentences2;
 	private string[] choicesArray;
 	private DialogueNext[] dialogueNexts;
@@ -52,7 +54,11 @@ public class DialogueManager : MonoBehaviour {
 		if(name == "Ucco"){
 			portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait1;
 		}
-		npc = GameObject.Find(name);
+        if (name == "MysteeriUcco")
+        {
+            portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait2;
+        }
+        npc = GameObject.Find(name);
 		kaapo = npc.GetComponent<DialogueNext>();
 		
 		
@@ -72,29 +78,34 @@ public class DialogueManager : MonoBehaviour {
 		{
 			sentences.Enqueue(sentence);
 		}
-		
 
+        canCont = true;
 		DisplayNextSentence();
 	}
 
 	public void DisplayNextSentence ()
 	{
+        if(canCont == true) { 
 		if (sentences.Count == 0)
 		{
-			if(vaiht1 != 999){
-				dialogueText.text = "";
-				DisplayChoices();
-			}
-			else{
-				EndDialogue();
-				return;
-			}
-		}
+			    if(vaiht1 != 999){
+				    dialogueText.text = "";
+				    DisplayChoices();
+			    }
+			    else{
+				    EndDialogue();
+				    return;
+			    }
+		    }
 
-		string sentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
-	}
+            //korjaa errorin joka ei vaikuttanut mihinkään
+            string sentence = "";
+            if(sentences.Count > 0) { sentence = sentences.Dequeue(); }
+		
+		    StopAllCoroutines();
+		    StartCoroutine(TypeSentence(sentence));
+        }
+    }
 	public void DisplayChoices (){
 
 		choicesBox.SetActive(true);
@@ -131,14 +142,18 @@ public class DialogueManager : MonoBehaviour {
 
 	IEnumerator TypeSentence (string sentence)
 	{
-		Debug.Log("Kirjoitan");
-		dialogueText.text = "";
-		foreach (char letter in sentence.ToCharArray())
-		{
-			dialogueText.text += letter;
-			yield return null;
-		}
-	}
+        if(canCont == true) {
+            canCont = false;
+		    Debug.Log("Kirjoitan");
+		    dialogueText.text = "";
+		    foreach (char letter in sentence.ToCharArray())
+		    {
+			    dialogueText.text += letter;
+			    yield return new WaitForSeconds(0.05f);
+		    }
+        }
+        canCont = true;
+    }
 
 	void EndDialogue()
 	{
