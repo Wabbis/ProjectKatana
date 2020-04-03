@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Cutscenes/CutsceneTest.unity
+    path: Assets/Scenes/Testit/CutsceneTest.unity
     guid: 182ca572e3e416445b75bec70071dcb3
   - enabled: 0
-    path: Assets/Scenes/Cutscenes/StartingCutscene.unity
+    path: Assets/Scenes/StartingCutscene.unity
     guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 0
-    path: Assets/Scenes/PlayerTest.unity
+    path: Assets/Scenes/Testit/PlayerTest.unity
     guid: 1780f6994cf29d34ca64540b47bd2f9a
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/TestiScene.unity
+    path: Assets/Scenes/Testit/TestiScene.unity
     guid: e39363851e723ca42b23613875da4c92
   - enabled: 0
     path: Assets/Scenes/Save and Load/SAL1.unity
@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Save and Load/SAL3.unity
     guid: 6d269900642a5c945b3793c4215eaa78
   - enabled: 1
-    path: Assets/Scenes/AI Test.unity
+    path: Assets/Scenes/Testit/AI Test.unity
     guid: c632f52658504b84d8c340d470e1f126
   m_configObjects: {}

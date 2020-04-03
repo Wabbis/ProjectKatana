@@ -965,6 +965,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+
+    m_Bits: 4294967295
+
   grounded: 0
   canCrouch: 0
   playerSpeed: 5
