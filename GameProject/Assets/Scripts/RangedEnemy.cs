@@ -7,7 +7,7 @@ public class RangedEnemy : MonoBehaviour
 {
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
-    public float attackRange = 0.2f;
+    public float attackRange = 3f;
     public float evadeRange = 10f;
     public float _rayDistance = 7f;
 
@@ -39,22 +39,39 @@ public class RangedEnemy : MonoBehaviour
 
     public void Flip()
     {
-        //transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         transform.Rotate(0, 180, 0);
     }
 
-    public void Attack()
+    public void Attack(GameObject target)
     {
         // Do attack stuff
-
+        Destroy(target);
     }
 
-    public bool CheckObstacles()
+    public IEnumerator Wait()
     {
-        float distanceToPlayer = Vector2.Distance(eyes.transform.position, _target.transform.position);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(eyes.transform.position, _target.transform.position - eyes.transform.position, distanceToPlayer);
-        Debug.DrawRay(eyes.transform.position, _target.transform.position - eyes.transform.position, Color.red); // draw line in the Scene window to show where the raycast is looking
+        yield return new WaitForSeconds(2);
+    }
 
+    public bool CheckObstacles(GameObject target)
+    {
+        // Make Layer Mask for Environment and check if you get any returns from that layer. No need to check every object 
+        int layermask2 = (LayerMask.GetMask("Environment"));
+        Vector2 dir = target.transform.position - transform.position;
+        float rayDistance = Vector2.Distance(target.transform.position, transform.position);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, rayDistance, layermask2);
+        Debug.DrawRay(transform.position, _target.transform.position - transform.position, Color.red); // draw line in the Scene window to show where the raycast is looking
+        if (hit == false)
+            return false;
+        else
+        {
+            Debug.Log("Something in the way...");
+            return true;
+        }
+
+        /* float distanceToPlayer = Vector2.Distance(eyes.transform.position, _target.transform.position);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(eyes.transform.position, _target.transform.position - eyes.transform.position, distanceToPlayer);
+        Debug.DrawRay(eyes.transform.position, _target.transform.position - _eyes.transform.position, Color.red); // draw line in the Scene window to show where the raycast is looking
 
         foreach (RaycastHit2D hit in hits)
         {
@@ -70,8 +87,10 @@ public class RangedEnemy : MonoBehaviour
         }
 
         // if no objects were closer to the enemy than the player return false (player is not hidden by an object)
+        */
 
-        return false;
 
     }
+
+
 }

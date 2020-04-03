@@ -25,12 +25,13 @@ public class AttackState : BaseState
         {
             return typeof(PatrolState);
         }
+
         _attackCooldown -= Time.deltaTime;
 
         if (_attackCooldown <= 0f)
         {
             Debug.Log("ATTACK!");
-            _rangedEnemy.Attack();
+            _rangedEnemy.Attack(_rangedEnemy._target);
         }
 
 
