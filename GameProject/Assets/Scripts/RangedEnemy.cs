@@ -26,7 +26,8 @@ public class RangedEnemy : MonoBehaviour
         {
             {typeof(PatrolState), new PatrolState(rangedEnemy: this, waypoints) },
             {typeof(ChaseState), new ChaseState(rangedEnemy: this) },
-            {typeof(AttackState), new AttackState(rangedEnemy: this) }
+            {typeof(AttackState), new AttackState(rangedEnemy: this) },
+            {typeof(AlertState), new AlertState(rangedEnemy: this) }
         };
 
         GetComponent<StateMachine>().SetStates(states);

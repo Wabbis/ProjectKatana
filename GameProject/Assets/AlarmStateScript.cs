@@ -16,6 +16,7 @@ public class AlarmStateScript : MonoBehaviour
 
     private BoxCollider2D enemyAlertCollider;
     public List<Enemy> enemySpawnList;
+    public List<RangedEnemy> enemyAlertList;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,14 @@ public class AlarmStateScript : MonoBehaviour
         {
             //Triggeröi vihollisten Attack-state
             Debug.Log("Vihollinen AlertColliderin sisällä!");
+        }
+    }
+
+    public void AlertEnemies()
+    {
+        foreach (RangedEnemy enemy in enemyAlertList)
+        {
+            enemy.GetComponent<StateMachine>().Alert();
         }
     }
 }

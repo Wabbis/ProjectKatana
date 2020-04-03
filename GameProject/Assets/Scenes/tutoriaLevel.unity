@@ -14297,11 +14297,14 @@ MonoBehaviour:
   playerCollider: {fileID: 1654424109}
   headCheck: {fileID: 1564315944}
   groundCheck: {fileID: 1903106163}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 8192
   grounded: 0
-  canCrouch: 0
+  canCrouch: 1
   playerSpeed: 10
   jumpForce: 20
-  airDragMultiplier: 0.5
+  airDragMultiplier: 1
 --- !u!212 &1654424112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14361,7 +14364,7 @@ Transform:
   m_GameObject: {fileID: 1654424107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 164.33, y: 0.9, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 0.628}
   m_Children:
   - {fileID: 1564315944}
   - {fileID: 1903106163}

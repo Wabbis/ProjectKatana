@@ -39,4 +39,9 @@ public class StateMachine : MonoBehaviour
         Debug.Log("State Chanded to " + currentState.ToString());
         OnStateChanged?.Invoke(currentState);
     }
+
+    public void Alert()
+    {
+        SwitchToState(typeof(AlertState));
+    }
 }
