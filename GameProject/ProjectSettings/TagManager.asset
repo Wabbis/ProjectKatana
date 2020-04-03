@@ -58,3 +58,6 @@ TagManager:
   - name: Enemy
     uniqueID: 2213641819
     locked: 0
+  - name: StartingLogo
+    uniqueID: 113485135
+    locked: 0

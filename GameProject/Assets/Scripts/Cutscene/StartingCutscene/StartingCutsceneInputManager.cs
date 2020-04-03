@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CutsceneInputManager : MonoBehaviour
+public class StartingCutsceneInputManager : MonoBehaviour
 {
+    public bool startingCutscene;
+
     public GameObject skipText;
     private bool waitingForSkipInput;
 
@@ -12,10 +14,12 @@ public class CutsceneInputManager : MonoBehaviour
     public float skipTimerMax;
 
     public PlayableDirector timeline;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         waitingForSkipInput = false;
     }
 
@@ -37,21 +41,28 @@ public class CutsceneInputManager : MonoBehaviour
 
         if (Input.anyKeyDown && waitingForSkipInput)
         {
-            // Tee mitä ikinä tapahtuukaan kun käyttäjä skippaa cutscenen
-
-            Debug.Log("Cutscene skipped");
-            skipText.SetActive(false);
-            waitingForSkipInput = false;
-            skipTimer = 0;
-
-            //timeline.time = 31.33;
-            //timeline.Evaluate();
-            //timeline.Stop();
+            SkipCutscene();
 
         }else if (Input.anyKeyDown && !waitingForSkipInput)
         {
             skipText.SetActive(true);
             waitingForSkipInput = true;
         }
+    }
+
+    public void SkipCutscene()
+    {
+        // Tee mitä ikinä tapahtuukaan kun käyttäjä skippaa cutscenen
+
+        Debug.Log("Cutscene skipped");
+        skipText.SetActive(false);
+        waitingForSkipInput = false;
+        skipTimer = 0;
+
+        gameManager.LoadNextScene();
+
+        //timeline.time = 31.33;
+        //timeline.Evaluate();
+        //timeline.Stop();
     }
 }
