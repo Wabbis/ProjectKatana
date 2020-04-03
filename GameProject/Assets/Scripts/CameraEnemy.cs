@@ -121,6 +121,7 @@ public class CameraEnemy : MonoBehaviour
             cameraLight.intensity = 0.5f;
 
             StartCoroutine(LerpViewConeSize(originalSize));
+            yield return new WaitForSeconds(0.5f);
             LeanTween.resume(tweenID);
         }
 
