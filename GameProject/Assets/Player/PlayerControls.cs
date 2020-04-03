@@ -11,6 +11,7 @@ public class PlayerControls : MonoBehaviour
     public Collider2D playerCollider;
     public Transform headCheck;
     public Transform groundCheck;
+    public LayerMask groundLayers;
     public const float groundCheckRadius = 0.02f;
     public const float headCheckRadius = 1.0f;
     public bool grounded;
@@ -73,7 +74,7 @@ public class PlayerControls : MonoBehaviour
     {
         bool wasGrounded = grounded;
         grounded = false;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, groundLayers);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -91,7 +92,7 @@ public class PlayerControls : MonoBehaviour
     private void CheckHead()
     {
         canCrouch = true;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(headCheck.position, headCheckRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(headCheck.position, headCheckRadius, groundLayers);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
