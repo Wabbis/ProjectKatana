@@ -12,11 +12,12 @@ public class PlayerControls : MonoBehaviour
     public Transform headCheck;
     public Transform groundCheck;
     public LayerMask groundLayers;
-    public const float groundCheckRadius = 0.02f;
-    public const float headCheckRadius = 1.0f;
+
+    public float groundCheckRadius = 0.02f;
+    public float headCheckRadius = 1.0f;
     public bool grounded;
     public bool canCrouch;
-    
+    public int jumpsLeft;
 
     //Player Statistics
     public float playerSpeed;
@@ -83,6 +84,7 @@ public class PlayerControls : MonoBehaviour
                 if (!wasGrounded)
                 {
                     Debug.Log("Landed");
+                    jumpsLeft = 2;
                 }
             }
         } 
@@ -98,7 +100,6 @@ public class PlayerControls : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 canCrouch = false;
-                //Debug.Log("Head");
             }
         }
     }
@@ -115,17 +116,6 @@ public class PlayerControls : MonoBehaviour
     //Moves player according to inputs
     private void Movement()
     {
-
-        float velocity = movDirTemp * playerSpeed;
-
-
-        //Slows down the player while in air
-        if (!grounded)
-        {
-            velocity *= airDragMultiplier;
-        }
-
-
         //Enables and Disables collider whenever player is crouching
         if (crouchTemp)
         {
@@ -144,16 +134,16 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        //transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
-        playerRB.velocity = Vector2.SmoothDamp(playerRB.velocity, new Vector2(velocity, playerRB.velocity.y), ref currentVelocity, 0.22f);
-
-        if (jumpTemp && grounded) { Jump(); }
+        transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
+        
+        if (jumpTemp && jumpsLeft > 0) { Jump(); }
     }
 
     //Makes the player Jump
     private void Jump()
     {
         playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpsLeft--;
     }
 
     //Resets temporary variables
@@ -173,5 +163,6 @@ public class PlayerControls : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
