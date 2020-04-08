@@ -6,11 +6,21 @@ public class DialogueTrigger : MonoBehaviour {
 
 	public Dialogue dialogue;
     public GameObject dialPrompt;
+    public GameObject dialBox;
     private bool dialOk = false;
+    private bool dialActive = false;
 
     void Update()
     {
-        if (dialOk == true)
+        if (dialBox.activeSelf)
+        {
+            dialActive = true;
+        }
+        else
+        {
+            dialActive = false;
+        }
+        if (dialOk == true && dialActive == false)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -18,6 +28,15 @@ public class DialogueTrigger : MonoBehaviour {
                 TriggerDialogue();
             }
         }
+        if (dialOk == true && dialActive == true)
+        {
+            if (Input.GetKeyDown("e"))
+            {
+                Debug.Log("e");
+                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            }
+        }
+
 
     }
 

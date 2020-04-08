@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3900125597418744204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 3900125597651210857}
   - component: {fileID: 3900125597651210856}
   - component: {fileID: 3900125597651210859}
-  m_Layer: 0
+  - component: {fileID: 2868815892336417599}
+  m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasControl: 1
   player: {fileID: 3900125597651210861}
+  animator: {fileID: 2868815892336417599}
   playerRB: {fileID: 3900125597651210857}
   playerCollider: {fileID: 3900125597651210856}
   headCheck: {fileID: 3900125598249005804}
@@ -199,6 +201,25 @@ CircleCollider2D:
   m_Offset: {x: -0.067, y: -0.294}
   serializedVersion: 2
   m_Radius: 0.21
+--- !u!95 &2868815892336417599
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900125597651210861}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b298745ec57f094da85532c7ad43aeb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3900125598249005805
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3900125598249005804}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HeadCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

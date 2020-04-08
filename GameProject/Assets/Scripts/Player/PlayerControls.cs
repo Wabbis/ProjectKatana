@@ -7,14 +7,16 @@ public class PlayerControls : MonoBehaviour
     public bool hasControl = true;
 
     public GameObject player;
+    public Animator animator;
     public Rigidbody2D playerRB;
     public Collider2D playerCollider;
     public Transform headCheck;
     public Transform groundCheck;
     public LayerMask groundLayers;
 
-    public float groundCheckRadius = 0.02f;
-    public float headCheckRadius = 1.0f;
+
+    public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
+    public float headCheckRadius = 0.84f;    //works well for scale 4 & 4
     public bool grounded;
     public bool canCrouch;
     public int jumpsLeft;
@@ -28,7 +30,7 @@ public class PlayerControls : MonoBehaviour
     private float movDirTemp;
     private bool jumpTemp;
     private bool crouchTemp;
-    private Vector2 currentVelocity;
+    private bool facingRight = true;
 
 
     private bool isCrouching = false;
@@ -67,6 +69,7 @@ public class PlayerControls : MonoBehaviour
         CheckGround();
         CheckHead();
         Movement();
+        UpdateAnimations();
         ResetTemp();
     }
 
@@ -116,6 +119,7 @@ public class PlayerControls : MonoBehaviour
     //Moves player according to inputs
     private void Movement()
     {
+ 
         //Enables and Disables collider whenever player is crouching
         if (crouchTemp)
         {
@@ -133,8 +137,14 @@ public class PlayerControls : MonoBehaviour
                 }  
             }
         }
-
-        transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
+        if (facingRight)
+        {
+            transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
+        }
+        else
+        {
+            transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime * -1f, 0, 0));
+        }
         
         if (jumpTemp && jumpsLeft > 0) { Jump(); }
     }
@@ -154,12 +164,47 @@ public class PlayerControls : MonoBehaviour
         crouchTemp = false;
     }
 
+    /*
+   -----------------------------------------------
+   |                                             |
+   |             ANIMATIONS                      |
+   |                                             |
+   -----------------------------------------------
+   */
+
+
+    private void UpdateAnimations()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(movDirTemp * playerSpeed));
+
+        Flip();
+    }
+
+
+    private void Flip()
+    {
+        if (facingRight && movDirTemp < 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            facingRight = false;
+        }
+        else if (!facingRight && movDirTemp > 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            facingRight = true;
+        }
+    }
 
 
 
 
-
-
+    /*
+   -----------------------------------------------
+   |                                             |
+   |             DEBUG                           |
+   |                                             |
+   -----------------------------------------------
+   */
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
