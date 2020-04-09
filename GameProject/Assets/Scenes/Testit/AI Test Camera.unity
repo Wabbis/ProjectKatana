@@ -958,18 +958,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasControl: 1
   player: {fileID: 551604877}
+  animator: {fileID: 0}
   playerRB: {fileID: 551604880}
   playerCollider: {fileID: 551604879}
   headCheck: {fileID: 724118547}
   groundCheck: {fileID: 506682256}
+  attackPoint: {fileID: 0}
   groundLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckRadius: 0.02
+  headCheckRadius: 0.84
   grounded: 0
   canCrouch: 0
+  maxJumps: 0
   playerSpeed: 5
   jumpForce: 10
   airDragMultiplier: 0
+  attackRange: 0
+  attackDamage: 0
+  attackCooldown: 0
 --- !u!212 &551604882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5810,9 +5821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bdbf680d6b60f94da67ed3f59eeeeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1508165222}
-  - {fileID: 1651802277}
+  patrolling: 0
+  waypoints: []
   attackRange: 1
   evadeRange: 10
   _rayDistance: 7
@@ -5908,7 +5918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144720785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.999694, y: -1.2167885, z: 2.3361866}
+  m_LocalPosition: {x: -8.3, y: -1.25, z: 2.3361866}
   m_LocalScale: {x: 3.3619, y: 3.3619, z: 3.3619}
   m_Children:
   - {fileID: 210742433}
@@ -6460,12 +6470,12 @@ PrefabInstance:
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: 
+      value: AlertEnemies
       objectReference: {fileID: 0}
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: customCallback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8259957726390221153, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
@@ -6481,7 +6491,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyAlertList.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1144720790}
     - target: {fileID: 8259957726390221154, guid: aba40a44c550ecf49b7753b1d1997352,
         type: 3}
       propertyPath: m_IsActive
@@ -6519,68 +6529,6 @@ Transform:
   - {fileID: 841959050}
   - {fileID: 1629271912}
   m_Father: {fileID: 9437541}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1508165222
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1508165223}
-  m_Layer: 0
-  m_Name: patrolpoint
-  m_TagString: Waypoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1508165223
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508165222}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.87, y: -1.91, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1538173021}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1538173020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1538173021}
-  m_Layer: 0
-  m_Name: PatrolPoints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1538173021
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538173020}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.217035, y: 0.5590757, z: 1.7883205}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1508165223}
-  - {fileID: 1651802278}
-  m_Father: {fileID: 1755928388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629271911
@@ -6664,36 +6612,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1651802277
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1651802278}
-  m_Layer: 0
-  m_Name: patrolpoint (1)
-  m_TagString: Waypoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1651802278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651802277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.13, y: -1.91, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1538173021}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1666831896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7311,12 +7229,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1755928388}
   m_Layer: 0
-  m_Name: Patrolling Enemy
+  m_Name: Non-Patrolling Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1755928388
 Transform:
   m_ObjectHideFlags: 0
@@ -7325,11 +7243,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755928387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.949694, y: -0.63321155, z: -2.3361866}
+  m_LocalPosition: {x: 20.24, y: -0.71, z: -2.3361866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1144720793}
-  - {fileID: 1538173021}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

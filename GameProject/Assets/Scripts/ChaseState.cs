@@ -67,7 +67,14 @@ public class ChaseState : BaseState
             // Make enemy to wait for few seconds before going back to patrol - Wait Function doesnt work yet.
             _rangedEnemy.StartCoroutine("Wait");
             Debug.Log("Target lost. Going to Patrol");
-            return typeof(PatrolState);
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
         }
         return null;
     }

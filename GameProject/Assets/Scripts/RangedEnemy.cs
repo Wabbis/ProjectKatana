@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
+    public bool patrolling;
+
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
     public float attackRange = 3f;
     public float evadeRange = 10f;
     public float _rayDistance = 7f;
 
-
     public GameObject eyes;
 
+    
     private void Awake()
     {
         InitStateMachine();
@@ -22,15 +24,29 @@ public class RangedEnemy : MonoBehaviour
 
     private void InitStateMachine()
     {
-        var states = new Dictionary<Type, BaseState>()
+        if (patrolling)
         {
+            var states = new Dictionary<Type, BaseState>()
+            {
+
             {typeof(PatrolState), new PatrolState(rangedEnemy: this, waypoints) },
             {typeof(ChaseState), new ChaseState(rangedEnemy: this) },
             {typeof(AttackState), new AttackState(rangedEnemy: this) },
             {typeof(AlertState), new AlertState(rangedEnemy: this) }
-        };
-
-        GetComponent<StateMachine>().SetStates(states);
+            };
+            GetComponent<StateMachine>().SetStates(states);
+        }
+        else
+        {
+            var states = new Dictionary<Type, BaseState>()
+            {
+            {typeof(WatchState), new WatchState(rangedEnemy: this) },    
+            {typeof(ChaseState), new ChaseState(rangedEnemy: this) },
+            {typeof(AttackState), new AttackState(rangedEnemy: this) },
+            {typeof(AlertState), new AlertState(rangedEnemy: this) }
+            };
+            GetComponent<StateMachine>().SetStates(states);
+        }
     }
 
     public void SetTarget(GameObject target)
