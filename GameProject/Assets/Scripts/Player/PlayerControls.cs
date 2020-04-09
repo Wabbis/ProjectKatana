@@ -12,24 +12,36 @@ public class PlayerControls : MonoBehaviour
     public Collider2D playerCollider;
     public Transform headCheck;
     public Transform groundCheck;
+    public Transform attackPoint;
     public LayerMask groundLayers;
+    public LayerMask enemyLayers;
+    
 
 
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
     public float headCheckRadius = 0.84f;    //works well for scale 4 & 4
     public bool grounded;
     public bool canCrouch;
-    public int jumpsLeft;
+    public int maxJumps;
+    private int jumpsLeft;
 
     //Player Statistics
     public float playerSpeed;
     public float jumpForce;
     public float airDragMultiplier;
 
+    //Attacks
+    private bool canAttack;
+    public float attackRange;
+    public float attackDamage;
+    public float attackCooldown;
+
+
     //Used for translating Controls to Movement (Update -> FixedUpdate) 
     private float movDirTemp;
     private bool jumpTemp;
     private bool crouchTemp;
+    private bool attackTemp;
     private bool facingRight = true;
 
 
@@ -39,6 +51,13 @@ public class PlayerControls : MonoBehaviour
     public bool GetControl() { return hasControl; }
     public void SetControl(bool state) { hasControl = state; }
 
+
+
+    private void Start()
+    {
+        canAttack = true;
+        jumpsLeft = maxJumps;
+    }
 
 
     private void Update()
@@ -61,6 +80,10 @@ public class PlayerControls : MonoBehaviour
         {
             crouchTemp = true;
         }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            attackTemp = true;
+        }
     }
 
 
@@ -69,6 +92,7 @@ public class PlayerControls : MonoBehaviour
         CheckGround();
         CheckHead();
         Movement();
+        Attacking();
         UpdateAnimations();
         ResetTemp();
     }
@@ -87,7 +111,7 @@ public class PlayerControls : MonoBehaviour
                 if (!wasGrounded)
                 {
                     Debug.Log("Landed");
-                    jumpsLeft = 2;
+                    jumpsLeft = maxJumps;
                 }
             }
         } 
@@ -162,7 +186,49 @@ public class PlayerControls : MonoBehaviour
         movDirTemp = 0;
         jumpTemp = false;
         crouchTemp = false;
+        attackTemp = false;
     }
+
+
+    /*
+   -----------------------------------------------
+   |                                             |
+   |             ATTACKS                         |
+   |                                             |
+   -----------------------------------------------
+   */
+
+
+    private void Attacking()
+    {
+        if (attackTemp && canAttack)
+        {
+
+            //Gets array of hit targets
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("Hit: " + enemy.name);
+
+
+                //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
+
+
+            }
+
+            
+            canAttack = false;
+            Cooldown(attackCooldown);
+        }
+    }
+
+    private IEnumerator Cooldown(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        canAttack = true;
+    }
+
 
     /*
    -----------------------------------------------
@@ -209,5 +275,6 @@ public class PlayerControls : MonoBehaviour
     {
         Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
