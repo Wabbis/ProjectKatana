@@ -13,6 +13,10 @@ public class RangedEnemy : MonoBehaviour
 
 
     public GameObject eyes;
+    public GameObject gunRotator;
+    public GameObject bulletSpawn;
+    public GameObject bullet;
+    public float bulletSpeed;
 
     private void Awake()
     {
@@ -46,7 +50,16 @@ public class RangedEnemy : MonoBehaviour
     public void Attack(GameObject target)
     {
         // Do attack stuff
-        Destroy(target);
+        Shoot();
+
+        //pelaajaa ei voi tuhota vielä tässä, koska ei voi tietää osuuko vihollinen
+        //Destroy(target);
+    }
+    public void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed, ForceMode2D.Impulse);
+
     }
 
     public IEnumerator Wait()

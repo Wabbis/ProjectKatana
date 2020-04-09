@@ -49,8 +49,9 @@ public class ChaseState : BaseState
 
            if ((_rangedEnemy.transform.position.x - _rangedEnemy._target.transform.position.x) < 0)
                direction = Vector2.right;
-           else
-               direction = Vector2.right * -1;
+           //tämä ei toimi jos pelaaja on vihollisen vasemmalla puolella( vihollinen lähtee pakittamaan).
+           //else
+             // direction = Vector2.right * -1;
         
         // _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), chaseSpeed * Time.deltaTime);
 
