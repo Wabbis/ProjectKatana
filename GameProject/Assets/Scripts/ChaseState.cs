@@ -49,8 +49,9 @@ public class ChaseState : BaseState
 
            if ((_rangedEnemy.transform.position.x - _rangedEnemy._target.transform.position.x) < 0)
                direction = Vector2.right;
-           else
-               direction = Vector2.right * -1;
+           //tämä ei toimi jos pelaaja on vihollisen vasemmalla puolella( vihollinen lähtee pakittamaan).
+           //else
+             // direction = Vector2.right * -1;
         
         // _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), chaseSpeed * Time.deltaTime);
 
@@ -67,7 +68,14 @@ public class ChaseState : BaseState
             // Make enemy to wait for few seconds before going back to patrol - Wait Function doesnt work yet.
             _rangedEnemy.StartCoroutine("Wait");
             Debug.Log("Target lost. Going to Patrol");
-            return typeof(PatrolState);
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
         }
         return null;
     }

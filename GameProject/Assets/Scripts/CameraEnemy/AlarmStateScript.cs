@@ -52,6 +52,8 @@ public class AlarmStateScript : MonoBehaviour
         foreach (RangedEnemy enemy in enemyAlertList)
         {
             enemy.GetComponent<StateMachine>().Alert();
+            enemy.GetComponentInChildren<LineOfSight>().enabled = false;
+            enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
         }
     }
 }

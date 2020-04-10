@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
+    public bool patrolling;
+
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
     public float attackRange = 3f;
     public float evadeRange = 10f;
     public float _rayDistance = 7f;
 
-
     public GameObject eyes;
+    public GameObject gunRotator;
+    public GameObject bulletSpawn;
+    public GameObject bullet;
+    public float bulletSpeed;
 
+    
     private void Awake()
     {
         InitStateMachine();
@@ -22,15 +28,29 @@ public class RangedEnemy : MonoBehaviour
 
     private void InitStateMachine()
     {
-        var states = new Dictionary<Type, BaseState>()
+        if (patrolling)
         {
+            var states = new Dictionary<Type, BaseState>()
+            {
+
             {typeof(PatrolState), new PatrolState(rangedEnemy: this, waypoints) },
             {typeof(ChaseState), new ChaseState(rangedEnemy: this) },
             {typeof(AttackState), new AttackState(rangedEnemy: this) },
             {typeof(AlertState), new AlertState(rangedEnemy: this) }
-        };
-
-        GetComponent<StateMachine>().SetStates(states);
+            };
+            GetComponent<StateMachine>().SetStates(states);
+        }
+        else
+        {
+            var states = new Dictionary<Type, BaseState>()
+            {
+            {typeof(WatchState), new WatchState(rangedEnemy: this) },    
+            {typeof(ChaseState), new ChaseState(rangedEnemy: this) },
+            {typeof(AttackState), new AttackState(rangedEnemy: this) },
+            {typeof(AlertState), new AlertState(rangedEnemy: this) }
+            };
+            GetComponent<StateMachine>().SetStates(states);
+        }
     }
 
     public void SetTarget(GameObject target)
@@ -46,7 +66,16 @@ public class RangedEnemy : MonoBehaviour
     public void Attack(GameObject target)
     {
         // Do attack stuff
-        Destroy(target);
+        Shoot();
+
+        //pelaajaa ei voi tuhota vielä tässä, koska ei voi tietää osuuko vihollinen
+        //Destroy(target);
+    }
+    public void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed, ForceMode2D.Impulse);
+
     }
 
     public IEnumerator Wait()
