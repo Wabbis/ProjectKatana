@@ -19,6 +19,9 @@ public class RangedEnemy : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed;
 
+    public float firstShot= 0.1f;
+    public float reloadTime= 1;
+
     
     private void Awake()
     {

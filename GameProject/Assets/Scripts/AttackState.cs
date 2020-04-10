@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttackState : BaseState
 {
 
-    private float _attackCooldown=1;
+    private float _attackCooldown=0.1f;
     private RangedEnemy _rangedEnemy;
 
     public AttackState(RangedEnemy rangedEnemy) : base(rangedEnemy.gameObject)
@@ -50,7 +50,7 @@ public class AttackState : BaseState
         {
             Debug.Log("ATTACK!");
             _rangedEnemy.Attack(_rangedEnemy._target);
-            _attackCooldown = 1;
+            _attackCooldown = _rangedEnemy.reloadTime;
         }
 
 
