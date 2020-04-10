@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EndLevel
   - Camera
+  - Timeline
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Player
   - Camera
   - Environment
-  - 
+  - Post Processing
   - 
   - 
   - 

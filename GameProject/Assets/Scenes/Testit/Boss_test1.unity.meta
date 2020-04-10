@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GameProject/Assets/Animation/Mysteerimies.meta
+guid: 0ec0f19a0bd5d1a41b894688db68a27b
+folderAsset: yes
+=======
 guid: f3b643d79b381b4458bef2c40d780ec7
+>>>>>>> 2d7fa9f27e3c17a34c02e4d206d23e8017560b73:GameProject/Assets/Scenes/Testit/Boss_test1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
