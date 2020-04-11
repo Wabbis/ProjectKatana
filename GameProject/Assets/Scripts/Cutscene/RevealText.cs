@@ -51,10 +51,9 @@ public class RevealText : MonoBehaviour
                 yield return new WaitForSeconds(cutsceneLine[linesCounter].lineTime);
                 counter = 0;
                 linesCounter++;
-                Debug.Log("Linescoutner: " + linesCounter + (" Linelenght: " + cutsceneLine.Length));
                 if (linesCounter >= cutsceneLine.Length)
                 {
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(0.5f);
                     gameObject.SetActive(false);
                 }
                 else
@@ -65,7 +64,7 @@ public class RevealText : MonoBehaviour
 
             counter += 1;
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
 }
