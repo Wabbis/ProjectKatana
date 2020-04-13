@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour {
 		if(name == "Ucco"){
 			portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait1;
 		}
-        if (name == "MysteeriUcco")
+        if (name == "Mysteerimies")
         {
             portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait2;
         }
