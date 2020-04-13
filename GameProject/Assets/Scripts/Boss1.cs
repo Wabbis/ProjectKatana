@@ -100,6 +100,7 @@ public class Boss1 : MonoBehaviour
     {
         GameObject newBullet = Object.Instantiate(projectile, transform.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody2D>().AddForce((player.transform.position - transform.position).normalized * projectileSpeed, ForceMode2D.Impulse);
+        Destroy(newBullet.gameObject, 5);
     }
 
 
