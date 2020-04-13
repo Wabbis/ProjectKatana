@@ -249,6 +249,22 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &-4979716739223720079
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Cutscene End
+  m_EditorClassIdentifier: 
+  m_Time: 13.516666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 886fd63590f4a9844ba286b479850ce6, type: 2}
 --- !u!114 &-4792916165413430373
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1898,6 +1914,7 @@ MonoBehaviour:
     - {fileID: -6314195063358037806}
     - {fileID: 8855348713951965995}
     - {fileID: -8236499336233511037}
+    - {fileID: -4979716739223720079}
 --- !u!114 &8855348713951965995
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,42 +12,60 @@ public class CutsceneInputManager : MonoBehaviour
     public float skipTimerMax;
 
     public PlayableDirector timeline;
+    public bool cutsceneActive;
 
     // Start is called before the first frame update
     void Start()
     {
         waitingForSkipInput = false;
-        timeline = GameObject.FindGameObjectWithTag("Timeline").GetComponent<PlayableDirector>();
+        skipText.SetActive(false);
+        cutsceneActive = false;
+        //timeline = GameObject.FindGameObjectWithTag("Timeline").GetComponent<PlayableDirector>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (skipTimer < skipTimerMax && waitingForSkipInput)
+        if (cutsceneActive)
         {
-            skipTimer += Time.deltaTime;
+            if (skipTimer < skipTimerMax && waitingForSkipInput)
+            {
+                skipTimer += Time.deltaTime;
 
-        }
-        else if (skipTimer >= skipTimerMax && waitingForSkipInput)
-        {
-            skipText.SetActive(false);
+            }
+            else if (skipTimer >= skipTimerMax && waitingForSkipInput)
+            {
+                skipText.SetActive(false);
 
-            waitingForSkipInput = false;
-            skipTimer = 0;
-        }
+                waitingForSkipInput = false;
+                skipTimer = 0;
+            }
 
-        if (Input.anyKeyDown && waitingForSkipInput)
-        {
-            SkipCutscene();
+            if (Input.anyKeyDown && waitingForSkipInput)
+            {
+                SkipCutscene();
 
-        }
-        else if (Input.anyKeyDown && !waitingForSkipInput)
-        {
-            timeline = GameObject.FindGameObjectWithTag("Timeline").GetComponent<PlayableDirector>();
-            skipText.SetActive(true);
-            waitingForSkipInput = true;
+            }
+            else if (Input.anyKeyDown && !waitingForSkipInput)
+            {
+                //timeline = GameObject.FindGameObjectWithTag("Timeline").GetComponent<PlayableDirector>();
+                skipText.SetActive(true);
+                waitingForSkipInput = true;
+            }
         }
     }
+
+    public void setActiveCutsceneBool(bool value)
+    {
+        cutsceneActive = value;
+    }
+
+    public void setActiveCutscene(PlayableDirector activeTimeline)
+    {
+        timeline = activeTimeline;
+        cutsceneActive = true;
+    }
+
 
     public void SkipCutscene()
     {
@@ -58,8 +76,9 @@ public class CutsceneInputManager : MonoBehaviour
         waitingForSkipInput = false;
         skipTimer = 0;
 
-        timeline.time = timeline.playableAsset.duration;
+        timeline.time = timeline.playableAsset.duration - 1f;
         timeline.Evaluate();
-        timeline.Stop();
+        //timeline.Stop();
+        cutsceneActive = false;
     }
 }
