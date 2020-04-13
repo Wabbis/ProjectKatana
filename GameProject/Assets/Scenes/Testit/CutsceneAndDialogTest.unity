@@ -1068,8 +1068,8 @@ MonoBehaviour:
   scripts: {fileID: 0}
   npc: {fileID: 0}
   portrait: {fileID: 1636410588}
-  portrait1: {fileID: 21300000, guid: 016ad158ec4bd1f47aa57d0c6f9635d0, type: 3}
-  portrait2: {fileID: 21300000, guid: c40774f261a883544a57694fca2bcfe8, type: 3}
+  portrait1: {fileID: 21300000, guid: f9702e3ed028a854f83318ecf1a35729, type: 3}
+  portrait2: {fileID: 21300000, guid: 278b877607d6b9f49965371fb459afce, type: 3}
 --- !u!4 &347209788
 Transform:
   m_ObjectHideFlags: 0
