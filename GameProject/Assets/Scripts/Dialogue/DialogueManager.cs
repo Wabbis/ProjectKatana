@@ -108,7 +108,9 @@ public class DialogueManager : MonoBehaviour {
     }
 	public void DisplayChoices (){
 
-		choicesBox.SetActive(true);
+        portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait1;
+        nameText.text = "[  ]";
+        choicesBox.SetActive(true);
 		//string choice1 = choices.Dequeue();
 		string choice1 = choicesArray[0];
 		string choice2 = choicesArray[1];
