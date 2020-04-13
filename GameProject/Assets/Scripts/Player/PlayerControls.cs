@@ -176,7 +176,8 @@ public class PlayerControls : MonoBehaviour
     //Makes the player Jump
     private void Jump()
     {
-        playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        playerRB.velocity = Vector2.up * jumpForce;
+        //playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpsLeft--;
     }
 

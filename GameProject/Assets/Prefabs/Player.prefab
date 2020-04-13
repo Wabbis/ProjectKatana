@@ -179,8 +179,7 @@ MonoBehaviour:
   headCheckRadius: 0.84
   grounded: 0
   canCrouch: 0
-  canAttack: 0
-  jumpsLeft: 0
+  maxJumps: 2
   playerSpeed: 10
   jumpForce: 20
   airDragMultiplier: 1
