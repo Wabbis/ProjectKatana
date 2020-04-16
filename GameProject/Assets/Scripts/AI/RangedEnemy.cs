@@ -6,20 +6,23 @@ using UnityEngine;
 public class RangedEnemy : MonoBehaviour
 {
     public bool patrolling;
+    public bool melee;
 
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
-    public float attackRange = 3f;
+    public float meleeAttackRange = 1f;
     public float evadeRange = 10f;
     public float _rayDistance = 7f;
+    public LayerMask enemyLayers;
 
     public GameObject eyes;
+    public Transform meleeAttackPoint;
     public GameObject gunRotator;
     public GameObject bulletSpawn;
     public GameObject bullet;
     public float bulletSpeed;
 
-    public float firstShot= 0.1f;
+   // public float firstShot= 0.1f;
     public float reloadTime= 1;
 
     
@@ -69,7 +72,15 @@ public class RangedEnemy : MonoBehaviour
     public void Attack(GameObject target)
     {
         // Do attack stuff
-        Shoot();
+        if (!melee)
+        {
+            Shoot();
+        }
+        else
+        {
+            Hit();
+        }
+        
 
         //pelaajaa ei voi tuhota vielä tässä, koska ei voi tietää osuuko vihollinen
         //Destroy(target);
@@ -77,13 +88,34 @@ public class RangedEnemy : MonoBehaviour
     public void Shoot()
     {
         GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed, ForceMode2D.Impulse);
+        newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
+        Destroy(newBullet, 5);
 
     }
+    public void Hit()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(meleeAttackPoint.position, meleeAttackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("Hit: " + enemy.name);                               
+
+
+        }
+    }
+    //attackrange testaus
+   /* void OnDrawGizmosSelected()
+    {
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(meleeAttackPoint.position, meleeAttackRange);
+    }*/
 
     public IEnumerator Wait()
     {
+        Debug.Log("waiting");
         yield return new WaitForSeconds(2);
+        Debug.Log("done");
     }
 
     public bool CheckObstacles(GameObject target)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PatrolState : BaseState
 {
     private float stopDistance = 2f;
-    private RangedEnemy _rangedEnemy;
+    private RangedEnemy _rangedEnemy;    
     private GameObject[] _waypoints;
     private GameObject nextWaypoint;
     private float distance;
@@ -19,6 +19,7 @@ public class PatrolState : BaseState
         _waypoints = waypoints;
         nextWaypoint = waypoints[0];
     }
+
 
     public override Type Tick()
     {

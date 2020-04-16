@@ -13,15 +13,31 @@ public class ChaseState : BaseState
         _rangedEnemy = rangedEnemy;
     }
 
+
     public override Type Tick()
     {
+        if (!_rangedEnemy._target || _rangedEnemy.CheckObstacles(_rangedEnemy._target))
+        {
+            // Make enemy to wait for few seconds before going back to patrol - Wait Function doesnt work yet.
+              _rangedEnemy.StartCoroutine("Wait");
+            
+            Debug.Log("Target lost. Going to Patrol");
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
+        }
 
         /* if (!_rangedEnemy._target || _rangedEnemy.CheckObstacles())
 
         {
             return typeof(PatrolState);
         }
-        
+        */
         if (_rangedEnemy._target.transform.position.x < _rangedEnemy.transform.position.x)
         {
             _rangedEnemy.transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -30,7 +46,7 @@ public class ChaseState : BaseState
         {
             _rangedEnemy.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        */
+        
 
         // Vector3 objectPos = _rangedEnemy.eyes.transform.position;
         if (_rangedEnemy._target != null)
@@ -53,30 +69,29 @@ public class ChaseState : BaseState
            //else
              // direction = Vector2.right * -1;
         
-        // _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), chaseSpeed * Time.deltaTime);
+         _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), chaseSpeed * Time.deltaTime);
 
-        _rangedEnemy.transform.Translate(direction * chaseSpeed * Time.deltaTime);
+      //  _rangedEnemy.transform.Translate(direction * chaseSpeed * Time.deltaTime);
 
-        float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
-        if (distance < _rangedEnemy.attackRange)
+        //jos vihollinen ei ole melee, siirtyy suoraan attackstateen
+        if (!_rangedEnemy.melee)
         {
             return typeof(AttackState);
         }
-       
-        if (!_rangedEnemy._target ||_rangedEnemy.CheckObstacles(_rangedEnemy._target))
-        { 
-            // Make enemy to wait for few seconds before going back to patrol - Wait Function doesnt work yet.
-            _rangedEnemy.StartCoroutine("Wait");
-            Debug.Log("Target lost. Going to Patrol");
-            if (_rangedEnemy.patrolling)
+        else
+        {
+            float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
+
+
+            if (distance < _rangedEnemy.meleeAttackRange)
             {
-                return typeof(PatrolState);
-            }
-            else
-            {
-                return typeof(WatchState);
+                return typeof(AttackState);
             }
         }
+
+   
+       
+      
         return null;
     }
 }

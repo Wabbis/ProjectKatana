@@ -39,7 +39,7 @@ public class AlertState : BaseState
 
         _rangedEnemy.transform.Translate(direction * chaseSpeed * Time.deltaTime);
         float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
-        if (distance < _rangedEnemy.attackRange)
+        if (distance < _rangedEnemy.meleeAttackRange)
         {
             return typeof(AttackState);
         }

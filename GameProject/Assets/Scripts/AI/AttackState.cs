@@ -21,6 +21,12 @@ public class AttackState : BaseState
             return typeof(PatrolState);
         }
 
+        float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
+
+        if (_rangedEnemy.melee && distance > _rangedEnemy.meleeAttackRange)
+        {
+            return typeof(ChaseState);
+        }
         //katsoo pelaajaa kohti
         Vector3 vectorToTarget = _rangedEnemy._target.transform.position - _rangedEnemy.eyes.transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;

@@ -104,7 +104,7 @@ public class Boss1 : MonoBehaviour
     }
 
 
-    void TakeDamage()
+    public void TakeDamage()
     {
         health--;
         vulnerable = false;
