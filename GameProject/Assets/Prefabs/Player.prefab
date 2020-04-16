@@ -185,7 +185,7 @@ MonoBehaviour:
   airDragMultiplier: 1
   attackRange: 1
   attackDamage: 5
-  attackCooldown: 1
+  attackCooldown: 0.3
 --- !u!50 &3900125597651210857
 Rigidbody2D:
   serializedVersion: 4

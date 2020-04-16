@@ -204,29 +204,31 @@ public class PlayerControls : MonoBehaviour
     {
         if (attackTemp && canAttack)
         {
-
+            Debug.Log("Attack");
             //Gets array of hit targets
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-            foreach (Collider2D enemy in hitEnemies)
+           
+            if (hitEnemies.Length > 0)
             {
-                Debug.Log("Hit: " + enemy.name);
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    Debug.Log("Hit: " + enemy.name);
 
 
-                //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
+                    //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
 
 
+                }
             }
-
-            
+           
             canAttack = false;
-            Cooldown(attackCooldown);
+            StartCoroutine(Cooldown());
         }
     }
 
-    private IEnumerator Cooldown(float seconds)
+    public IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
 
