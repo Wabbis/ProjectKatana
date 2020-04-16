@@ -204,7 +204,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (attackTemp && canAttack)
         {
-
+            
             //Gets array of hit targets
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
