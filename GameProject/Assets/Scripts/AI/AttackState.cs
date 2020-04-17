@@ -18,11 +18,19 @@ public class AttackState : BaseState
     {
         if (!_rangedEnemy._target)
         {
-            return typeof(PatrolState);
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
+            
         }
 
         float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
-
+        
         if (_rangedEnemy.melee && distance > _rangedEnemy.meleeAttackRange)
         {
             return typeof(ChaseState);
@@ -47,7 +55,15 @@ public class AttackState : BaseState
 
         if (_rangedEnemy == null)
         {
-            return typeof(PatrolState);
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
+            
         }
 
         _attackCooldown -= Time.deltaTime;

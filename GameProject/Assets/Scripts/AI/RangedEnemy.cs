@@ -13,6 +13,7 @@ public class RangedEnemy : MonoBehaviour
     public float meleeAttackRange = 1f;
     public float evadeRange = 10f;
     public float _rayDistance = 7f;
+    public float chaseSpeed;
     public LayerMask enemyLayers;
 
     public GameObject eyes;

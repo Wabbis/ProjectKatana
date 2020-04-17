@@ -60,7 +60,14 @@ public class ChaseState : BaseState
         if (_rangedEnemy == null)
         {
             Debug.Log("We didnt have a target");
-            return typeof(PatrolState);
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            } else
+            {
+                return typeof(WatchState);
+            }
+            
         }
 
            if ((_rangedEnemy.transform.position.x - _rangedEnemy._target.transform.position.x) < 0)
@@ -69,7 +76,7 @@ public class ChaseState : BaseState
            //else
              // direction = Vector2.right * -1;
         
-         _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), chaseSpeed * Time.deltaTime);
+         _rangedEnemy.transform.position = Vector3.MoveTowards(_rangedEnemy.transform.position, new Vector3(_rangedEnemy._target.transform.position.x, _rangedEnemy.transform.position.y, _rangedEnemy.transform.position.z), _rangedEnemy.chaseSpeed * Time.deltaTime);
 
       //  _rangedEnemy.transform.Translate(direction * chaseSpeed * Time.deltaTime);
 
