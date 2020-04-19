@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3278225748829794291}
   m_Layer: 9
   m_Name: EnemyBullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,9 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  layer:
-    serializedVersion: 2
-    m_Bits: 0
+  color: {r: 0, g: 1, b: 0, a: 0}
+  lt: {fileID: 0}
+  velo: {x: 0, y: 0}
 --- !u!114 &3278225748829794291
 MonoBehaviour:
   m_ObjectHideFlags: 0
