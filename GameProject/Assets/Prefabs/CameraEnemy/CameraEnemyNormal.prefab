@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8259957724467823584}
   - component: {fileID: 8259957724467823614}
   - component: {fileID: 8259957724467823615}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Viewcone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8259957724790494305}
   - component: {fileID: 8259957724790494334}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Point Light 2D
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 8259957725293506000}
   - component: {fileID: 8259957725293506003}
   - component: {fileID: 8259957725293506002}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: CameraEnemyNormal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2143180499
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9b001b0f9ddb85945b4b920c8a3dbc30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 8259957726390221155}
   - component: {fileID: 8259957726390221152}
   - component: {fileID: 8259957726390221153}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Enemy Trigger Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,3 +412,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   enemySpawnList: []
+  enemyAlertList: []
