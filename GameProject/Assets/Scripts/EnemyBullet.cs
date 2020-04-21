@@ -11,6 +11,7 @@ public class EnemyBullet : MonoBehaviour
     public UnityEngine.Experimental.Rendering.Universal.Light2D lt;
     Rigidbody2D rb;
     public Vector2 velo;
+    
 
 
     private void Start()
@@ -25,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
     }
     public void ChangeLayer()
     {
-        gameObject.layer = 0;
+        gameObject.layer = 16;
     }
     public void ChangeColor()
     {
@@ -42,6 +43,11 @@ public class EnemyBullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.gameObject.name);
+        if (collision.transform.tag == "Environment")
+        {
+            Destroy(this.gameObject);
+
+        }
         if (counter)
         {
             if (collision.transform.tag == "Enemy")
@@ -53,7 +59,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             
-            Reflect();
+         // Reflect();
             // Destroy(collision.gameObject);
         //    Debug.Log("Player hit");
         }

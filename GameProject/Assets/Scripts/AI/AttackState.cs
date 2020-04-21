@@ -70,7 +70,7 @@ public class AttackState : BaseState
 
         if (_attackCooldown <= 0f)
         {
-            Debug.Log("ATTACK!");
+           // Debug.Log("ATTACK!");
             _rangedEnemy.Attack(_rangedEnemy._target);
             _attackCooldown = _rangedEnemy.reloadTime;
         }

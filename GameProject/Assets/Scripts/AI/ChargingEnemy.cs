@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ChargingEnemy : MonoBehaviour
 {
     public Transform[] waypoints;
@@ -15,15 +15,20 @@ public class ChargingEnemy : MonoBehaviour
     public float waitTime;
     float timeLeft;
     int layermask2;
+    public GameObject explosion;
+    public bool exploding;
+    public Image indicator;
+    public float explosionSize=5;
 
     private void Start()
     {
         layermask2 = (LayerMask.GetMask("Player"));
         timeLeft = waitTime;
+        indicator.gameObject.SetActive(false);
     }
     void Update()
     {
-
+        indicator.fillAmount = timeLeft / waitTime;
 
 
         if (!charging)
@@ -49,9 +54,24 @@ public class ChargingEnemy : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPos) < 0.001f)
             {
+                if (exploding)
+                {
+                    indicator.gameObject.SetActive(true);
+                }
+                
                 timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
                 {
+                    
+                    if (exploding)
+                    {
+                        Destroy(indicator.gameObject);
+                        GameObject expl= Instantiate(explosion, transform.position, Quaternion.identity);
+                        expl.transform.localScale = expl.transform.localScale * explosionSize;
+                        transform.DetachChildren();
+                        Destroy(gameObject);
+
+                    }
                     charging = false;
                     timeLeft = waitTime;
                 }
