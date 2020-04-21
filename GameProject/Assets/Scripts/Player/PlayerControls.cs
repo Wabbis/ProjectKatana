@@ -66,8 +66,6 @@ public class PlayerControls : MonoBehaviour
         {
             Controls();
         }
-
-        Movement();
     }
 
     //Gets input from player
@@ -93,7 +91,7 @@ public class PlayerControls : MonoBehaviour
     {
         CheckGround();
         CheckHead();
-        //Movement();
+        Movement();
         Attacking();
         UpdateAnimations();
         ResetTemp();
