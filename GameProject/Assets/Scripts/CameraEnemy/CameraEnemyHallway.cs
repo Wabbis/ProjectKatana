@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class CameraEnemy : MonoBehaviour
+public class CameraEnemyHallway : MonoBehaviour
 {
     private GameObject player;
     public bool destroyable;                //  Onko kamera tuhottavissa
@@ -36,7 +36,10 @@ public class CameraEnemy : MonoBehaviour
 
     private bool tweaningPaused;
     private int tweenID;                     // LeanTween-operaatiolle annettava uniikki ID, jolla voidaan esim. pysäyttää operaatio
-
+    
+    Transform from;
+    float speed = 0.5f;
+    public bool resetRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,7 @@ public class CameraEnemy : MonoBehaviour
         originalSize = gameObject.transform.localScale;
         tweenID = 0;
 
+
         if (destroyable)
             GetComponentInParent<BoxCollider2D>().enabled = true;
         else
@@ -64,13 +68,22 @@ public class CameraEnemy : MonoBehaviour
     {
         // Katsoo ettei kameralla rotaatio-käynnissä
 
-        if (!LeanTween.isTweening(tweenID) && !tweaningPaused)
+        if (!LeanTween.isTweening(tweenID) && !tweaningPaused && !resetRotation)
         {
             StartCoroutine(Rotate(angle, rotationTime));
         }
 
-        if (warningState || alarmState)
-            LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
+        from = gameObject.transform;
+
+        if(alarmState && !resetRotation)
+        {
+            LeanTween.cancel(gameObject);
+            resetRotation = true;
+            LeanTween.rotate(gameObject, new Vector3(0, 0, 0), 1f);
+        }
+
+        //if (warningState || alarmState)
+        //    LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -106,7 +119,7 @@ public class CameraEnemy : MonoBehaviour
     IEnumerator WarningState()
     {
         warningState = true;
-        LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
+        //LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
 
         spriteRenderer.sprite = viewConeWarningSprite;
         cameraLight.color = warningColor;
@@ -129,7 +142,7 @@ public class CameraEnemy : MonoBehaviour
 
             StartCoroutine(LerpViewConeSize(originalSize));
             yield return new WaitForSeconds(0.5f);
-            LeanTween.resume(tweenID);
+            //LeanTween.resume(tweenID);
         }
 
         yield return null;
@@ -151,11 +164,11 @@ public class CameraEnemy : MonoBehaviour
 
         while (true)
         {
-            Vector3 dir = player.transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion to = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
+            //Vector3 dir = player.transform.position - transform.position;
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //Quaternion to = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * 5f);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * 5f);
 
             yield return null;
         }
