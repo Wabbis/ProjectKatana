@@ -6,7 +6,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CameraEnemy : MonoBehaviour
 {
     private GameObject player;
-    
+    public bool destroyable;                //  Onko kamera tuhottavissa
+
     public float angle;                     // Kameran vartoima kulma
     public float rotationTime;              // Yhteen täyteen rotaatiion kuluva aika
     public float stopTimer;                 // Kuinka kauan kamera on paikallaan
@@ -50,6 +51,11 @@ public class CameraEnemy : MonoBehaviour
         originalSize = gameObject.transform.localScale;
         tweenID = 0;
 
+        if (destroyable)
+            GetComponentInParent<BoxCollider2D>().enabled = true;
+        else
+            GetComponentInParent<BoxCollider2D>().enabled = false;
+
         StartCoroutine(Rotate(angle / 2, rotationTime / 2));    // Ensimmäinen rotaatio puolet tavallisesta
     }
 
@@ -58,18 +64,18 @@ public class CameraEnemy : MonoBehaviour
     {
         // Katsoo ettei kameralla rotaatio-käynnissä
 
-        if(!LeanTween.isTweening(tweenID) && !tweaningPaused)
+        if (!LeanTween.isTweening(tweenID) && !tweaningPaused)
         {
             StartCoroutine(Rotate(angle, rotationTime));
         }
 
-        if(warningState || alarmState)
+        if (warningState || alarmState)
             LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && collision is CapsuleCollider2D)
+        if (collision.gameObject.CompareTag("Player") && collision is CapsuleCollider2D)
         {
             warningState = true;
             LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
@@ -94,7 +100,7 @@ public class CameraEnemy : MonoBehaviour
     {
         float timer = 0;
 
-        while(timer < 1f)
+        while (timer < 1f)
         {
             //Debug.Log("Lerping");
             transform.localScale = Vector3.Lerp(gameObject.transform.localScale, desiredSize, Time.deltaTime * 10f);
@@ -110,11 +116,11 @@ public class CameraEnemy : MonoBehaviour
         yield return new WaitForSeconds(safetyTimer);               // Katsotaan onko tietyn ajan kuluessa Warning-tila päällä eli onko pelaaja näkökentässä
         //StopCoroutine("LerpViewConeSize");
 
-        if(warningState)
+        if (warningState)
         {
             StartCoroutine(AlarmState());                     // Laitetaan kamera seuraamaan pelaajaa
         }
-        else if(!alarmState)
+        else if (!alarmState)
         {
             spriteRenderer.sprite = viewConeSafeSprite;
             cameraLight.color = safeColor;
@@ -168,7 +174,7 @@ public class CameraEnemy : MonoBehaviour
     {
         clockwise = !clockwise;
 
-        if(tweenID != 0)
+        if (tweenID != 0)
         {
             LeanTween.pause(tweenID);
             tweaningPaused = true;

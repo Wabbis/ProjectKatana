@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5000000}
   - component: {fileID: 6100000}
   - component: {fileID: -7686223145541747170}
+  - component: {fileID: 5641562852467947068}
   m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
@@ -164,12 +165,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291801646a00a7044b846c53df162164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootOnSpawn: 1
   rateOfFire: 2
   shooting: 0
   animator: {fileID: 9500000}
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
   bulletSpeed: 20
   bulletSpawn: {fileID: 100002}
+--- !u!114 &5641562852467947068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1df8348683246abf5a57f6cd90e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400002}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bullet Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

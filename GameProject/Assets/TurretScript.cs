@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class TurretScript : MonoBehaviour
 {
+    public bool shootOnSpawn;       //Amppuko heti syntyessään -- Jos ei, kutsumalla StartShooting-funktiota turret alkaa ampumaan
     public float rateOfFire;       // Luotia sekunissa
     public bool shooting;
     public Animator animator;
@@ -17,6 +18,9 @@ public class TurretScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        if (shootOnSpawn)
+            StartCoroutine(ShootOnSpawn());
     }
 
     // Update is called once per frame
@@ -27,6 +31,7 @@ public class TurretScript : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        Debug.Log("PUM PUM");
         while (shooting)
         {
             Debug.Log(gameObject.transform.rotation.y);
@@ -43,6 +48,12 @@ public class TurretScript : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public IEnumerator ShootOnSpawn()
+    {
+        yield return new WaitForSeconds(2.5f);
+        StartShooting();
     }
 
     public void StartShooting()

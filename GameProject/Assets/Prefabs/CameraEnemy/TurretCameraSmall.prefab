@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8720417477532678170}
   - component: {fileID: 3187820536521330772}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light 2D
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291801646a00a7044b846c53df162164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootOnSpawn: 1
   rateOfFire: 2
   shooting: 0
   animator: {fileID: 5759795014973756533}
@@ -260,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5759795014964444055}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Bullet Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,6 +293,8 @@ GameObject:
   - component: {fileID: 5763704375778971706}
   - component: {fileID: 5763704375778971705}
   - component: {fileID: 5763704375778971704}
+  - component: {fileID: 6558848788782092407}
+  - component: {fileID: 870244166013835538}
   m_Layer: 9
   m_Name: TurretCameraSmall
   m_TagString: Enemy
@@ -388,6 +391,45 @@ MonoBehaviour:
   camera3Mirror: {fileID: 21300000, guid: 2ee217cf6a811694e9e6fde99deaded4, type: 3}
   camera4Mirror: {fileID: 21300000, guid: 3bbee03442ff64448b981230c56caf47, type: 3}
   viewcone: {fileID: 6978017264971070353}
+--- !u!114 &6558848788782092407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763704375778971711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1df8348683246abf5a57f6cd90e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+--- !u!61 &870244166013835538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763704375778971711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02369523, y: 0.007901907}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.52609396, y: 0.66811657}
+  m_EdgeRadius: 0
 --- !u!1 &5763704376812897416
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5763704376812897417}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,9 +473,9 @@ GameObject:
   - component: {fileID: 8187075953667113890}
   - component: {fileID: 5854933351972172059}
   - component: {fileID: 6975948944287295154}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Viewcone
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01fface86b1e304ba7ee8a6945d9c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyable: 0
   angle: 90
   rotationTime: 2
   stopTimer: 2

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6063214645772515236}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 6063214646755648279}
   - component: {fileID: 6063214646755648276}
   - component: {fileID: 6063214646755648277}
+  - component: {fileID: 5329041409256711438}
+  - component: {fileID: -4597962571710431459}
   m_Layer: 9
   m_Name: TurretCameraNormal
   m_TagString: Enemy
@@ -138,6 +140,45 @@ MonoBehaviour:
   camera3Mirror: {fileID: 21300000, guid: 2ee217cf6a811694e9e6fde99deaded4, type: 3}
   camera4Mirror: {fileID: 21300000, guid: 3bbee03442ff64448b981230c56caf47, type: 3}
   viewcone: {fileID: 6063214647038315812}
+--- !u!114 &5329041409256711438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063214646755648274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1df8348683246abf5a57f6cd90e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+--- !u!61 &-4597962571710431459
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063214646755648274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03977132, y: 0.029914647}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4823122, y: 0.7108341}
+  m_EdgeRadius: 0
 --- !u!1 &6063214647038315812
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,9 +191,9 @@ GameObject:
   - component: {fileID: 6063214647038315815}
   - component: {fileID: 6063214647038315833}
   - component: {fileID: 6063214647038315832}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Viewcone
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01fface86b1e304ba7ee8a6945d9c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyable: 0
   angle: 90
   rotationTime: 2
   stopTimer: 2
@@ -298,9 +340,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6063214647395064486}
   - component: {fileID: 6063214647395064505}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light 2D
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,6 +418,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6063214645772515236}
     m_Modifications:
+    - target: {fileID: -7686223145541747170, guid: b00339ad5a95a9d48839663e9b75e897,
+        type: 3}
+      propertyPath: shootOnSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b00339ad5a95a9d48839663e9b75e897, type: 3}
       propertyPath: m_Name
       value: Turret
@@ -431,6 +478,11 @@ PrefabInstance:
     - target: {fileID: 400000, guid: b00339ad5a95a9d48839663e9b75e897, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641562852467947068, guid: b00339ad5a95a9d48839663e9b75e897,
+        type: 3}
+      propertyPath: health
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00339ad5a95a9d48839663e9b75e897, type: 3}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6241597936750528203}
   - component: {fileID: 6241597936750528200}
   - component: {fileID: 6241597936750528201}
-  m_Layer: 9
-  m_Name: Enemy Trigger Area
+  m_Layer: 0
+  m_Name: Alarm State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 6241597937847374456}
   - component: {fileID: 6241597937847374459}
   - component: {fileID: 6241597937847374458}
+  - component: {fileID: -4131370073251453688}
+  - component: {fileID: 6031887338721165017}
   m_Layer: 9
   m_Name: CameraEnemySmall
   m_TagString: Enemy
@@ -182,6 +184,45 @@ MonoBehaviour:
   camera3Mirror: {fileID: 21300000, guid: 2ee217cf6a811694e9e6fde99deaded4, type: 3}
   camera4Mirror: {fileID: 21300000, guid: 3bbee03442ff64448b981230c56caf47, type: 3}
   viewcone: {fileID: 6241597938671221835}
+--- !u!114 &-4131370073251453688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241597937847374461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1df8348683246abf5a57f6cd90e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+--- !u!61 &6031887338721165017
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241597937847374461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02369535, y: 0.015804052}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4629066, y: 0.63650846}
+  m_EdgeRadius: 0
 --- !u!1 &6241597938347895752
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,9 +233,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6241597938347895753}
   - component: {fileID: 6241597938347895766}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Point Light 2D
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,9 +316,9 @@ GameObject:
   - component: {fileID: 6241597938671221832}
   - component: {fileID: 6241597938671221846}
   - component: {fileID: 6241597938671221847}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Viewcone
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01fface86b1e304ba7ee8a6945d9c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyable: 0
   angle: 90
   rotationTime: 2
   stopTimer: 2
