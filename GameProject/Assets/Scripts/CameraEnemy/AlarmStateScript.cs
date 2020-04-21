@@ -43,7 +43,7 @@ public class AlarmStateScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             //Triggeröi vihollisten Attack-state
-            Debug.Log("Vihollinen AlertColliderin sisällä!");
+            //Debug.Log("Vihollinen AlertColliderin sisällä!");
         }
     }
 
