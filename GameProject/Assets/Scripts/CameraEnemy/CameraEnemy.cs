@@ -77,6 +77,14 @@ public class CameraEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision is CapsuleCollider2D)
         {
+            warningState = true;
+            LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
+
+            spriteRenderer.sprite = viewConeWarningSprite;
+            cameraLight.color = warningColor;
+            cameraLight.intensity = 0.8f;
+            StartCoroutine(LerpViewConeSize(originalSize * warningConeMultiplier));   // Muutetaan viewconen kokoa suuremmaksi
+
             StartCoroutine(WarningState());                             // Siirrytään Warning-tilaan
         }
     }
@@ -105,15 +113,6 @@ public class CameraEnemy : MonoBehaviour
 
     IEnumerator WarningState()
     {
-        warningState = true;
-        LeanTween.pause(tweenID);                                        // Pysäytetään kameran rotaatio
-
-        spriteRenderer.sprite = viewConeWarningSprite;
-        cameraLight.color = warningColor;
-        cameraLight.intensity = 0.8f;
-        StartCoroutine(LerpViewConeSize(originalSize * warningConeMultiplier));   // Muutetaan viewconen kokoa suuremmaksi
-
-
         yield return new WaitForSeconds(safetyTimer);               // Katsotaan onko tietyn ajan kuluessa Warning-tila päällä eli onko pelaaja näkökentässä
         //StopCoroutine("LerpViewConeSize");
 
@@ -200,29 +199,5 @@ public class CameraEnemy : MonoBehaviour
     public void StartAlarmState()
     {
         StartCoroutine(AlarmState());                     // Laitetaan kamera seuraamaan pelaajaa
-    }
-
-    public bool getWarningState()
-    {
-        return warningState;
-    }
-
-    public bool getAlarmState()
-    {
-        return alarmState;
-    }
-
-    public void setWarningState()
-    {
-        StartCoroutine(WarningState());
-    }
-    public void setAlarmState()
-    {
-        StartCoroutine(AlarmState());
-    }
-    public void setPieceState()
-    {
-        warningState = false;
-        alarmState = false;
     }
 }
