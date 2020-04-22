@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour
     public float headCheckRadius = 0.84f;    //works well for scale 4 & 4
     public bool grounded;
     public bool canCrouch;
+    public bool block;
     public int maxJumps;
     private int jumpsLeft;
 
@@ -61,6 +62,7 @@ public class PlayerControls : MonoBehaviour
     {
         canAttack = true;
         canCounter = true;
+        block = false;
         jumpsLeft = maxJumps;
     }
 
@@ -92,6 +94,15 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             counterTemp = true;
+        }
+        if (Input.GetButton("Fire3"))
+        {
+            block = true;
+            Debug.Log("Blocking");
+        }
+        else
+        {
+            block = false;
         }
     }
 
