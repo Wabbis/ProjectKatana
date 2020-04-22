@@ -4047,7 +4047,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.00007
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -21712,6 +21712,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 4c0ce7dfc874f5a43b4f7c4948cb7493, type: 2}
     - {fileID: 11400000, guid: 886fd63590f4a9844ba286b479850ce6, type: 2}
+    - {fileID: 11400000, guid: 864d26ae2b6ba6647905fb9c9216b373, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -21721,18 +21722,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1769619850}
-          m_MethodName: setActiveCutscene
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1435043023}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
-              UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -21801,6 +21790,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1769619850}
+          m_MethodName: setActiveCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1435043023}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
+              UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -107076,7 +107079,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1607810448}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12.00007
+    OrthographicSize: 12
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

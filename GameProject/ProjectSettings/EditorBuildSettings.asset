@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/tutoriaLevel.unity
     guid: 92121de89ed5c634997c891a91734fe5
   - enabled: 1
+    path: Assets/Scenes/World1Level2.unity
+    guid: c7e475560d600584babc6cc2a7925a12
+  - enabled: 0
     path: Assets/Scenes/Testit/AI Test Camera.unity
     guid: 8653a9c62da7b8c47866d9c4a327b6fc
   m_configObjects: {}
