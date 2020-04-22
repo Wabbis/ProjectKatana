@@ -28,18 +28,22 @@ public class PlayerControls : MonoBehaviour
     //Player Statistics
     public float playerSpeed;
     public float jumpForce;
+    public float dashForce;
     public float airDragMultiplier;
 
     //Attacks
     public bool canAttack;
+    public bool canCounter;
     public float attackRange;
     public float attackDamage;
     public float attackCooldown;
+    public float counterCooldown;
 
 
     //Used for translating Controls to Movement (Update -> FixedUpdate) 
     private float movDirTemp;
     private bool jumpTemp;
+    private bool counterTemp;
     private bool crouchTemp;
     private bool attackTemp;
     private bool facingRight = true;
@@ -56,6 +60,7 @@ public class PlayerControls : MonoBehaviour
     private void Start()
     {
         canAttack = true;
+        canCounter = true;
         jumpsLeft = maxJumps;
     }
 
@@ -84,6 +89,10 @@ public class PlayerControls : MonoBehaviour
         {
             attackTemp = true;
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            counterTemp = true;
+        }
     }
 
 
@@ -111,6 +120,7 @@ public class PlayerControls : MonoBehaviour
                 if (!wasGrounded)
                 {
                     Debug.Log("Landed");
+                    animator.SetTrigger("Landed");
                     jumpsLeft = maxJumps;
                 }
             }
@@ -171,14 +181,26 @@ public class PlayerControls : MonoBehaviour
         }
         
         if (jumpTemp && jumpsLeft > 0) { Jump(); }
+
+        if (counterTemp && canCounter) { Counter(); }
+
     }
 
     //Makes the player Jump
     private void Jump()
     {
+        animator.SetTrigger("Jump");
         playerRB.velocity = Vector2.up * jumpForce;
-        //playerRB.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpsLeft--;
+    }
+
+    //Moves the player
+    private void Counter()
+    {
+        Debug.Log("Counter");
+        animator.SetTrigger("Counter");
+        playerRB.velocity = gameObject.transform.right * dashForce;
+        canCounter = false;
     }
 
     //Resets temporary variables
@@ -188,6 +210,7 @@ public class PlayerControls : MonoBehaviour
         jumpTemp = false;
         crouchTemp = false;
         attackTemp = false;
+        counterTemp = false;
     }
 
 
@@ -204,7 +227,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (attackTemp && canAttack)
         {
-
+            animator.SetTrigger("Attack");
             Debug.Log("Attack");
             //Gets array of hit targets
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -230,15 +253,15 @@ public class PlayerControls : MonoBehaviour
 
             canAttack = false;
             
-            StartCoroutine(Cooldown());
+            StartCoroutine(Cooldown(attackCooldown));
         }
     }
 
     
-    public IEnumerator Cooldown()
+    public IEnumerator Cooldown(float duration)
     {
         
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(duration);
         canAttack = true;
     }
 
@@ -255,6 +278,14 @@ public class PlayerControls : MonoBehaviour
     private void UpdateAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(movDirTemp * playerSpeed));
+        if(playerRB.velocity.y < -0.5)
+        {
+            animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            animator.SetBool("IsFalling", false);
+        }
 
         Flip();
     }
