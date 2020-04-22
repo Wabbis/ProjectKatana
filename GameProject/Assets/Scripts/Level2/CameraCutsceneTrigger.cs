@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MysteerimiesSpawn : MonoBehaviour
+public class CameraCutsceneTrigger : MonoBehaviour
 {
-    public GameObject mysteerimies;
+    public GameObject cutscene;
 
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -22,7 +16,7 @@ public class MysteerimiesSpawn : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            mysteerimies.SetActive(true);
+            cutscene.SetActive(true);
             gameObject.SetActive(false);
         }
     }

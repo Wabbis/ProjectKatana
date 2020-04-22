@@ -36,7 +36,7 @@ public class CameraEnemyHallway : MonoBehaviour
 
     private bool tweaningPaused;
     private int tweenID;                     // LeanTween-operaatiolle annettava uniikki ID, jolla voidaan esim. pysäyttää operaatio
-    
+
     Transform from;
     float speed = 0.5f;
     public bool resetRotation;
@@ -75,7 +75,7 @@ public class CameraEnemyHallway : MonoBehaviour
 
         from = gameObject.transform;
 
-        if(alarmState && !resetRotation)
+        if (alarmState && !resetRotation)
         {
             LeanTween.cancel(gameObject);
             resetRotation = true;
@@ -197,14 +197,18 @@ public class CameraEnemyHallway : MonoBehaviour
             LeanTween.resume(tweenID);
         }
 
-        if (clockwise)
+        if (!resetRotation)
         {
-            tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.forward, angle, rotationTime).id;
+            if (clockwise)
+            {
+                tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.forward, angle, rotationTime).id;
+            }
+            else
+            {
+                tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.back, angle, rotationTime).id;
+            }
         }
-        else
-        {
-            tweenID = LeanTween.rotateAroundLocal(gameObject, Vector3.back, angle, rotationTime).id;
-        }
+
 
         yield return null;
     }
