@@ -8,7 +8,9 @@ public class BossBehaviour : MonoBehaviour
     public Transform player;
     public Sprite aim;
     public Sprite shoot;
-
+    public float bulletspeed;
+    public GameObject bulletPrefab;
+    public GameObject firepoint;
     private SpriteRenderer spriteRenderer;
     private Vector2 _direction;
 
@@ -27,18 +29,18 @@ public class BossBehaviour : MonoBehaviour
         Debug.DrawLine(transform.position, player.position, Color.red);
         if (_direction.x > 0)
         {
-            spriteRenderer.flipX = false; ;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
-            spriteRenderer.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     
     }
 
     public void Teleport()
     {
-        spriteRenderer.sprite = default;
+        // spriteRenderer.sprite = default;
         Debug.Log("Teleporting");
         Transform target = teleportLocation[Random.Range(0, 4)];
         Debug.Log("New location: " + target.position);
@@ -56,7 +58,7 @@ public class BossBehaviour : MonoBehaviour
     public IEnumerator Attack()
     {
         Debug.Log("Aiming");
-        spriteRenderer.sprite = aim;
+        // spriteRenderer.sprite = aim;
         yield return new WaitForSeconds(2);
         StartCoroutine("Shoot");
     }
@@ -64,7 +66,10 @@ public class BossBehaviour : MonoBehaviour
     
     public IEnumerator Shoot()
     {
-        spriteRenderer.sprite = shoot;
+        // spriteRenderer.sprite = shoot;
+        GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
+        Vector2 dir = player.position - firepoint.transform.position;
+        go.GetComponent<Rigidbody2D>().velocity = dir * bulletspeed;
         yield return new WaitForSeconds(1);
         Teleport();
     }

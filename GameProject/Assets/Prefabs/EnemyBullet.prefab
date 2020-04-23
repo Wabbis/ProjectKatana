@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4279236023268215930
 MonoBehaviour:
@@ -147,7 +147,6 @@ MonoBehaviour:
   counter: 0
   color: {r: 0, g: 1, b: 0, a: 0}
   lt: {fileID: 0}
-  velo: {x: 0, y: 0}
 --- !u!114 &3278225748829794291
 MonoBehaviour:
   m_ObjectHideFlags: 0

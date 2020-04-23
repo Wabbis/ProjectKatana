@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraHallwayScript : MonoBehaviour
 {
     private bool alarmed;
+    public bool allCamerasReady;
     public GameObject[] cameras;
     public GameObject activeCamera;
     public float spawnTime;
@@ -26,7 +27,7 @@ public class CameraHallwayScript : MonoBehaviour
     {
         foreach (GameObject camera in cameras)
         {
-            if (camera.GetComponentInChildren<CameraEnemyHallway>().getAlarmState() && !alarmed)
+            if (camera.GetComponentInChildren<CameraEnemyHallway>().getAlarmState() && !alarmed && allCamerasReady)
             {
                 foreach (GameObject camera2 in cameras)
                 {
@@ -46,5 +47,7 @@ public class CameraHallwayScript : MonoBehaviour
             camera.SetActive(true);
             yield return new WaitForSeconds(spawnTime);
         }
+
+        allCamerasReady = true;
     }
 }

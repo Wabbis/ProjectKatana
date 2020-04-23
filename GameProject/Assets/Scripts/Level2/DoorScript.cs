@@ -6,6 +6,7 @@ public class DoorScript : MonoBehaviour
 {
     public GameObject door;
     public GameObject mysteeriMies;
+    public GameObject chargingEnemy;
 
     private float elapsedTime;
     public float waitTime;
@@ -30,7 +31,8 @@ public class DoorScript : MonoBehaviour
         {
             StartCoroutine(OpenDoor());
             mysteeriMies.GetComponent<Animator>().SetBool("Despawn", true);
-            Destroy(mysteeriMies, 1f);
+            Destroy(mysteeriMies, 2f);
+            chargingEnemy.SetActive(true);
         }
     }
 
@@ -46,6 +48,7 @@ public class DoorScript : MonoBehaviour
         }
         // Make sure we got there
         door.transform.position = goToPos;
+        gameObject.SetActive(false);
         yield return null;
     }
 }
