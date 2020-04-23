@@ -66,3 +66,6 @@ TagManager:
   - name: Office Layer
     uniqueID: 2404021279
     locked: 0
+  - name: Electronic Component
+    uniqueID: 12692137
+    locked: 0
