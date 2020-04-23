@@ -147,7 +147,6 @@ MonoBehaviour:
   counter: 0
   color: {r: 0, g: 1, b: 0, a: 0}
   lt: {fileID: 0}
-  velo: {x: 0, y: 0}
 --- !u!114 &3278225748829794291
 MonoBehaviour:
   m_ObjectHideFlags: 0
