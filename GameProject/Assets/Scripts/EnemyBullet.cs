@@ -81,5 +81,46 @@ public class EnemyBullet : MonoBehaviour
         
     }
 
- 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log(collision.gameObject.name);
+        if (collision.transform.tag == "Environment")
+        {
+            Destroy(gameObject);
+
+        }
+        if (counter)
+        {
+            if (collision.transform.tag == "Enemy")
+            {
+
+                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage();
+                Destroy(gameObject);
+            }
+        }
+        if (collision.transform.tag == "Player")
+        {
+
+            // Reflect();
+            // Destroy(collision.gameObject);
+            //    Debug.Log("Player hit");
+        }
+
+
+        // Destroy(this.gameObject);
+
+        if (collision.transform.tag == "Player")
+        {
+            if (collision.gameObject.GetComponent<PlayerControls>().block)
+            {
+                Reflect();
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }
