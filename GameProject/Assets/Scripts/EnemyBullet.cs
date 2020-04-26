@@ -9,18 +9,19 @@ public class EnemyBullet : MonoBehaviour
     // public LayerMask layer;
     public Color color;
     public UnityEngine.Experimental.Rendering.Universal.Light2D lt;
-    Rigidbody2D rb;
+    public float speed;
+    public Vector2 dir;
     
 
     private void Start()
     {
         lt = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-        rb = GetComponent<Rigidbody2D>();
+      
         
     }
     private void Update()
     {
-        
+        transform.Translate(dir*Time.deltaTime*speed);
     }
     public void ChangeLayer()
     {
@@ -32,7 +33,8 @@ public class EnemyBullet : MonoBehaviour
     }
     public void Reflect()
     {
-        rb.velocity *= -1;
+        // rb.velocity *= -1;
+        dir *= -1;
         ChangeColor();
         ChangeLayer();
         counter = true;
@@ -55,19 +57,14 @@ public class EnemyBullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (collision.transform.tag == "Player")
-        {
-            
-         // Reflect();
-            // Destroy(collision.gameObject);
-        //    Debug.Log("Player hit");
-        }
+      
 
 
         // Destroy(this.gameObject);
 
         if (collision.transform.tag == "Player")
         {
+            
             if (collision.gameObject.GetComponent<PlayerControls>().block)
             {
                 Reflect();

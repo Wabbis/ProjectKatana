@@ -80,6 +80,20 @@ public class ChargingEnemy : MonoBehaviour
 
 
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+
+            if (!collision.gameObject.GetComponent<PlayerControls>().block)
+            {
+             
+            
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+    }
 
     void Patrol()
     {

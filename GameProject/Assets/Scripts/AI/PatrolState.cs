@@ -13,6 +13,9 @@ public class PatrolState : BaseState
     private Vector2 nextLocation;
     private float speed = 5f;
 
+    int delay = 5;
+    int delayLeft;
+
     public PatrolState(RangedEnemy rangedEnemy, GameObject[] waypoints) : base(rangedEnemy.gameObject)
     {
         _rangedEnemy = rangedEnemy;
@@ -23,6 +26,8 @@ public class PatrolState : BaseState
 
     public override Type Tick()
     {
+     
+
         if (_rangedEnemy._target)
         {
             if (!_rangedEnemy.CheckObstacles(_rangedEnemy._target))
@@ -48,6 +53,18 @@ public class PatrolState : BaseState
             _rangedEnemy.transform.rotation = Quaternion.Euler(0, 180, 0);
         
         _rangedEnemy.eyes.transform.rotation = _rangedEnemy.transform.rotation;
+
+        //palauttaa silmän reunalta paluun jälkeen
+        if (!_rangedEnemy.eyes.activeInHierarchy)
+        {
+            delayLeft--;
+            if (delayLeft < 0)
+            {
+                _rangedEnemy.eyes.SetActive(true);
+                delayLeft = delay;
+            }
+
+        }
 
         return null;
     }

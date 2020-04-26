@@ -7,6 +7,8 @@ public class RangedEnemy : MonoBehaviour
 {
     public bool patrolling;
     public bool melee;
+    public bool turning; //jos tosi, paikallaan oleva vihollinen kääntyy tasaisinväliajoin
+    public Vector2 startPos;
 
     public GameObject[] waypoints;
     public GameObject _target { get; private set; }
@@ -15,20 +17,25 @@ public class RangedEnemy : MonoBehaviour
     public float _rayDistance = 7f;
     public float chaseSpeed;
     public LayerMask enemyLayers;
+    public float turnInterval=5f;
 
+    public GameObject edgeCheck;
     public GameObject eyes;
     public Transform meleeAttackPoint;
     public GameObject gunRotator;
     public GameObject bulletSpawn;
     public GameObject bullet;
-    public float bulletSpeed;
 
-   // public float firstShot= 0.1f;
+    public float bulletSpeed;
+    public float firstMelee=0.5f;
+    public float meleeCD=1;
+   public float firstShot= 0.1f;
     public float reloadTime= 1;
 
     
     private void Awake()
     {
+        startPos = transform.position;
         InitStateMachine();
         Debug.Log("Enemy woken");
     }
@@ -89,8 +96,10 @@ public class RangedEnemy : MonoBehaviour
     public void Shoot()
     {
         GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
-        Destroy(newBullet, 5);
+        newBullet.GetComponent<EnemyBullet>().dir = (bulletSpawn.transform.position - gunRotator.transform.position);
+     //   newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
+
+        Destroy(newBullet, 10);
 
     }
     public void Hit()

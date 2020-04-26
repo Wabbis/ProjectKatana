@@ -16,6 +16,30 @@ public class ChaseState : BaseState
 
     public override Type Tick()
     {
+        //vihollinen ei seuraa pelaajaa alas tasanteilta
+        RaycastHit2D hit = Physics2D.Linecast(_rangedEnemy.transform.position, _rangedEnemy.edgeCheck.transform.position, 13,0,0);
+       if(hit)
+            Debug.Log(hit.transform.name);
+        if (!hit)
+        {
+
+          //  _rangedEnemy.eyes.SetActive(false);
+            Debug.Log("reunalla");
+            if (_rangedEnemy.patrolling)
+            {
+                return typeof(PatrolState);
+            }
+            else
+            {
+                return typeof(WatchState);
+            }
+
+
+        }
+     
+
+            
+
         if (!_rangedEnemy._target || _rangedEnemy.CheckObstacles(_rangedEnemy._target))
         {
             // Make enemy to wait for few seconds before going back to patrol - Wait Function doesnt work yet.

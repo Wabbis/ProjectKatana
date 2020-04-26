@@ -26,11 +26,11 @@ public class AttackState : BaseState
             {
                 return typeof(WatchState);
             }
-            
+
         }
 
         float distance = Vector2.Distance(transform.position, _rangedEnemy._target.transform.position);
-        
+
         if (_rangedEnemy.melee && distance > _rangedEnemy.meleeAttackRange)
         {
             return typeof(ChaseState);
@@ -63,17 +63,37 @@ public class AttackState : BaseState
             {
                 return typeof(WatchState);
             }
-            
+
         }
 
-        _attackCooldown -= Time.deltaTime;
+        // _attackCooldown -= Time.deltaTime;
+        if (_rangedEnemy.melee)
+        {
+            _rangedEnemy.firstMelee -= Time.deltaTime;
+            if (_rangedEnemy.firstMelee < 0)
+            {
+                _rangedEnemy.Attack(_rangedEnemy._target);
+                _rangedEnemy.firstMelee = _rangedEnemy.meleeCD;
+            }
+        }
+        else
+        {
+            _rangedEnemy.firstShot -= Time.deltaTime;
+            if (_rangedEnemy.firstShot < 0)
+            { 
+                _rangedEnemy.Attack(_rangedEnemy._target);
+            _rangedEnemy.firstShot = _rangedEnemy.reloadTime;
 
-        if (_attackCooldown <= 0f)
+                
+            }
+        }
+
+        /*if (_attackCooldown <= 0f)
         {
            // Debug.Log("ATTACK!");
             _rangedEnemy.Attack(_rangedEnemy._target);
             _attackCooldown = _rangedEnemy.reloadTime;
-        }
+        }*/
 
 
         return null;
