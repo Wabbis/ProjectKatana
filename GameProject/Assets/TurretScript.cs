@@ -39,16 +39,22 @@ public class TurretScript : MonoBehaviour
                 // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                 GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
                 //Debug.Log(bulletSpawn.transform.rotation.z);
-                newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right * -1;
+
+                newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized*bulletSpeed*0.1f;
+
+             //   newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right * -1;
                 //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
                 Destroy(newBullet, 5);
                 yield return new WaitForSeconds(1f / rateOfFire);
             }
             else if(gameObject.transform.rotation.y == 0 && gameObject.transform.position.x < player.transform.position.x)
             {
-                GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
+                GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
+                // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                 //Debug.Log(bulletSpawn.transform.rotation.z);
-                newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right;
+              //  newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right;
+                newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized * bulletSpeed * 0.1f;
+
                 //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
                 Destroy(newBullet, 5);
                 yield return new WaitForSeconds(1f / rateOfFire);
