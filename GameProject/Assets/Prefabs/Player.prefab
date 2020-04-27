@@ -179,14 +179,18 @@ MonoBehaviour:
   headCheckRadius: 0.84
   grounded: 0
   canCrouch: 0
+  block: 0
   maxJumps: 2
   playerSpeed: 10
   jumpForce: 20
+  dashForce: 20
   airDragMultiplier: 1
   canAttack: 0
+  canCounter: 0
   attackRange: 1
   attackDamage: 5
   attackCooldown: 0.3
+  counterCooldown: 1
 --- !u!50 &3900125597651210857
 Rigidbody2D:
   serializedVersion: 4

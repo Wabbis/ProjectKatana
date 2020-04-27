@@ -95,7 +95,7 @@ public class PlayerControls : MonoBehaviour
         {
             counterTemp = true;
         }
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire2"))
         {
             block = true;
             Debug.Log("Blocking");
@@ -212,6 +212,8 @@ public class PlayerControls : MonoBehaviour
         animator.SetTrigger("Counter");
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
+
+        StartCoroutine(Cooldown(counterCooldown));
     }
 
     //Resets temporary variables
@@ -271,9 +273,16 @@ public class PlayerControls : MonoBehaviour
     
     public IEnumerator Cooldown(float duration)
     {
-        
         yield return new WaitForSeconds(duration);
-        canAttack = true;
+        if(duration == attackCooldown)
+        {
+            canAttack = true;
+        }
+        else if(duration == counterCooldown)
+        {
+            canCounter = true;
+        }
+        
     }
 
 
