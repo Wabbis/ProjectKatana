@@ -66,3 +66,6 @@ crashlytics-build.properties
 GameProject/Assets/Animation/GhostTest.meta
 GameProject/.collabignore
 GameProject/ProjectSettings/UnityConnectSettings.asset
+GameProject/ProjectSettings/UnityConnectSettings.asset
+GameProject/ProjectSettings/ProjectSettings.asset
+GameProject/ProjectSettings/UnityConnectSettings.asset
