@@ -16,8 +16,9 @@ public class ChaseState : BaseState
 
     public override Type Tick()
     {
+        int layerMask = 1 << 13;
         //vihollinen ei seuraa pelaajaa alas tasanteilta
-        RaycastHit2D hit = Physics2D.Linecast(_rangedEnemy.transform.position, _rangedEnemy.edgeCheck.transform.position, 13,0,0);
+        RaycastHit2D hit = Physics2D.Linecast(_rangedEnemy.transform.position, _rangedEnemy.edgeCheck.transform.position,layerMask);
        if(hit)
             Debug.Log(hit.transform.name);
         if (!hit)

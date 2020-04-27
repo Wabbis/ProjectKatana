@@ -34,13 +34,14 @@ public class WatchState : BaseState
         {
             if (transform.position.x > _rangedEnemy.startPos.x)
             {
-                transform.rotation = Quaternion.Euler(0, -180, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
-
+            _rangedEnemy.eyes.transform.rotation = transform.rotation;
             transform.position = Vector2.MoveTowards(transform.position, _rangedEnemy.startPos, 5f * Time.deltaTime);
         }
         else if (_rangedEnemy.turning)
@@ -64,7 +65,7 @@ public class WatchState : BaseState
 
 
         //palauttaa silmän reunalta paluun jälkeen
-        if (!_rangedEnemy.eyes.activeInHierarchy)
+     /*   if (!_rangedEnemy.eyes.activeInHierarchy)
         {
             delayLeft--;
             if (delayLeft < 0)
@@ -73,7 +74,7 @@ public class WatchState : BaseState
                 delayLeft = delay;
             }
                 
-        }
+        }*/
 
         return null;
     }
