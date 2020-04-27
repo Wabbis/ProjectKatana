@@ -187,7 +187,7 @@ MonoBehaviour:
   airDragMultiplier: 1
   canAttack: 0
   canCounter: 0
-  attackRange: 1
+  attackRange: 1.65
   attackDamage: 5
   attackCooldown: 0.3
   counterCooldown: 1
