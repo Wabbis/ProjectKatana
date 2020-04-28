@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour {
 	public Sprite portrait1;
     public Sprite portrait2;
 
+    public GameObject player;
+
 
     //public Animator animator;
 
@@ -34,8 +36,8 @@ public class DialogueManager : MonoBehaviour {
 	private int vaiht2;
 	private int vaiht3;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 		sentences = new Queue<string>();
 		choicesArray  = new string[3];
@@ -43,11 +45,16 @@ public class DialogueManager : MonoBehaviour {
 		button1.onClick.AddListener(() => StartNext1());
 		button2.onClick.AddListener(() => StartNext2());
 		button3.onClick.AddListener(() => StartNext3());
+        PlayerControls sn = player.GetComponent<PlayerControls>();
+        
 	}
 
 	public void StartDialogue (Dialogue dialogue)
 	{
-		vaiht1 = dialogue.vaiht1;
+        Debug.Log("hasControl = false");
+        PlayerControls sn = player.GetComponent<PlayerControls>();
+        sn.hasControl = false;
+        vaiht1 = dialogue.vaiht1;
 		vaiht2 = dialogue.vaiht2;
 		vaiht3 = dialogue.vaiht3;
 		string name = dialogue.name;
@@ -146,7 +153,6 @@ public class DialogueManager : MonoBehaviour {
 	{
         if(canCont == true) {
             canCont = false;
-		    Debug.Log("Kirjoitan");
 		    dialogueText.text = "";
 		    foreach (char letter in sentence.ToCharArray())
 		    {
@@ -159,9 +165,12 @@ public class DialogueManager : MonoBehaviour {
 
 	void EndDialogue()
 	{
-		Debug.Log("End");
+        Debug.Log("hasControl = true");
+        PlayerControls sn = player.GetComponent<PlayerControls>();
+        Debug.Log("End");
 		dialogueBox.SetActive(false);
-	}
+        sn.hasControl = true;
+    }
 
 	void Update(){
 		if (Input.GetButtonDown("Jump"))

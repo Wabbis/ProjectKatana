@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 281285148}
   - component: {fileID: 281285147}
   - component: {fileID: 281285146}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grid
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   portrait: {fileID: 1636410588}
   portrait1: {fileID: 21300000, guid: f9702e3ed028a854f83318ecf1a35729, type: 3}
   portrait2: {fileID: 21300000, guid: 278b877607d6b9f49965371fb459afce, type: 3}
+  player: {fileID: 1193800430}
 --- !u!4 &347209788
 Transform:
   m_ObjectHideFlags: 0
@@ -4234,7 +4235,7 @@ GameObject:
   - component: {fileID: 928069189}
   - component: {fileID: 928069188}
   - component: {fileID: 928069187}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5251,7 +5252,7 @@ GameObject:
   - component: {fileID: 934055299}
   - component: {fileID: 934055298}
   - component: {fileID: 934055297}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Floor Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6623,6 +6624,12 @@ MonoBehaviour:
   - {x: 0.42341125, y: -0.09791434, z: 0}
   - {x: 0.02631259, y: -0.102252364, z: 0}
   - {x: -0.13691807, y: -0.10094595, z: 0}
+--- !u!1 &1193800430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3900125597651210861, guid: 157bc71de23042b4e8bf1369e19a6e71,
+    type: 3}
+  m_PrefabInstance: {fileID: 114885951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1278973868
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,7 +7060,7 @@ GameObject:
   - component: {fileID: 1734474711}
   - component: {fileID: 1734474710}
   - component: {fileID: 1734474709}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grid (1)
   m_TagString: Environment
   m_Icon: {fileID: 0}
