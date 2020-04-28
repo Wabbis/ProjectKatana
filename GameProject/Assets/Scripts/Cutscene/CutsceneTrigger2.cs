@@ -5,6 +5,7 @@ using UnityEngine;
 public class CutsceneTrigger2 : MonoBehaviour
 {
     public GameObject cutscene;
+    public GameObject cameraLight;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,9 @@ public class CutsceneTrigger2 : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             cutscene.SetActive(true);
+
+            if(cameraLight != null)
+                cameraLight.SetActive(true);
             gameObject.SetActive(false);
         }
     }
