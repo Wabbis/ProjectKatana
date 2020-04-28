@@ -20,6 +20,8 @@ public class ChargingEnemy : MonoBehaviour
     public Image indicator;
     public float explosionSize=5;
 
+    public float rayLength;
+
     private void Start()
     {
         layermask2 = (LayerMask.GetMask("Player"));
@@ -34,7 +36,7 @@ public class ChargingEnemy : MonoBehaviour
         if (!charging)
         {
             Patrol();
-            hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), Mathf.Infinity, layermask2);
+            hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), rayLength, layermask2);
             if (hit)
             {
                 charging = true;
@@ -44,7 +46,7 @@ public class ChargingEnemy : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 1000, Color.white);
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * rayLength, Color.white);
 
             }
         }
