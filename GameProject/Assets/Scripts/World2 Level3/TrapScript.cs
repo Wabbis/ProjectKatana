@@ -17,10 +17,14 @@ public class TrapScript : MonoBehaviour
 
     public bool playerOutOfRoom;
 
+    public GameObject gameManagerObject;
+    public GameManager gameManagerScript;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManagerObject = GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
+        gameManagerScript = gameManagerObject.GetComponent<GameManager>();
     }
 
     private void Update()
@@ -37,8 +41,10 @@ public class TrapScript : MonoBehaviour
         }
         if((trapActive && elapsedTime >= trapTime) || playerOutOfRoom == true)
         {
-            Destroy(turret1);
-            Destroy(turret2);
+            turret1.GetComponent<Animator>().SetTrigger("Die");
+            turret2.GetComponent<Animator>().SetTrigger("Die");
+            //Destroy(turret1);
+            //Destroy(turret2);
         }
 
     }
@@ -64,5 +70,10 @@ public class TrapScript : MonoBehaviour
         trapActive = true;
         yield return null;
 
+    }
+
+    public void EndLevel()
+    {
+        gameManagerScript.LoadNextScene();
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3673067400835110323}
   - component: {fileID: 4279236023268215930}
   - component: {fileID: 3278225748829794291}
+  - component: {fileID: -1622390977973228131}
   m_Layer: 15
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 2
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000002da94180
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -168,3 +169,24 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!50 &-1622390977973228131
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3673067400835110325}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

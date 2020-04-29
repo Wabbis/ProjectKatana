@@ -116,4 +116,12 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: StopShooting
+    data: 
+    objectReferenceParameter: {fileID: 100000, guid: b00339ad5a95a9d48839663e9b75e897,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

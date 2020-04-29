@@ -9,8 +9,10 @@ public class DeathPlaceHolder : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D col)
     {
-        
-        Debug.Log("Ded");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Ded");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

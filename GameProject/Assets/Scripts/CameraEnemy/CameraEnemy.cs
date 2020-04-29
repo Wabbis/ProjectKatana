@@ -151,13 +151,31 @@ public class CameraEnemy : MonoBehaviour
 
         while (true)
         {
-            Vector3 dir = player.transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion to = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
+            if(player != null)
+            {
+                Vector3 dir = player.transform.position - transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                Quaternion to = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * 5f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, to, Time.deltaTime * 5f);
+            }
+            else
+            {
+                warningState = false;
+                alarmState = false;
+
+                spriteRenderer.sprite = viewConeSafeSprite;
+                cameraLight.color = safeColor;
+                cameraLight.intensity = 0.5f;
+
+                StartCoroutine(LerpViewConeSize(originalSize));
+                yield return new WaitForSeconds(0.5f);
+                LeanTween.resume(tweenID);
+                yield break;
+            }
 
             yield return null;
+
         }
 
         //while(alarmState)

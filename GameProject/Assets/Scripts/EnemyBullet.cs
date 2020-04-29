@@ -42,10 +42,10 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject.name);
+       // Debug.Log(collision.gameObject.name);
         if (collision.transform.tag == "Environment")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
 
         }
         if (counter)
@@ -80,10 +80,10 @@ public class EnemyBullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.gameObject.name);
+      //  Debug.Log(collision.gameObject.name);
         if (collision.transform.tag == "Environment")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
 
         }
         if (counter)
