@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     public int debugFontSize;
     public bool canScore;
     public int sceneIndex;
-
+    public GameObject pauseMenu;
+    private bool paused = false;
     // Scoring
 
     public float levelScore;
@@ -37,9 +38,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         saveAndLoad = GetComponent<SaveAndLoad>();
 
-        canScore = true;
+        canScore = false;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         LoadSavedHighscore();
         FindPlayer();
@@ -59,6 +61,34 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
             showDebugInfo = !showDebugInfo;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Älä lataa pausemenua mainmenussa
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+
+            }
+            else
+            {
+                if (!paused)
+                { 
+                    paused = true;
+                    pauseMenu.SetActive(true);
+                }
+                else
+                { 
+                    paused = false;
+                    pauseMenu.SetActive(false);
+                }
+            }
+        }
+
+    }
+
+    public void LoadLevel(int index)
+    {
+
     }
 
     public void FindPlayer()
@@ -80,11 +110,11 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
 
-        if (levelScore >= savedHighscore)
+        /*if (levelScore >= savedHighscore)
         {
             saveAndLoad.highScores[sceneIndex] = levelScore;
         }
-
+        */
         SceneManager.UnloadSceneAsync(sceneIndex);
         SceneManager.LoadSceneAsync(sceneIndex + 1);
 
@@ -112,6 +142,8 @@ public class GameManager : MonoBehaviour
 
         saveAndLoad.Save();
     }
+
+    
 
     public void OnGUI()
     {

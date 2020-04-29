@@ -56,14 +56,7 @@ public class MainMenu : MonoBehaviour
         {
             levelButtons[s].interactable = true;
         }
-    }
-
-    void LoadLevel(int l)
-    {
-        Debug.Log("button " + l);
-        //SceneManager.LoadScene(l);
-    }
- 
+    } 
     void OpenLevels()
     {
         menuPanel.gameObject.SetActive(false);
