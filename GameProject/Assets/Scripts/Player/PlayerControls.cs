@@ -255,7 +255,8 @@ public class PlayerControls : MonoBehaviour
                         Debug.Log("Hit: " + enemy.name);
 
 
-                        //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
+                    //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
+                    enemy.GetComponent<EnemyHealth>().Die();
                         
 
 

@@ -15,6 +15,8 @@ public class TrapScript : MonoBehaviour
     public float elapsedTime;
     public float trapTime;
 
+    public bool playerOutOfRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +35,18 @@ public class TrapScript : MonoBehaviour
 
             elapsedTime += Time.deltaTime;
         }
-        else if(trapActive && elapsedTime >= trapTime)
+        if((trapActive && elapsedTime >= trapTime) || playerOutOfRoom == true)
         {
             Destroy(turret1);
             Destroy(turret2);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            playerOutOfRoom = true;
     }
 
     public void Activate()
