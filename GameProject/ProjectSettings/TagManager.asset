@@ -11,6 +11,7 @@ TagManager:
   - Camera
   - Timeline
   - EnemyBullet
+  - GameManagement
   layers:
   - Default
   - TransparentFX

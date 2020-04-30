@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
-{
+{   
+    // Ehkä turha
     public bool hasControl = true;
 
+    public GameObject gm; 
     public GameObject player;
     public Animator animator;
     public Rigidbody2D playerRB;
@@ -53,13 +55,16 @@ public class PlayerControls : MonoBehaviour
     private bool isCrouching = false;
 
     //Getter and Setter for player controls
-    public bool GetControl() { return hasControl; }
-    public void SetControl(bool state) { hasControl = state; }
+    public bool GetControl() { return gm.GetComponent<GameManager>().acceptPlayerInput; }
+    public void SetControl(bool state) 
+    { gm.GetComponent<GameManager>().acceptPlayerInput = state; }
 
 
 
     private void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManagement");
+        gm.GetComponent<GameManager>().player = gameObject;
         canAttack = true;
         canCounter = true;
         block = false;
@@ -69,7 +74,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
-        if (hasControl)
+        if (gm.GetComponent<GameManager>().acceptPlayerInput)
         {
             Controls();
         }
@@ -152,6 +157,13 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+
+    public void takeDamage()
+    {
+        
+    }
+
+
     /*
     -----------------------------------------------
     |                                             |
@@ -225,7 +237,6 @@ public class PlayerControls : MonoBehaviour
         attackTemp = false;
         counterTemp = false;
     }
-
 
     /*
    -----------------------------------------------
