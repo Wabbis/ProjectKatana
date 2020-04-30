@@ -31,7 +31,7 @@ public class DoorScript : MonoBehaviour
         {
             StartCoroutine(OpenDoor());
             mysteeriMies.GetComponent<Animator>().SetBool("Despawn", true);
-            Destroy(mysteeriMies, 2f);
+            Destroy(mysteeriMies, 1.4f);
             chargingEnemy.SetActive(true);
         }
     }
