@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
         for(int i =firstLevelIndex;i<(firstLevelIndex+numberOfLevels);i++)
         {
             int t = i;
-            levelButtons[t].onClick.AddListener(()=>LoadLevel(t));
+            //levelButtons[t].onClick.AddListener(()=>LoadLevel(t));
         }
 
 

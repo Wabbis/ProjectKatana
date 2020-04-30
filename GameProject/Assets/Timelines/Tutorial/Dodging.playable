@@ -434,10 +434,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 20
+    m_Start: 7
     m_ClipIn: 0
     m_Asset: {fileID: -8987474813755304498}
-    m_Duration: 1.0000000000000018
+    m_Duration: 14
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6057352912453211269}
     m_EaseInDuration: 0
@@ -1700,7 +1700,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 7
-        value: {x: 31.949997, y: 0, z: 0}
+        value: {x: 34.339996, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1709,7 +1709,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 17
-        value: {x: 31.949997, y: 0, z: 0}
+        value: {x: 34.339996, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1791,7 +1791,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 7
-        value: 31.949997
+        value: 34.339996
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1800,7 +1800,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 17
-        value: 31.949997
+        value: 34.339996
         inSlope: 0
         outSlope: 0
         tangentMode: 136
