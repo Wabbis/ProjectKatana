@@ -27,7 +27,7 @@ public class Level4Script : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 50), "Components collected: " + componentsCollected + "/3");
+        //GUI.Label(new Rect(10, 10, 100, 50), "Components collected: " + componentsCollected + "/3");
     }
 
     public void AddComponent(int number)

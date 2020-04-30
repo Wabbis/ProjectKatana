@@ -3861,12 +3861,12 @@ PrefabInstance:
     - target: {fileID: 6241597938671221846, guid: 2ce202f1347b012489fa424c9e95b9cc,
         type: 3}
       propertyPath: angle
-      value: 160
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6241597938671221846, guid: 2ce202f1347b012489fa424c9e95b9cc,
         type: 3}
       propertyPath: stopTimer
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6241597938671221846, guid: 2ce202f1347b012489fa424c9e95b9cc,
         type: 3}
@@ -3876,7 +3876,12 @@ PrefabInstance:
     - target: {fileID: 6241597938671221846, guid: 2ce202f1347b012489fa424c9e95b9cc,
         type: 3}
       propertyPath: rotationTime
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241597938671221846, guid: 2ce202f1347b012489fa424c9e95b9cc,
+        type: 3}
+      propertyPath: safetyTimer
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce202f1347b012489fa424c9e95b9cc, type: 3}
@@ -22587,6 +22592,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4c0ce7dfc874f5a43b4f7c4948cb7493, type: 2}
     - {fileID: 11400000, guid: 886fd63590f4a9844ba286b479850ce6, type: 2}
     - {fileID: 11400000, guid: 864d26ae2b6ba6647905fb9c9216b373, type: 2}
+    - {fileID: 11400000, guid: e54bf7503b07e654fab2f1db83d4b978, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -22678,6 +22684,30 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 1435043023}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
               UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 512559297}
+          m_MethodName: SetControl
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1769619850}
+          m_MethodName: setActiveCutsceneBool
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

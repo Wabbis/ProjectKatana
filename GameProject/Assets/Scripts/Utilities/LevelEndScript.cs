@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LevelEndScript : MonoBehaviour
 {
+    public bool fadeToBlack;
+    public GameObject fadeToBlackGameObject;
     public GameObject gameManagerObject;
     public GameManager gameManagerScript;
 
@@ -18,6 +20,21 @@ public class LevelEndScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision is CapsuleCollider2D)
-            gameManagerScript.LoadNextScene();
+        {
+            if(fadeToBlack)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
+                fadeToBlackGameObject.SetActive(true);
+            }
+            else
+            {
+                LoadNextLevel();
+            }
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        gameManagerScript.LoadNextScene();
     }
 }
