@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Right click
+  m_text: 'Left click
 
     Attack'
   m_isRightToLeft: 0

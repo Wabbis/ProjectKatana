@@ -8,7 +8,7 @@ public class UseComputer : MonoBehaviour
     public bool canHack = false;
     public bool dwindle = true;
     public bool activate = false;
-
+    public bool cutsceneStarted;
     public Slider hackBar;
 
     public float value = 0;
@@ -69,10 +69,12 @@ public class UseComputer : MonoBehaviour
         {
             lightRed.SetActive(false);
             lightGreen.SetActive(true);
+            //placeHolderThing.SetActive(false);
+
             //start cutscene
-            placeHolderThing.SetActive(false);
-            if(placeHolderThing2 != null)
+            if (placeHolderThing2 != null && !cutsceneStarted)
             {
+                cutsceneStarted = true;
                 placeHolderThing2.SetActive(true);
             }
         }
