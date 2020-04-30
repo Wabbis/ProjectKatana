@@ -9,7 +9,12 @@ public class NextLevelTrigger : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNextLevel();
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
