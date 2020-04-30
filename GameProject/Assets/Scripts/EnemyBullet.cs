@@ -11,12 +11,13 @@ public class EnemyBullet : MonoBehaviour
     public UnityEngine.Experimental.Rendering.Universal.Light2D lt;
     public float speed;
     public Vector2 dir;
+    public GameObject gameManager;
     
 
     private void Start()
     {
         lt = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-      
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         
     }
     private void Update()
@@ -114,7 +115,7 @@ public class EnemyBullet : MonoBehaviour
             }
             else
             {
-                Destroy(collision.gameObject);
+                collision.GetComponent<PlayerControls>().takeDamage();
                 Destroy(gameObject);
             }
         }

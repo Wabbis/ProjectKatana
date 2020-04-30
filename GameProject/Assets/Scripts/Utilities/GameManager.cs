@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
-
+    public bool acceptPlayerInput = true;
     public bool showDebugInfo;
     public Font debugFont;
     public int debugFontSize;
@@ -38,14 +38,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         saveAndLoad = GetComponent<SaveAndLoad>();
 
         canScore = false;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         LoadSavedHighscore();
-        FindPlayer();
-
+        if (player == null)
+        {
+            FindPlayer();
+        }
         debugStyle = new GUIStyle();
         debugStyle.font = debugFont;
         debugStyle.fontSize = debugFontSize;
@@ -58,38 +59,32 @@ public class GameManager : MonoBehaviour
         // Väliaikainen aikaan perustuva pisteytys
         if (canScore)
             levelScore += Time.deltaTime * 10;
-
+        // Inputs
+        
         if (Input.GetKeyDown(KeyCode.F1))
             showDebugInfo = !showDebugInfo;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (acceptPlayerInput)
         {
-            // Älä lataa pausemenua mainmenussa
-            if (SceneManager.GetActiveScene().buildIndex == 1)
-            {
-
-            }
-            else
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (!paused)
-                { 
+                {
                     paused = true;
                     pauseMenu.SetActive(true);
+                    Time.timeScale = 0;
                 }
                 else
-                { 
+                {
                     paused = false;
                     pauseMenu.SetActive(false);
+                    Time.timeScale = 1;
                 }
             }
         }
 
     }
 
-    public void LoadLevel(int index)
-    {
-
-    }
 
     public void FindPlayer()
     {
@@ -143,6 +138,10 @@ public class GameManager : MonoBehaviour
         saveAndLoad.Save();
     }
 
+    public void PlayerDied()
+    {
+
+    }
     
 
     public void OnGUI()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,14 +23,17 @@ public class MainMenu : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject exitPanel;
     public GameObject buttons;
+    public GameObject MenuFirstButton, OptionsFirstButton, OptionBackButton, LevelBackButton, ExitBackButton;
     public Button[] levelButtons;
-
     public int firstLevelIndex;
     public int numberOfLevels;
 
     // Start is called before the first frame update
     void Start()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(MenuFirstButton);
+
         levelButtons = buttons.GetComponentsInChildren<Button>();
         optionsButton.onClick.AddListener(OpenOptions);
         closeOptionsButton.onClick.AddListener(CloseOptions);
@@ -57,38 +61,51 @@ public class MainMenu : MonoBehaviour
             levelButtons[s].interactable = true;
         }
     } 
-    void OpenLevels()
+    public void OpenLevels()
     {
+        
         menuPanel.gameObject.SetActive(false);
         levelPanel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(LevelBackButton);
     }
-    void CloseLevels()
+    public void CloseLevels()
     {
         menuPanel.gameObject.SetActive(true);
         levelPanel.gameObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(MenuFirstButton);
     }
   
-    void OpenOptions()
+    public void OpenOptions()
     {
         menuPanel.gameObject.SetActive(false);
         optionsPanel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(OptionBackButton);
     }
-    void CloseOptions()
+    public void CloseOptions()
     {
         menuPanel.gameObject.SetActive(true);
         optionsPanel.gameObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(MenuFirstButton);
     }
-    void ExitGame()
+    public void ExitGame()
     {
         menuPanel.gameObject.SetActive(false);
         exitPanel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ExitBackButton);
     }
-    void CancelExit()
+    public void CancelExit()
     {
         menuPanel.gameObject.SetActive(true);
         exitPanel.gameObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(MenuFirstButton);
     }
-    void ConfirmExit()
+    public void ConfirmExit()
     {
         Application.Quit();
     }

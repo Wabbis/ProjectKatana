@@ -3,27 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UIButton : MonoBehaviour, IPointerEnterHandler
 {
-
-    Vector3 cachedScale;
-    public float expandScale;
-
-    void Start()
-    {
-
-        cachedScale = transform.localScale;
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-
-        transform.localScale = new Vector3(expandScale, expandScale, expandScale);
+        EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-
-        transform.localScale = cachedScale;
-    }
 }
