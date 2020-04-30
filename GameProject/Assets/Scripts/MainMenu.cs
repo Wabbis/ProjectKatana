@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     public Button cancelExitButton;
     public Button continueButton;
     public Button closeLevels;
+    public Button startGame;
 
     public GameObject menuPanel;
     public GameObject levelPanel;
@@ -33,7 +34,6 @@ public class MainMenu : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(MenuFirstButton);
-
         levelButtons = buttons.GetComponentsInChildren<Button>();
         optionsButton.onClick.AddListener(OpenOptions);
         closeOptionsButton.onClick.AddListener(CloseOptions);
@@ -60,10 +60,15 @@ public class MainMenu : MonoBehaviour
         {
             levelButtons[s].interactable = true;
         }
-    } 
+    }
+
+    public void StartGame()
+    {
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(2);
+    }
+
     public void OpenLevels()
     {
-        
         menuPanel.gameObject.SetActive(false);
         levelPanel.gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
