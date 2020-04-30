@@ -5,11 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public bool fadeToBlack;
+    public GameObject fadeToBlackGameObject;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
-            LoadNextLevel();
+            if (fadeToBlack)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
+                fadeToBlackGameObject.SetActive(true);
+            }
+            else
+            {
+                LoadNextLevel();
+            }
         }
     }
 
