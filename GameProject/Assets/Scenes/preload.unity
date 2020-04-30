@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 60645019}
   - component: {fileID: 60645018}
   - component: {fileID: 60645020}
+  - component: {fileID: 60645021}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: GameManagement
@@ -190,6 +191,19 @@ MonoBehaviour:
   savedHighscore: 0
   deaths: 0
   levelTime: 0
+--- !u!114 &60645021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60645017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b13c2dae4b50d4eb7402e3124b9b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topLevel: 0
 --- !u!1 &106324665
 GameObject:
   m_ObjectHideFlags: 0
