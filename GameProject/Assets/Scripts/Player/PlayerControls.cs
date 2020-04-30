@@ -69,6 +69,7 @@ public class PlayerControls : MonoBehaviour
         canCounter = true;
         block = false;
         jumpsLeft = maxJumps;
+        SetControl(true);
     }
 
 

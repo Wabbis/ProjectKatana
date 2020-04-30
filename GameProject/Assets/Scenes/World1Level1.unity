@@ -107010,6 +107010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level End
       objectReference: {fileID: 0}
+    - target: {fileID: 4677586392035293891, guid: 820ea7556839be64499a1bf341d556d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4677586392035293892, guid: 820ea7556839be64499a1bf341d556d9,
         type: 3}
       propertyPath: m_Offset.x

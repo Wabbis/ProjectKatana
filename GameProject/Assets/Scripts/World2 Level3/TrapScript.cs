@@ -8,6 +8,9 @@ public class TrapScript : MonoBehaviour
     public GameObject turret2;
     public GameObject door;
 
+    public GameObject gameplayCamera;
+    public GameObject trapCamera;
+
     public bool trapActive;
     public float waitTime;
     public bool tweaning;
@@ -43,21 +46,22 @@ public class TrapScript : MonoBehaviour
         {
             turret1.GetComponent<Animator>().SetTrigger("Die");
             turret2.GetComponent<Animator>().SetTrigger("Die");
+            gameplayCamera.SetActive(true);
+            trapCamera.SetActive(false);
             //Destroy(turret1);
             //Destroy(turret2);
         }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-            playerOutOfRoom = true;
-    }
-
     public void Activate()
     {
         StartCoroutine(ActivateTrap());
+    }
+
+    public void PlayerOutOfRoom()
+    {
+        playerOutOfRoom = true;
     }
 
     public IEnumerator ActivateTrap()
