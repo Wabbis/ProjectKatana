@@ -46,8 +46,7 @@ public class TrapScript : MonoBehaviour
         {
             turret1.GetComponent<Animator>().SetTrigger("Die");
             turret2.GetComponent<Animator>().SetTrigger("Die");
-            gameplayCamera.SetActive(true);
-            trapCamera.SetActive(false);
+            StartCoroutine(SwitchCameras());
             //Destroy(turret1);
             //Destroy(turret2);
         }
@@ -74,6 +73,14 @@ public class TrapScript : MonoBehaviour
         trapActive = true;
         yield return null;
 
+    }
+
+    public IEnumerator SwitchCameras()
+    {
+        yield return new WaitForSeconds(2f);
+        gameplayCamera.SetActive(true);
+        trapCamera.SetActive(false);
+        yield return null;
     }
 
     public void EndLevel()
