@@ -39,7 +39,7 @@ public class BossPlatform : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetKey("s"))
+            if (Input.GetButton("Down"))
             {
 
                 gameObject.layer = 2;
