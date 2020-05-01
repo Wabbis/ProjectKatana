@@ -34,7 +34,6 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
     }
-    
 
     public void SetQuality(int qualityIndex)
     {

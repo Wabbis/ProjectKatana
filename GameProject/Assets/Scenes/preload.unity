@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 60645020}
   - component: {fileID: 60645021}
   - component: {fileID: 60645022}
+  - component: {fileID: 60645023}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: GameManagement
@@ -633,18 +634,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  acceptPlayerInput: 0
-  showDebugInfo: 0
-  debugFont: {fileID: 0}
-  debugFontSize: 0
-  canScore: 0
-  sceneIndex: 0
   pauseMenu: {fileID: 106324665}
+  acceptPlayerInput: 0
+  sceneIndex: 0
+  canScore: 0
   paused: 0
-  levelScore: 0
-  savedHighscore: 0
-  deaths: 0
-  levelTime: 0
 --- !u!114 &60645021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,9 +666,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScore: 0
-  savedHighscore: 0
-  deaths: 0
   levelTime: 0
+  showDebugInfo: 0
+  debugFont: {fileID: 12800000, guid: e6302e5bd13d8d94cb849e26ff1e6bbc, type: 3}
+  debugFontSize: 15
+--- !u!114 &60645023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60645017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964356d2cc0e8084d8b684c93cce0f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}
 --- !u!1 &106324665
 GameObject:
   m_ObjectHideFlags: 0

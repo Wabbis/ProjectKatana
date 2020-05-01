@@ -112,6 +112,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ConfirmExit()
     {
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
         Application.Quit();
     }
 }

@@ -5566,8 +5566,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5da3c2c0e96f2468b81228197eddce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetGroup: {fileID: -371475299744411652, guid: f00bedc7218b89b479a138a6ec99d388,
+    type: 2}
+  soundManager: {fileID: 0}
   mixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}
-  target: MusicVol
   slider: {fileID: 1081000052}
 --- !u!114 &1081000054
 MonoBehaviour:
@@ -10576,8 +10578,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5da3c2c0e96f2468b81228197eddce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetGroup: {fileID: -1006214871702121541, guid: f00bedc7218b89b479a138a6ec99d388,
+    type: 2}
+  soundManager: {fileID: 0}
   mixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}
-  target: SoundVol
   slider: {fileID: 2046507406}
 --- !u!114 &2046507408
 MonoBehaviour:

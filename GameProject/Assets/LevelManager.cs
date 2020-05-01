@@ -7,21 +7,21 @@ public class LevelManager : MonoBehaviour
 {
     public int topLevel;
     public int currentLevel;
+    private int deaths;
 
     private void OnLevelWasLoaded(int level)
     {
+        deaths = 0;
         if (topLevel < level)
         {
             topLevel = SceneManager.GetSceneByBuildIndex(level).buildIndex;
         }
 
-        if(level == 1)
+        if (level == 1)
         {
-            GetComponent<GameManager>().acceptPlayerInput = false; 
+            GetComponent<GameManager>().acceptPlayerInput = false;
         }
-
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        
     }
 
     public void LoadLevel(int index)
