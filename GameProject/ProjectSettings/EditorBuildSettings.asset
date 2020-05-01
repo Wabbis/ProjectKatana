@@ -9,10 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/preload.unity
     guid: 623174adbad3be04baadf483be8e2765
   - enabled: 1
+    path: Assets/Scenes/World2Level3.unity
+    guid: 9bdab5913daaef34e8a37f51c4e488cf
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 0e0491da5c0260c4fa362acdd79d6afe
   - enabled: 1
-    path: Assets/Scenes/tutoriaLevel.unity
+    path: Assets/Scenes/TutorialLevel.unity
     guid: 92121de89ed5c634997c891a91734fe5
   - enabled: 1
     path: Assets/Scenes/World1Level1.unity
@@ -26,7 +29,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/world2level1.unity
     guid: 59e6523380c76cf4bb77bd60059024b0
-  - enabled: 1
-    path: Assets/Scenes/World2Level3.unity
-    guid: 9bdab5913daaef34e8a37f51c4e488cf
   m_configObjects: {}
