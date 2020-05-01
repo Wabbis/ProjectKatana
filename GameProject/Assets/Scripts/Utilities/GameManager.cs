@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public bool canScore;
     public int sceneIndex;
     public GameObject pauseMenu;
-    private bool paused = false;
+    public bool paused = false;
     // Scoring
 
     public float levelScore;
@@ -56,11 +56,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Väliaikainen aikaan perustuva pisteytys
-        if (canScore)
-            levelScore += Time.deltaTime * 10;
         // Inputs
-        
         if (Input.GetKeyDown(KeyCode.F1))
             showDebugInfo = !showDebugInfo;
 
@@ -78,9 +74,11 @@ public class GameManager : MonoBehaviour
                 {
                     paused = false;
                     pauseMenu.SetActive(false);
+
                     Time.timeScale = 1;
                 }
             }
+
         }
 
     }
