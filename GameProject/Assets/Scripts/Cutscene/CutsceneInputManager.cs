@@ -41,7 +41,7 @@ public class CutsceneInputManager : MonoBehaviour
                 skipTimer = 0;
             }
 
-            if (Input.anyKeyDown && waitingForSkipInput)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 SkipCutscene();
 

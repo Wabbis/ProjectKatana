@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void CancelExit()
     {
         exitPanel.SetActive(false);
-        optionsPanel.SetActive(true);
+        pausePanel.SetActive(true);
     }
 
     public void ConfirmExit()
