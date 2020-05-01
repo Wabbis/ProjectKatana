@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class StartingCutsceneInputManager : MonoBehaviour
 {
@@ -14,12 +15,10 @@ public class StartingCutsceneInputManager : MonoBehaviour
     public float skipTimerMax;
 
     public PlayableDirector timeline;
-    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         waitingForSkipInput = false;
     }
 
@@ -59,7 +58,7 @@ public class StartingCutsceneInputManager : MonoBehaviour
         waitingForSkipInput = false;
         skipTimer = 0;
 
-        gameManager.LoadNextScene();
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
 
         //timeline.time = 31.33;
         //timeline.Evaluate();

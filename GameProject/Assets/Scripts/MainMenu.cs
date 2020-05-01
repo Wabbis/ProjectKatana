@@ -64,7 +64,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(2);
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
     }
 
     public void OpenLevels()

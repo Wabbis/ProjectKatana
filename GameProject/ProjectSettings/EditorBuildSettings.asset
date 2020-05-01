@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/preload.unity
     guid: 623174adbad3be04baadf483be8e2765
   - enabled: 1
-    path: Assets/Scenes/World2Level3.unity
-    guid: 9bdab5913daaef34e8a37f51c4e488cf
+    path: Assets/Scenes/StartingCutscene.unity
+    guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 0e0491da5c0260c4fa362acdd79d6afe
@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/world2level1.unity
     guid: 59e6523380c76cf4bb77bd60059024b0
+  - enabled: 1
+    path: Assets/Scenes/Testit/World2SceneWIP.unity
+    guid: 4d6f0f29053b42b42b645ee16e682b0d
+  - enabled: 1
+    path: Assets/Scenes/World2Level3.unity
+    guid: 9bdab5913daaef34e8a37f51c4e488cf
   m_configObjects: {}
