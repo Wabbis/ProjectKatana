@@ -14,22 +14,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
-    public bool acceptPlayerInput = true;
-    public bool showDebugInfo;
-    public Font debugFont;
-    public int debugFontSize;
-    public bool canScore;
-    public int sceneIndex;
     public GameObject pauseMenu;
+    public bool acceptPlayerInput = true;
+    public int sceneIndex;
+    public bool canScore;
+
     public bool paused = false;
-    // Scoring
-
-    public float levelScore;
-    public float savedHighscore;
-
-    public int deaths;
-    public int levelTime;
-
     private SaveAndLoad saveAndLoad;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
@@ -38,27 +28,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saveAndLoad = GetComponent<SaveAndLoad>();
-
-        canScore = false;
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        LoadSavedHighscore();
         if (player == null)
         {
             FindPlayer();
         }
-        debugStyle = new GUIStyle();
-        debugStyle.font = debugFont;
-        debugStyle.fontSize = debugFontSize;
-        debugStyle.normal.textColor = Color.white;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // Inputs
-        if (Input.GetKeyDown(KeyCode.F1))
-            showDebugInfo = !showDebugInfo;
 
         if (acceptPlayerInput)
         {
@@ -95,11 +76,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Scoring active: " + canScore);
     }
 
-    public void LoadSavedHighscore()
-    {
-        savedHighscore = saveAndLoad.highScores[sceneIndex];
-    }
-
     public void LoadNextScene()
     {
 
@@ -129,8 +105,6 @@ public class GameManager : MonoBehaviour
 
         sceneIndex++;
         saveAndLoad.currentLevelIndex = sceneIndex;
-
-        LoadSavedHighscore();
         FindPlayer();
 
         saveAndLoad.Save();
@@ -138,17 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-
+        
     }
     
-
-    public void OnGUI()
-    {
-        if (showDebugInfo)
-        {
-            GUI.Label(new Rect(10, 10, 100, 20), "Scene Index: " + sceneIndex, debugStyle);
-            GUI.Label(new Rect(10, 30, 100, 20), "Level Score: " + (int)levelScore, debugStyle);
-            GUI.Label(new Rect(10, 50, 100, 20), "Level Highscore: " + (int)savedHighscore, debugStyle);
-        }
-    }
 }

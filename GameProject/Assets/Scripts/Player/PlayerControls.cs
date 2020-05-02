@@ -268,7 +268,7 @@ public class PlayerControls : MonoBehaviour
 
 
                     //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
-                    enemy.GetComponent<EnemyHealth>().Die();
+                    enemy.GetComponent<EnemyHealth>().TakeDamage();
                         
 
 

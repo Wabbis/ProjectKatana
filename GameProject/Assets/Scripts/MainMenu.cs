@@ -32,6 +32,8 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;     // Pause valikosta poistuttaessa timescale jäi aikaisemmin arvoon 0
+
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(MenuFirstButton);
         levelButtons = buttons.GetComponentsInChildren<Button>();
@@ -64,7 +66,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(2);
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
     }
 
     public void OpenLevels()
@@ -112,6 +114,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ConfirmExit()
     {
+        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
         Application.Quit();
     }
 }

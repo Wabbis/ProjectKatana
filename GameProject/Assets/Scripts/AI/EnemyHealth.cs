@@ -5,15 +5,33 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
+    public bool Boss1;
 
     //tätä funktiota kutsutaan pelaajan hyökkäyksessä
     public void TakeDamage()
     {
-        health--;
-        if (health == 0)
+        if (Boss1)
         {
-            Die();
+            if (gameObject.GetComponent<Boss1>().vulnerable)
+            {
+                health--;
+                gameObject.GetComponent<Boss1>().TakeDamage();
+            }
+            if (health == 0)
+            {
+                Die();
+            }
         }
+        else
+        {
+            health--;
+
+            if (health == 0)
+            {
+                Die();
+            }
+        }
+  
     }
     public void Die()
     {
