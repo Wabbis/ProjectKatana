@@ -402,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 7514281149189798914, guid: 91fc23af2eee5a346a5e70c3856d0f76,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7514281149189798914, guid: 91fc23af2eee5a346a5e70c3856d0f76,
         type: 3}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 490041443}
   - component: {fileID: 490041445}
   - component: {fileID: 490041444}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1183324163}
   - component: {fileID: 1183324164}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,8 @@ GameObject:
   - component: {fileID: 1253083632}
   - component: {fileID: 1253083636}
   - component: {fileID: 1253083634}
-  m_Layer: 9
+  - component: {fileID: 1253083638}
+  m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1098,7 +1099,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1219,14 +1220,14 @@ MonoBehaviour:
     type: 3}
   shield: {fileID: 1183324162}
   indicator: {fileID: 490041444}
-  baseSpeed: 30
-  speed: 0
-  dashSlow: 20
-  dashes: 0
-  projectileSpeed: 2
+  animator: {fileID: 0}
+  speed: 30
+  dashes: 3
+  projectileSpeed: 5
+  dead: 0
   hit: 0
   vulnerable: 0
-  vulnerTimer: 5
+  vulnerTimer: 2
   timeLeft: 0
   left: 0
   health: 0
@@ -1265,6 +1266,25 @@ RectTransform:
   m_AnchoredPosition: {x: 4.38, y: -5.28}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1253083638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253083631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 080379ce103d20247a820260a5a33354, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1352821527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1437,7 @@ RectTransform:
   m_Children:
   - {fileID: 547689378}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2126,7 +2146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635267694
 GameObject:
@@ -2318,15 +2338,20 @@ PrefabInstance:
       propertyPath: attackCooldown
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3900125597651210862, guid: 157bc71de23042b4e8bf1369e19a6e71,
+        type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 513
+      objectReference: {fileID: 0}
     - target: {fileID: 3900125597651210863, guid: 157bc71de23042b4e8bf1369e19a6e71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9191194
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 3900125597651210863, guid: 157bc71de23042b4e8bf1369e19a6e71,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8086329
+      value: -5.37
       objectReference: {fileID: 0}
     - target: {fileID: 3900125597651210863, guid: 157bc71de23042b4e8bf1369e19a6e71,
         type: 3}
@@ -2803,7 +2828,7 @@ GameObject:
   - component: {fileID: 2019105786}
   - component: {fileID: 2019105785}
   - component: {fileID: 2019105784}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

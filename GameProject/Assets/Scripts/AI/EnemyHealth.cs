@@ -12,15 +12,28 @@ public class EnemyHealth : MonoBehaviour
     {
         if (Boss1)
         {
-            if (gameObject.GetComponent<Boss1>().vulnerable)
+            Boss1 boss = gameObject.GetComponent<Boss1>();
+            if (boss.vulnerable)
             {
                 health--;
-                gameObject.GetComponent<Boss1>().TakeDamage();
+                if (health == 0)
+                {
+                    boss.Die();
+                }
+                else
+                {
+                    boss.TakeDamage();
+                }
+                
             }
-            if (health == 0)
+            else
             {
-                Die();
+                Debug.Log("boss counter");
+                boss.Counter();
+                //kutsutaan pelaajan tappavaa funktioita
+                
             }
+         
         }
         else
         {
@@ -28,6 +41,7 @@ public class EnemyHealth : MonoBehaviour
 
             if (health == 0)
             {
+                //kutsutaan vihollisen omaa die funktiota
                 Die();
             }
         }

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
     public static AudioClip ALARM, ARENEMY, PISTOLENEMY, EXPLODE, BOSSSHOT, CHARGEUP, ELEVATORMOVE, ELEVATOROPEN, MELEESTAB, MENUHOVER, MENUSELECT, PICKUP, ROBOTAIM, ROBOTMOVE, SWITCH, TELEPORT;
     static AudioSource audioSrc;
+    public AudioMixer audioMixer;
 
     void Start()
     {
@@ -27,6 +29,12 @@ public class SoundManager : MonoBehaviour
         SWITCH = Resources.Load<AudioClip>("SWITCH");
 
         audioSrc = GetComponent<AudioSource>();
+    }
+
+    public void SetVolume(AudioMixerGroup targetGroup, float value)
+    {
+        audioMixer.SetFloat(targetGroup.name, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(targetGroup.name, value);
     }
 
     public static void PlaySound(string clip)

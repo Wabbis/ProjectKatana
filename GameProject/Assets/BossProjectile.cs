@@ -14,6 +14,6 @@ public class BossProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(dir);
+        transform.Translate(dir*Time.deltaTime);
     }
 }
