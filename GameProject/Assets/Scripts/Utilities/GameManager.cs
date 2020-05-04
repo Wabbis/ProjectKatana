@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public bool acceptPlayerInput = true;
     public int sceneIndex;
     public bool canScore;
-
     public bool paused = false;
     private SaveAndLoad saveAndLoad;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
@@ -28,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (player == null)
         {
             FindPlayer();
