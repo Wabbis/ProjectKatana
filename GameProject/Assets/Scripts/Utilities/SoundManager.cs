@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     static AudioSource audioSrc;
     public AudioMixer audioMixer;
 
+
     void Start()
     {
         ALARM = Resources.Load<AudioClip>("ALARM");

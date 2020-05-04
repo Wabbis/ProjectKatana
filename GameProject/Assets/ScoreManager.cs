@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
     {
         LoadScore();
 
-        gameManager = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<GameManager>();
+        gameManager = UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<GameManager>();
 
         // Debug 
         debugStyle = new GUIStyle();

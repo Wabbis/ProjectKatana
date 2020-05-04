@@ -26,7 +26,7 @@ public class TestingPunch : MonoBehaviour {
             Debug.Log("on complete move local X");
             }).setOnCompleteOnStart(true);
 
-            GameObject light = GameObject.Find("DirectionalLight");
+            GameObject light = UnityEngine.GameObject.Find("DirectionalLight");
             Light lt = light.GetComponent<Light>(); 
         
             LeanTween.value(lt.gameObject, lt.intensity, 0.0f, 1.5f)
@@ -102,7 +102,7 @@ public class TestingPunch : MonoBehaviour {
             LeanTween.color( this.gameObject, new Color(1f, 0f, 0f, 0.5f), 1f);
 
             Color to = new Color(Random.Range(0f,1f),0f,Random.Range(0f,1f),0.0f);
-            GameObject l = GameObject.Find("LCharacter");
+            GameObject l = UnityEngine.GameObject.Find("LCharacter");
             LeanTween.color( l, to, 4.0f ).setLoopPingPong(1).setEase(LeanTweenType.easeOutBounce);
         }
 
@@ -128,7 +128,7 @@ public class TestingPunch : MonoBehaviour {
                 transform.position = new Vector3(val.x, transform.position.y, transform.position.z);
             }, new Vector2(0f,0f), new Vector2(5f,100f), 1f ).setEase(LeanTweenType.easeOutBounce);
 
-            GameObject l = GameObject.Find("LCharacter");
+            GameObject l = UnityEngine.GameObject.Find("LCharacter");
             Debug.Log("x:"+l.transform.position.x+" y:"+l.transform.position.y);
             LeanTween.value(l, new Vector2( l.transform.position.x, l.transform.position.y), new Vector2( l.transform.position.x, l.transform.position.y+5), 1f ).setOnUpdate( 
             (Vector2 val)=>{
@@ -141,7 +141,7 @@ public class TestingPunch : MonoBehaviour {
         }
 	}
 
-    static void tweenStatically( GameObject gameObject ){
+    static void tweenStatically(GameObject gameObject ){
         Debug.Log("Starting to tween...");
         LeanTween.value(gameObject, (val)=>{
             Debug.Log("tweening val:"+val);
@@ -155,7 +155,7 @@ public class TestingPunch : MonoBehaviour {
     }
 
     void updateColor( Color c ){
-        GameObject l = GameObject.Find("LCharacter");
+        GameObject l = UnityEngine.GameObject.Find("LCharacter");
         // Debug.Log("new col:"+c);
         l.GetComponent<Renderer>().material.color = c;
     }
@@ -166,7 +166,7 @@ public class TestingPunch : MonoBehaviour {
     }
 
     void destroyOnComp( object p ){
-      GameObject g = (GameObject)p;
+        GameObject g = (GameObject)p;
       Destroy( g );
     }
 

@@ -638,6 +638,7 @@ MonoBehaviour:
   acceptPlayerInput: 0
   sceneIndex: 0
   canScore: 0
+  levelscompleted: 0000000000000000
   paused: 0
 --- !u!114 &60645021
 MonoBehaviour:
@@ -679,7 +680,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 60645017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964356d2cc0e8084d8b684c93cce0f70, type: 3}
+  m_Script: {fileID: 11500000, guid: bb8e6647d0eee8f4d8e553053fab8690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}

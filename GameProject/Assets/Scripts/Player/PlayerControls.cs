@@ -100,8 +100,10 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             counterTemp = true;
+            block = true;
+
         }
-        if (Input.GetButton("Fire2"))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             block = true;
             Debug.Log("Blocking");
@@ -159,9 +161,9 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-    public void takeDamage()
+    public void Die()
     {
-        
+        Destroy(gameObject);
     }
 
 

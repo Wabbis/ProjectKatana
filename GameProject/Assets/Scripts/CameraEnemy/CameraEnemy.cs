@@ -41,7 +41,7 @@ public class CameraEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = UnityEngine.GameObject.FindGameObjectWithTag("Player");
         cameraLight = GetComponentInChildren<Light2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -242,5 +242,12 @@ public class CameraEnemy : MonoBehaviour
     {
         warningState = false;
         alarmState = false;
+
+        spriteRenderer.sprite = viewConeSafeSprite;
+        cameraLight.color = safeColor;
+        cameraLight.intensity = 0.5f;
+
+        StartCoroutine(LerpViewConeSize(originalSize));
+        LeanTween.resume(tweenID);
     }
 }

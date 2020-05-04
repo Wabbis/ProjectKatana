@@ -17,7 +17,7 @@ public class TurretScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = UnityEngine.GameObject.FindGameObjectWithTag("Player");
 
         if (shootOnSpawn)
             StartCoroutine(ShootOnSpawn());

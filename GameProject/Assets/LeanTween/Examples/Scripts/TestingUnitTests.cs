@@ -34,7 +34,7 @@ namespace DentedPixel.LTExamples
 
         void Awake()
         {
-            boxNoCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            boxNoCollider = UnityEngine.GameObject.CreatePrimitive(PrimitiveType.Cube);
             Destroy(boxNoCollider.GetComponent(typeof(BoxCollider)) as Component);
         }
 

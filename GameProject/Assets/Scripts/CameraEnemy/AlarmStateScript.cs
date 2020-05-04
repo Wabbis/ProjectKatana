@@ -53,7 +53,7 @@ public class AlarmStateScript : MonoBehaviour
         {
             enemy.GetComponent<StateMachine>().Alert();
             enemy.GetComponentInChildren<LineOfSight>().enabled = false;
-            enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
+            enemy.SetTarget(UnityEngine.GameObject.FindGameObjectWithTag("Player"));
         }
     }
 }
