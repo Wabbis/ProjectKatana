@@ -242,5 +242,12 @@ public class CameraEnemy : MonoBehaviour
     {
         warningState = false;
         alarmState = false;
+
+        spriteRenderer.sprite = viewConeSafeSprite;
+        cameraLight.color = safeColor;
+        cameraLight.intensity = 0.5f;
+
+        StartCoroutine(LerpViewConeSize(originalSize));
+        LeanTween.resume(tweenID);
     }
 }
