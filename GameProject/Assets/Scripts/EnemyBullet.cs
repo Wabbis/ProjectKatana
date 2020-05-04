@@ -115,7 +115,7 @@ public class EnemyBullet : MonoBehaviour
             }
             else
             {
-                collision.GetComponent<PlayerControls>().takeDamage();
+                collision.GetComponent<PlayerControls>().Die();
                 Destroy(gameObject);
             }
         }

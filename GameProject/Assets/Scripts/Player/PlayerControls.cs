@@ -159,7 +159,7 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-    public void takeDamage()
+    public void Die()
     {
         
     }
