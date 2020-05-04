@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Push : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Push : MonoBehaviour
     public int speed = 3;
     public int counter = 0;
     public GameObject palikka;
+    public GameObject viewcone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class Push : MonoBehaviour
         if(push == true) {
             counter++;
             palikka.transform.Translate(Vector3.left * Time.deltaTime * speed);
-            if(counter > 120)
+            if(counter > 60)
             {
                 push = false;
                 counter = 0;
@@ -35,10 +38,12 @@ public class Push : MonoBehaviour
         {
             counter++;
             palikka.transform.Translate(Vector3.right * Time.deltaTime * speed);
-            if (counter > 120)
+            if (counter > 60)
             {
                 back = false;
                 counter = 0;
+                viewcone.GetComponent<SpriteRenderer>().enabled = false;
+                viewcone.GetComponentInChildren<Light2D>().enabled = false;
 
             }
         }
