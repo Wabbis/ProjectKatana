@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void FindPlayer()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = UnityEngine.GameObject.FindGameObjectWithTag("Player");
     }
 
     public void ScoringActive(bool value)

@@ -59,13 +59,13 @@ public class DialogueManager : MonoBehaviour {
 		vaiht3 = dialogue.vaiht3;
 		string name = dialogue.name;
 		if(name == "Ucco"){
-			portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait1;
+			portrait.GetComponent<Image>().sprite = portrait1;
 		}
         if (name == "Mysteerimies")
         {
-            portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait2;
+            portrait.GetComponent<Image>().sprite = portrait2;
         }
-        npc = GameObject.Find(name);
+        npc = UnityEngine.GameObject.Find(name);
 		kaapo = npc.GetComponent<DialogueNext>();
 		
 		
@@ -115,7 +115,7 @@ public class DialogueManager : MonoBehaviour {
     }
 	public void DisplayChoices (){
 
-        portrait.GetComponent<UnityEngine.UI.Image>().sprite = portrait1;
+        portrait.GetComponent<Image>().sprite = portrait1;
         nameText.text = "[  ]";
         choicesBox.SetActive(true);
 		//string choice1 = choices.Dequeue();

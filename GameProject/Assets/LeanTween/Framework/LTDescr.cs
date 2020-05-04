@@ -85,7 +85,7 @@ public class LTDescr
 	public UnityEngine.UI.Text uiText;
 	public UnityEngine.UI.Image uiImage;
 	public UnityEngine.UI.RawImage rawImage;
-	public UnityEngine.Sprite[] sprites;
+	public Sprite[] sprites;
 #endif
 
     // Convenience Getters
@@ -105,8 +105,8 @@ public class LTDescr
 
 	}
 
-	[System.Obsolete("Use 'LeanTween.cancel( id )' instead")]
-	public LTDescr cancel( GameObject gameObject ){
+	[Obsolete("Use 'LeanTween.cancel( id )' instead")]
+	public LTDescr cancel(GameObject gameObject ){
 		// Debug.Log("canceling id:"+this._id+" this.uniqueId:"+this.uniqueId+" go:"+this.trans.gameObject);
 		if(gameObject==this.trans.gameObject)
 			LeanTween.removeTween((int)this._id, this.uniqueId);
@@ -2230,7 +2230,7 @@ public class LTDescr
 		return this;
 	}
 
-	public LTDescr setSprites( UnityEngine.Sprite[] sprites ){
+	public LTDescr setSprites(Sprite[] sprites ){
 		this.sprites = sprites;
 		return this;
 	}

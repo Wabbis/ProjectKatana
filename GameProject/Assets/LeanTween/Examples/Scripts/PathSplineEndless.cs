@@ -70,8 +70,8 @@ public class PathSplineEndless : MonoBehaviour {
 		}
 	}
 
-	// Simple object queuing system
-	GameObject objectQueue( GameObject[] arr, ref int lastIter ){
+    // Simple object queuing system
+    GameObject objectQueue(GameObject[] arr, ref int lastIter ){
 		lastIter = lastIter>=arr.Length-1 ? 0 : lastIter+1;
 		
 		// Reset scale and rotation for a new animation
@@ -86,12 +86,12 @@ public class PathSplineEndless : MonoBehaviour {
 
 		Vector3 randomInFrontPosition = new Vector3( (randX-0.5f)*20f, 0f, zIter*40f);
 
-		// placing the box is just to visualize how the paths get created
-		GameObject box = objectQueue( cubes, ref cubesIter ); 
+        // placing the box is just to visualize how the paths get created
+        GameObject box = objectQueue(cubes, ref cubesIter); 
 		box.transform.position = randomInFrontPosition;
 
-		// Line the roads with trees
-		GameObject tree = objectQueue( trees, ref treesIter ); 
+        // Line the roads with trees
+        GameObject tree = objectQueue(trees, ref treesIter); 
 		float treeX = zIter%2==0 ? -15f : 15f;
 		tree.transform.position = new Vector3( randomInFrontPosition.x + treeX, 0f, zIter*40f);
 

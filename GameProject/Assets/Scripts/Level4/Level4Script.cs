@@ -14,8 +14,8 @@ public class Level4Script : MonoBehaviour
     void Start()
     {
         componentsCollected = 0;
-        
-        gameManagerObject = GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        gameManagerObject = UnityEngine.GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
         gameManagerScript = gameManagerObject.GetComponent<GameManager>();
     }
 

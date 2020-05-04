@@ -11,13 +11,13 @@ public class EnemyBullet : MonoBehaviour
     public UnityEngine.Experimental.Rendering.Universal.Light2D lt;
     public float speed;
     public Vector2 dir;
-    public GameObject gameManager;
+    public GameManager gameManager;
     
 
     private void Start()
     {
         lt = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = FindObjectOfType<GameManager>();
         
     }
     private void Update()
@@ -34,18 +34,22 @@ public class EnemyBullet : MonoBehaviour
     }
     public void Reflect()
     {
-        // rb.velocity *= -1;
-        dir *= -1;
-        ChangeColor();
-        ChangeLayer();
-        counter = true;
-        Debug.Log("reflect");
+
+        if (!counter)
+        {
+            dir *= -1;
+            counter = true;
+            ChangeLayer();
+            Debug.Log("reflect");
+        }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       // Debug.Log(collision.gameObject.name);
+        
         if (collision.transform.tag == "Environment")
         {
+            Debug.Log("Hit a wall");
             Destroy(this.gameObject);
 
         }
@@ -53,25 +57,23 @@ public class EnemyBullet : MonoBehaviour
         {
             if (collision.transform.tag == "Enemy")
             {
-                
+                Debug.Log("Enemy Took Damage");
                 collision.gameObject.GetComponent<EnemyHealth>().TakeDamage();
                 Destroy(gameObject);
             }
         }
       
-
-
-        // Destroy(this.gameObject);
-
         if (collision.transform.tag == "Player")
         {
-            
+            Debug.Log("Bullet hit Player");
             if (collision.gameObject.GetComponent<PlayerControls>().block)
             {
                 Reflect();
+                Debug.Log("Reflected");
             }
             else
             {
+                Debug.Log("Player Died");
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
@@ -81,9 +83,10 @@ public class EnemyBullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-      //  Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);
         if (collision.transform.tag == "Environment")
         {
+            Debug.Log("Hit wall");
             Destroy(this.gameObject);
 
         }
@@ -91,30 +94,24 @@ public class EnemyBullet : MonoBehaviour
         {
             if (collision.transform.tag == "Enemy")
             {
-
+                Debug.Log("Enemy Took Damage");
                 collision.gameObject.GetComponent<EnemyHealth>().TakeDamage();
                 Destroy(gameObject);
             }
         }
-        if (collision.transform.tag == "Player")
-        {
 
-            // Reflect();
-            // Destroy(collision.gameObject);
-            //    Debug.Log("Player hit");
-        }
-
-
-        // Destroy(this.gameObject);
 
         if (collision.transform.tag == "Player")
         {
+            Debug.Log("Hit Player again");
             if (collision.gameObject.GetComponent<PlayerControls>().block)
             {
+                Debug.Log("Reflected");
                 Reflect();
             }
             else
             {
+                Debug.Log("Player died");
                 collision.GetComponent<PlayerControls>().Die();
                 Destroy(gameObject);
             }

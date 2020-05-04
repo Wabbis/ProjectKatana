@@ -13,7 +13,7 @@ public class LevelEndScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManagerObject = GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
+        gameManagerObject = UnityEngine.GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
         gameManagerScript = gameManagerObject.GetComponent<GameManager>();
     }
 
@@ -23,7 +23,7 @@ public class LevelEndScript : MonoBehaviour
         {
             if(fadeToBlack)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
+                UnityEngine.GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
                 fadeToBlackGameObject.SetActive(true);
             }
             else

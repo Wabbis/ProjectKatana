@@ -15,7 +15,7 @@ public class NextLevelTrigger : MonoBehaviour
         {
             if (fadeToBlack)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
+                UnityEngine.GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().SetControl(false);
                 fadeToBlackGameObject.SetActive(true);
             }
             else
@@ -27,6 +27,6 @@ public class NextLevelTrigger : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

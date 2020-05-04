@@ -12,8 +12,8 @@ public class PauseMenu : MonoBehaviour
 
    private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<GameManager>();
-        levelManager = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>();
+        gameManager = UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<GameManager>();
+        levelManager = UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>();
     }
 
     public void Continue()

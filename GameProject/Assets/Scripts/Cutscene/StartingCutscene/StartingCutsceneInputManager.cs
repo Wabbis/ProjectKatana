@@ -58,7 +58,7 @@ public class StartingCutsceneInputManager : MonoBehaviour
         waitingForSkipInput = false;
         skipTimer = 0;
 
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
 
         //timeline.time = 31.33;
         //timeline.Evaluate();

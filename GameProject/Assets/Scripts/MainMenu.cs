@@ -122,7 +122,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
     }
 
     public void OpenLevels()
@@ -171,7 +171,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ConfirmExit()
     {
-        GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
         Application.Quit();
     }
 

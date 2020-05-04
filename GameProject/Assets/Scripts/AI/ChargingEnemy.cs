@@ -68,7 +68,7 @@ public class ChargingEnemy : MonoBehaviour
                     if (exploding)
                     {
                         Destroy(indicator.gameObject);
-                        GameObject expl= Instantiate(explosion, transform.position, Quaternion.identity);
+                        GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity);
                         expl.transform.localScale = expl.transform.localScale * explosionSize;
                         transform.DetachChildren();
                         Destroy(gameObject);
