@@ -13,6 +13,8 @@ public class TurretScript : MonoBehaviour
     public float bulletSpeed;
     public GameObject bulletSpawn;
     private GameObject player;
+    public float dist;
+    public float range;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,9 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //lasketaan turretin ja pelaajan välinen etäisyys
+        dist = Mathf.Sqrt((player.transform.position.x - gameObject.transform.position.x) * (player.transform.position.x - gameObject.transform.position.x) +
+            (player.transform.position.y - gameObject.transform.position.y) * (player.transform.position.y - gameObject.transform.position.y));
         if (player != null)
             bulletSpawn.transform.right = player.transform.position - bulletSpawn.transform.position;
     }
@@ -38,7 +43,7 @@ public class TurretScript : MonoBehaviour
 
             if(player != null)
             {
-                if (gameObject.transform.rotation.y == 1 && gameObject.transform.position.x > player.transform.position.x)
+                if (gameObject.transform.rotation.y == 1 && gameObject.transform.position.x > player.transform.position.x && range > dist)
                 {
                     // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
