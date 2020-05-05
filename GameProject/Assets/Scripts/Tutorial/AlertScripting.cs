@@ -20,7 +20,7 @@ public class AlertScripting : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            if (child.tag == "Enemy")
+            if (child.tag == "Enemy" && child.GetComponent<EnemyHealth>().health == 1)
             {
                 enemies.Add(child.gameObject);
                 enemiesRemaining++;

@@ -172,6 +172,8 @@ MonoBehaviour:
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
   bulletSpeed: 20
   bulletSpawn: {fileID: 100002}
+  dist: 0
+  range: 0
 --- !u!114 &5641562852467947068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  Boss1: 0
+  Boss2: 0
+  normal: 0
+  turret: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

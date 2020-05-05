@@ -12,7 +12,13 @@ public class RooftopEnemy : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    private void Update()
+    {
+        if (gameObject.GetComponent<EnemyHealth>().health == 0 && movingDoorAnimation != null)
+            movingDoorAnimation.SetActive(true);
+    }
+
+        private void OnDestroy()
     {
         if (movingDoorAnimation != null)
             movingDoorAnimation.SetActive(true);
