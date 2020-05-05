@@ -24,6 +24,7 @@ public class PlayerControls : MonoBehaviour
     public float headCheckRadius = 0.84f;    //works well for scale 4 & 4
     public bool grounded;
     public bool canCrouch;
+    public bool canTakeDamage;
     public bool block;
     public int maxJumps;
     private int jumpsLeft;
@@ -68,6 +69,7 @@ public class PlayerControls : MonoBehaviour
         canAttack = true;
         canCounter = true;
         block = false;
+        canTakeDamage = true;
         jumpsLeft = maxJumps;
         SetControl(true);
     }
@@ -105,6 +107,10 @@ public class PlayerControls : MonoBehaviour
         {
             block = true;
             Debug.Log("Blocking");
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Die();
         }
         else
         {
@@ -161,7 +167,11 @@ public class PlayerControls : MonoBehaviour
 
     public void Die()
     {
-        
+        if (canTakeDamage)
+        {
+            SetControl(false);
+            animator.SetBool("IsDead", true);
+        }
     }
 
 
