@@ -69,7 +69,9 @@ public class UseComputer : MonoBehaviour
         {
             lightRed.SetActive(false);
             lightGreen.SetActive(true);
-            placeHolderThing.SetActive(false);
+
+            if(placeHolderThing != null)
+                placeHolderThing.SetActive(false);
 
             //start cutscene
             if (placeHolderThing2 != null && !cutsceneStarted)
