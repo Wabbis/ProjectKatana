@@ -25,16 +25,20 @@ public class RangedEnemy : MonoBehaviour
     public GameObject gunRotator;
     public GameObject bulletSpawn;
     public GameObject bullet;
-
-    public float bulletSpeed;
+    
+    public float bulletSpeed = 20;
     public float firstMelee=0.5f;
     public float meleeCD=1;
    public float firstShot= 0.1f;
     public float reloadTime= 1;
 
+    public Animator animator;
+    public bool dead;
+
     
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         startPos = transform.position;
         InitStateMachine();
         Debug.Log("Enemy woken");
@@ -80,6 +84,7 @@ public class RangedEnemy : MonoBehaviour
     public void Attack(GameObject target)
     {
         // Do attack stuff
+        animator.SetTrigger("Attack");
         if (!melee)
         {
             Shoot();
@@ -88,7 +93,7 @@ public class RangedEnemy : MonoBehaviour
         {
             Hit();
         }
-        
+       // animator.SetTrigger("Idle");
 
         //pelaajaa ei voi tuhota vielä tässä, koska ei voi tietää osuuko vihollinen
         //Destroy(target);
@@ -96,7 +101,7 @@ public class RangedEnemy : MonoBehaviour
     public void Shoot()
     {
         GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
-        newBullet.GetComponent<EnemyBullet>().dir = (bulletSpawn.transform.position - gunRotator.transform.position);
+        newBullet.GetComponent<EnemyBullet>().dir = (bulletSpawn.transform.position - gunRotator.transform.position)*bulletSpeed * 0.01f;
      //   newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
 
         Destroy(newBullet, 10);
@@ -108,7 +113,8 @@ public class RangedEnemy : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Hit: " + enemy.name);                               
+            Debug.Log("Hit: " + enemy.name);
+            enemy.GetComponent<PlayerControls>().Die();
 
 
         }
@@ -126,6 +132,14 @@ public class RangedEnemy : MonoBehaviour
         Debug.Log("waiting");
         yield return new WaitForSeconds(2);
         Debug.Log("done");
+    }
+
+    public void Die()
+    {
+        Debug.Log("died");
+        dead = true;
+        animator.SetTrigger("Die");
+        GetComponent<StateMachine>().enabled = false;
     }
 
     public bool CheckObstacles(GameObject target)

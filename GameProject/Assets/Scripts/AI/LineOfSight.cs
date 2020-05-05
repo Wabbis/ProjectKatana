@@ -11,6 +11,7 @@ public class LineOfSight : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
+            
             enemy.SetTarget(other.transform.gameObject);
           
         }

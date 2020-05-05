@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
-    public bool Boss1, Boss2;
+    public bool Boss1, Boss2,normal;
 
     //tätä funktiota kutsutaan pelaajan hyökkäyksessä
     public void TakeDamage()
@@ -47,19 +47,25 @@ public class EnemyHealth : MonoBehaviour
                 gameObject.GetComponent<Boss2>().Die();
             }
         }
-        else
+        /*ranged ja melee */
+        else if (normal)
         {
-            health--;
-
-            if (health <= 0)
+            RangedEnemy enemy = gameObject.GetComponent<RangedEnemy>();
+            if (!enemy.dead)
             {
-                //kutsutaan vihollisen omaa die funktiota
-                Die();
+                health--;
+
+                if (health <= 0)
+                {
+                    //kutsutaan vihollisen omaa die funktiota
+                    enemy.Die();
+                }
             }
+   
         }
-        }
-    public void Die()
+    }
+  /*  public void Die()
     {
         Destroy(gameObject);
-    }
+    }*/
 }

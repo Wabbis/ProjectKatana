@@ -20,10 +20,12 @@ public class AttackState : BaseState
         {
             if (_rangedEnemy.patrolling)
             {
+                _rangedEnemy.animator.SetTrigger("Walk");
                 return typeof(PatrolState);
             }
             else
             {
+                _rangedEnemy.animator.SetTrigger("Idle");
                 return typeof(WatchState);
             }
 
@@ -33,6 +35,7 @@ public class AttackState : BaseState
 
         if (_rangedEnemy.melee && distance > _rangedEnemy.meleeAttackRange)
         {
+            _rangedEnemy.animator.SetTrigger("Walk");
             return typeof(ChaseState);
         }
         //katsoo pelaajaa kohti
@@ -57,10 +60,12 @@ public class AttackState : BaseState
         {
             if (_rangedEnemy.patrolling)
             {
+                _rangedEnemy.animator.SetTrigger("Walk");
                 return typeof(PatrolState);
             }
             else
             {
+                _rangedEnemy.animator.SetTrigger("Idle");
                 return typeof(WatchState);
             }
 

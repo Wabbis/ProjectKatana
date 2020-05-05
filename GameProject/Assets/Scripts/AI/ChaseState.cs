@@ -11,11 +11,13 @@ public class ChaseState : BaseState
     public ChaseState(RangedEnemy rangedEnemy) : base(rangedEnemy.gameObject)
     {
         _rangedEnemy = rangedEnemy;
+       
     }
 
 
     public override Type Tick()
     {
+        _rangedEnemy.animator.SetTrigger("Walk");
         int layerMask = 1 << 13;
         //vihollinen ei seuraa pelaajaa alas tasanteilta
         RaycastHit2D hit = Physics2D.Linecast(_rangedEnemy.transform.position, _rangedEnemy.edgeCheck.transform.position,layerMask);

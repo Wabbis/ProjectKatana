@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2477,6 +2477,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chaseSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817093042492303809, guid: 6ab85b8a678435847b6c872b7573bbb8,
+        type: 3}
+      propertyPath: patrolling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817093042492303810, guid: 6ab85b8a678435847b6c872b7573bbb8,
         type: 3}
@@ -16237,6 +16242,11 @@ PrefabInstance:
       propertyPath: chaseSpeed
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1817093042492303809, guid: 6ab85b8a678435847b6c872b7573bbb8,
+        type: 3}
+      propertyPath: patrolling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1817093042492303810, guid: 6ab85b8a678435847b6c872b7573bbb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21745,6 +21755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chaseSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817093042492303809, guid: 6ab85b8a678435847b6c872b7573bbb8,
+        type: 3}
+      propertyPath: patrolling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817093042492303810, guid: 6ab85b8a678435847b6c872b7573bbb8,
         type: 3}
@@ -108759,6 +108774,7 @@ MonoBehaviour:
   health: 1
   Boss1: 0
   Boss2: 0
+  normal: 0
 --- !u!114 &5092001963575478052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108774,6 +108790,7 @@ MonoBehaviour:
   health: 1
   Boss1: 0
   Boss2: 0
+  normal: 0
 --- !u!114 &5092001964055840519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108789,6 +108806,7 @@ MonoBehaviour:
   health: 1
   Boss1: 0
   Boss2: 0
+  normal: 0
 --- !u!114 &5092001964120600564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108804,6 +108822,7 @@ MonoBehaviour:
   health: 1
   Boss1: 0
   Boss2: 0
+  normal: 0
 --- !u!114 &5092001964245681471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108819,6 +108838,7 @@ MonoBehaviour:
   health: 1
   Boss1: 0
   Boss2: 0
+  normal: 0
 --- !u!61 &6031887338677624053
 BoxCollider2D:
   m_ObjectHideFlags: 0

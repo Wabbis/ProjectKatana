@@ -21,6 +21,7 @@ public class PatrolState : BaseState
         _rangedEnemy = rangedEnemy;
         _waypoints = waypoints;
         nextWaypoint = waypoints[0];
+        _rangedEnemy.animator.SetTrigger("Walk");
     }
 
 
@@ -32,7 +33,10 @@ public class PatrolState : BaseState
         {
             if (!_rangedEnemy.CheckObstacles(_rangedEnemy._target))
             {
-                return typeof(ChaseState);
+                if (_rangedEnemy.melee)
+                    return typeof(ChaseState);
+                else
+                    return typeof(AttackState);
             }
         }
                

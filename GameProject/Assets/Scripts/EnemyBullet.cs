@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(dir*Time.deltaTime*speed);
+        transform.Translate(dir * Time.deltaTime * speed) ;
     }
     public void ChangeLayer()
     {
@@ -74,7 +74,8 @@ public class EnemyBullet : MonoBehaviour
             else
             {
                 Debug.Log("Player Died");
-                Destroy(collision.gameObject);
+                //   Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<PlayerControls>().Die();
                 Destroy(gameObject);
             }
         }

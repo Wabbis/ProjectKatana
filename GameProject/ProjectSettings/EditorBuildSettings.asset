@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/world2level1.unity
     guid: 59e6523380c76cf4bb77bd60059024b0
   - enabled: 1
-    path: Assets/Scenes/Testit/World2SceneWIP.unity
+    path: Assets/Scenes/World2Level2.unity
     guid: 4d6f0f29053b42b42b645ee16e682b0d
   - enabled: 1
     path: Assets/Scenes/World2Level3.unity

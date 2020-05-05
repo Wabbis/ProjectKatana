@@ -28,10 +28,12 @@ public class WatchState : BaseState
             }
         }
 
-
+        if (transform.position.x == _rangedEnemy.startPos.x)
+            _rangedEnemy.animator.SetTrigger("Idle");
 
         if (transform.position.x != _rangedEnemy.startPos.x)      
         {
+            _rangedEnemy.animator.SetTrigger("Walk");
             if (transform.position.x > _rangedEnemy.startPos.x)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -44,6 +46,7 @@ public class WatchState : BaseState
             _rangedEnemy.eyes.transform.rotation = transform.rotation;
             transform.position = Vector2.MoveTowards(transform.position, _rangedEnemy.startPos, 5f * Time.deltaTime);
         }
+       
         else if (_rangedEnemy.turning)
         {
             timeLeft -= Time.deltaTime;
