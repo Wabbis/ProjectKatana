@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 
-[System.Serializable]
+[Serializable]
 class PlayerData
 {
     public int currentLevelIndex;

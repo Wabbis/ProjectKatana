@@ -44,7 +44,7 @@ public class CameraEnemyHallway : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = UnityEngine.GameObject.FindGameObjectWithTag("Player");
         cameraLight = GetComponentInChildren<Light2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 

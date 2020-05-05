@@ -7,7 +7,7 @@ using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public TMPro.TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
 

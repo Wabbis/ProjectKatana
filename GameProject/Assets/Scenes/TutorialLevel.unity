@@ -12052,9 +12052,9 @@ GameObject:
   - component: {fileID: 574733953}
   - component: {fileID: 574733952}
   - component: {fileID: 574733957}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Door 1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27830,9 +27830,9 @@ GameObject:
   - component: {fileID: 1010921285}
   - component: {fileID: 1010921284}
   - component: {fileID: 1010921289}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Door 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

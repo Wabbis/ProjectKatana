@@ -26,7 +26,7 @@ public class TrapScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManagerObject = GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
+        gameManagerObject = UnityEngine.GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
         gameManagerScript = gameManagerObject.GetComponent<GameManager>();
     }
 

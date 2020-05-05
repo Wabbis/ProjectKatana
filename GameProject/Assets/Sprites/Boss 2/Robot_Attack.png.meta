@@ -1,0 +1,2048 @@
+fileFormatVersion: 2
+guid: 103e788682a431340a8fce21025bb940
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5428821208494654752
+    second: Robot_Attack_0
+  - first:
+      213: 2922502940317238822
+    second: Robot_Attack_1
+  - first:
+      213: -8456992576691636689
+    second: Robot_Attack_2
+  - first:
+      213: -6091399391006858673
+    second: Robot_Attack_3
+  - first:
+      213: 7918535814118159530
+    second: Robot_Attack_4
+  - first:
+      213: -1370761190205581045
+    second: Robot_Attack_5
+  - first:
+      213: 1855960750959905981
+    second: Robot_Attack_6
+  - first:
+      213: -5102051735368950049
+    second: Robot_Attack_7
+  - first:
+      213: -41914721477222937
+    second: Robot_Attack_8
+  - first:
+      213: -3494070117548669900
+    second: Robot_Attack_9
+  - first:
+      213: 6746656351615608046
+    second: Robot_Attack_10
+  - first:
+      213: 4091677555996478808
+    second: Robot_Attack_11
+  - first:
+      213: 8018598029837432752
+    second: Robot_Attack_12
+  - first:
+      213: 4584037288115203989
+    second: Robot_Attack_13
+  - first:
+      213: 4018371632361800073
+    second: Robot_Attack_14
+  - first:
+      213: 6650658951479595579
+    second: Robot_Attack_15
+  - first:
+      213: 8921996235885869166
+    second: Robot_Attack_16
+  - first:
+      213: 955226850205769874
+    second: Robot_Attack_17
+  - first:
+      213: 7755982300255952757
+    second: Robot_Attack_18
+  - first:
+      213: 1628077128552235693
+    second: Robot_Attack_19
+  - first:
+      213: -4711079989241786775
+    second: Robot_Attack_20
+  - first:
+      213: 1685875883638181616
+    second: Robot_Attack_21
+  - first:
+      213: -3050519805564553658
+    second: Robot_Attack_22
+  - first:
+      213: -8176728084882984806
+    second: Robot_Attack_23
+  - first:
+      213: 801360241558049958
+    second: Robot_Attack_24
+  - first:
+      213: -2035294894607343515
+    second: Robot_Attack_25
+  - first:
+      213: 4022664820103725699
+    second: Robot_Attack_26
+  - first:
+      213: 8192815831332630875
+    second: Robot_Attack_27
+  - first:
+      213: 827725222120756443
+    second: Robot_Attack_28
+  - first:
+      213: -3014405631133388145
+    second: Robot_Attack_29
+  - first:
+      213: 543439303618716900
+    second: Robot_Attack_30
+  - first:
+      213: 6519171107739402571
+    second: Robot_Attack_31
+  - first:
+      213: -6613592891567511776
+    second: Robot_Attack_32
+  - first:
+      213: 1080886004317585283
+    second: Robot_Attack_33
+  - first:
+      213: 7185435421600304159
+    second: Robot_Attack_34
+  - first:
+      213: 4181839138151370354
+    second: Robot_Attack_35
+  - first:
+      213: 4145619589207991853
+    second: Robot_Attack_36
+  - first:
+      213: -5034387022788854379
+    second: Robot_Attack_37
+  - first:
+      213: 6654406999691463736
+    second: Robot_Attack_38
+  - first:
+      213: -1878745172411121301
+    second: Robot_Attack_39
+  - first:
+      213: 9219869311783932191
+    second: Robot_Attack_40
+  - first:
+      213: 9136245397071586769
+    second: Robot_Attack_41
+  - first:
+      213: -6155799367853590383
+    second: Robot_Attack_42
+  - first:
+      213: 1748275797383351474
+    second: Robot_Attack_43
+  - first:
+      213: -8458193620455188665
+    second: Robot_Attack_44
+  - first:
+      213: -1070032595014922166
+    second: Robot_Attack_45
+  - first:
+      213: -4170572703819367668
+    second: Robot_Attack_46
+  - first:
+      213: 8047099638118939521
+    second: Robot_Attack_47
+  - first:
+      213: 2953142337346132744
+    second: Robot_Attack_48
+  - first:
+      213: -6009216121017579726
+    second: Robot_Attack_49
+  - first:
+      213: -7581205563303433745
+    second: Robot_Attack_50
+  - first:
+      213: 4897719278572437468
+    second: Robot_Attack_51
+  - first:
+      213: 960412648211167338
+    second: Robot_Attack_52
+  - first:
+      213: -5149569729141853353
+    second: Robot_Attack_53
+  - first:
+      213: 7559270921881087014
+    second: Robot_Attack_54
+  - first:
+      213: -6683008848101700616
+    second: Robot_Attack_55
+  - first:
+      213: -7441056950441529774
+    second: Robot_Attack_56
+  - first:
+      213: -2314671206615672728
+    second: Robot_Attack_57
+  - first:
+      213: -85422310284754903
+    second: Robot_Attack_58
+  - first:
+      213: -4889885790626785460
+    second: Robot_Attack_59
+  - first:
+      213: -2663952776073409059
+    second: Robot_Attack_60
+  - first:
+      213: -751209972297533063
+    second: Robot_Attack_61
+  - first:
+      213: 2620751867879374574
+    second: Robot_Attack_62
+  - first:
+      213: -5414556462297439648
+    second: Robot_Attack_63
+  - first:
+      213: 6906696704147666866
+    second: Robot_Attack_64
+  - first:
+      213: 5078524969606066858
+    second: Robot_Attack_65
+  - first:
+      213: -4564337849487468635
+    second: Robot_Attack_66
+  - first:
+      213: -5899761091723164326
+    second: Robot_Attack_67
+  - first:
+      213: -4983675269899810989
+    second: Robot_Attack_68
+  - first:
+      213: 8532109445775769245
+    second: Robot_Attack_69
+  - first:
+      213: 3997280389761650814
+    second: Robot_Attack_70
+  - first:
+      213: 5200350524015145301
+    second: Robot_Attack_71
+  - first:
+      213: -5914612022734109065
+    second: Robot_Attack_72
+  - first:
+      213: -1518509210942611485
+    second: Robot_Attack_73
+  - first:
+      213: 1949842270810593171
+    second: Robot_Attack_74
+  - first:
+      213: 6562151156264725836
+    second: Robot_Attack_75
+  - first:
+      213: -2212964303827180065
+    second: Robot_Attack_76
+  - first:
+      213: 4732566615548725862
+    second: Robot_Attack_77
+  - first:
+      213: 7865559712602069346
+    second: Robot_Attack_78
+  - first:
+      213: -1378231814240242319
+    second: Robot_Attack_79
+  - first:
+      213: -8218459934075028909
+    second: Robot_Attack_80
+  - first:
+      213: 7192875082437509066
+    second: Robot_Attack_81
+  - first:
+      213: -5789622427113512404
+    second: Robot_Attack_82
+  - first:
+      213: 5908288060008127186
+    second: Robot_Attack_83
+  - first:
+      213: -5191852245893498736
+    second: Robot_Attack_84
+  - first:
+      213: 7279423159967702192
+    second: Robot_Attack_85
+  - first:
+      213: 5987027724702828071
+    second: Robot_Attack_86
+  - first:
+      213: 1265347050802820624
+    second: Robot_Attack_87
+  - first:
+      213: -2512373026898801402
+    second: Robot_Attack_88
+  - first:
+      213: -4421642976358830082
+    second: Robot_Attack_89
+  - first:
+      213: -2049287084762124004
+    second: Robot_Attack_90
+  - first:
+      213: -68622518083585299
+    second: Robot_Attack_91
+  - first:
+      213: -904048249405138661
+    second: Robot_Attack_92
+  - first:
+      213: 4767587455485942002
+    second: Robot_Attack_93
+  - first:
+      213: 6094416129595321484
+    second: Robot_Attack_94
+  - first:
+      213: 6634952967111075307
+    second: Robot_Attack_95
+  - first:
+      213: -1186086231780084192
+    second: Robot_Attack_96
+  - first:
+      213: -7033796061971403449
+    second: Robot_Attack_97
+  - first:
+      213: -5088343267458809371
+    second: Robot_Attack_98
+  - first:
+      213: -1720517244277602812
+    second: Robot_Attack_99
+  - first:
+      213: 7579951306004291154
+    second: Robot_Attack_100
+  - first:
+      213: 6245730653564537194
+    second: Robot_Attack_101
+  - first:
+      213: -3005123147353704296
+    second: Robot_Attack_102
+  - first:
+      213: 837334732798028531
+    second: Robot_Attack_103
+  - first:
+      213: -1580766451991174091
+    second: Robot_Attack_104
+  - first:
+      213: -1421209337643397933
+    second: Robot_Attack_105
+  - first:
+      213: -6666308548447486527
+    second: Robot_Attack_106
+  - first:
+      213: 8187582064880438972
+    second: Robot_Attack_107
+  - first:
+      213: -4692207968104905839
+    second: Robot_Attack_108
+  - first:
+      213: 7861263423923924987
+    second: Robot_Attack_109
+  - first:
+      213: -1787392003835621300
+    second: Robot_Attack_110
+  - first:
+      213: 4718727294492192159
+    second: Robot_Attack_111
+  - first:
+      213: 9044166202077008213
+    second: Robot_Attack_112
+  - first:
+      213: 3674562485353938770
+    second: Robot_Attack_113
+  - first:
+      213: -2738951453597231870
+    second: Robot_Attack_114
+  - first:
+      213: 2828640382211076077
+    second: Robot_Attack_115
+  - first:
+      213: -2866001476493252049
+    second: Robot_Attack_116
+  - first:
+      213: -220822859615834439
+    second: Robot_Attack_117
+  - first:
+      213: 97881119053408699
+    second: Robot_Attack_118
+  - first:
+      213: -2116816554561297582
+    second: Robot_Attack_119
+  - first:
+      213: -2091277939365435042
+    second: Robot_Attack_120
+  - first:
+      213: -4519421167589049588
+    second: Robot_Attack_121
+  - first:
+      213: -4688153463886927403
+    second: Robot_Attack_122
+  - first:
+      213: 2842947080407703870
+    second: Robot_Attack_123
+  - first:
+      213: -4073251314729925010
+    second: Robot_Attack_124
+  - first:
+      213: -4476253733796241252
+    second: Robot_Attack_125
+  - first:
+      213: 1474764782751287631
+    second: Robot_Attack_126
+  - first:
+      213: 5587320668561016099
+    second: Robot_Attack_127
+  - first:
+      213: -5387218111447966022
+    second: Robot_Attack_128
+  - first:
+      213: 5090740929470830160
+    second: Robot_Attack_129
+  - first:
+      213: 2779560682798283906
+    second: Robot_Attack_130
+  - first:
+      213: -4435368776886131772
+    second: Robot_Attack_131
+  - first:
+      213: 1630771442208139745
+    second: Robot_Attack_132
+  - first:
+      213: -7077629455802071338
+    second: Robot_Attack_133
+  - first:
+      213: -1852548674382855848
+    second: Robot_Attack_134
+  - first:
+      213: 3135783988959509568
+    second: Robot_Attack_135
+  - first:
+      213: -7587751729020241487
+    second: Robot_Attack_136
+  - first:
+      213: -2557099759804437129
+    second: Robot_Attack_137
+  - first:
+      213: 6171435370574679579
+    second: Robot_Attack_138
+  - first:
+      213: -8004038416399674595
+    second: Robot_Attack_139
+  - first:
+      213: -76286944808459312
+    second: Robot_Attack_140
+  - first:
+      213: -3057477364695806272
+    second: Robot_Attack_141
+  - first:
+      213: 2084942713966096004
+    second: Robot_Attack_142
+  - first:
+      213: 5347697443266493533
+    second: Robot_Attack_143
+  - first:
+      213: 4564830881983396388
+    second: Robot_Attack_144
+  - first:
+      213: 5905708851542344499
+    second: Robot_Attack_145
+  - first:
+      213: -8681945507923286214
+    second: Robot_Attack_146
+  - first:
+      213: -6720904329275148999
+    second: Robot_Attack_147
+  - first:
+      213: 2936959941885568010
+    second: Robot_Attack_148
+  - first:
+      213: -6862613723959149891
+    second: Robot_Attack_149
+  - first:
+      213: 5215764405642473404
+    second: Robot_Attack_150
+  - first:
+      213: 2427077184664947621
+    second: Robot_Attack_151
+  - first:
+      213: 2673382362420598352
+    second: Robot_Attack_152
+  - first:
+      213: 4246063055282123426
+    second: Robot_Attack_153
+  - first:
+      213: 2290238873988010196
+    second: Robot_Attack_154
+  - first:
+      213: 5344942503022010955
+    second: Robot_Attack_155
+  - first:
+      213: -6516789386481122701
+    second: Robot_Attack_156
+  - first:
+      213: -1807611066869483570
+    second: Robot_Attack_157
+  - first:
+      213: -6240154605746402842
+    second: Robot_Attack_158
+  - first:
+      213: -7840141470535569513
+    second: Robot_Attack_159
+  - first:
+      213: -355411143075599228
+    second: Robot_Attack_160
+  - first:
+      213: -3988098279960806360
+    second: Robot_Attack_161
+  - first:
+      213: -4701150600915882789
+    second: Robot_Attack_162
+  - first:
+      213: -423627831139124
+    second: Robot_Attack_163
+  - first:
+      213: 8903580056646045750
+    second: Robot_Attack_164
+  - first:
+      213: -1984695137415161394
+    second: Robot_Attack_165
+  - first:
+      213: -2618077007247176270
+    second: Robot_Attack_166
+  - first:
+      213: 7598324327176686865
+    second: Robot_Attack_167
+  - first:
+      213: -1047498173754257995
+    second: Robot_Attack_168
+  - first:
+      213: 3735134775213235129
+    second: Robot_Attack_169
+  - first:
+      213: 7290344741245709362
+    second: Robot_Attack_170
+  - first:
+      213: 5824428308609058834
+    second: Robot_Attack_171
+  - first:
+      213: 5808295168104815625
+    second: Robot_Attack_172
+  - first:
+      213: 7140281411841256861
+    second: Robot_Attack_173
+  - first:
+      213: -7996857404155904436
+    second: Robot_Attack_174
+  - first:
+      213: 5847799446299575220
+    second: Robot_Attack_175
+  - first:
+      213: -862216499332116729
+    second: Robot_Attack_176
+  - first:
+      213: -1675425115332343584
+    second: Robot_Attack_177
+  - first:
+      213: -454829815798973230
+    second: Robot_Attack_178
+  - first:
+      213: 2120172678103620040
+    second: Robot_Attack_179
+  - first:
+      213: 2810300576392270154
+    second: Robot_Attack_180
+  - first:
+      213: 8396853404989169421
+    second: Robot_Attack_181
+  - first:
+      213: -1654701869514906908
+    second: Robot_Attack_182
+  - first:
+      213: -8316053632234716045
+    second: Robot_Attack_183
+  - first:
+      213: -2050200991418335514
+    second: Robot_Attack_184
+  - first:
+      213: -2593579726596043717
+    second: Robot_Attack_185
+  - first:
+      213: 374146873769858519
+    second: Robot_Attack_186
+  - first:
+      213: -8503350919741873455
+    second: Robot_Attack_187
+  - first:
+      213: 6619328978088205779
+    second: Robot_Attack_188
+  - first:
+      213: -5816357328715970742
+    second: Robot_Attack_189
+  - first:
+      213: -1611204400987272552
+    second: Robot_Attack_190
+  - first:
+      213: 7521987477749125778
+    second: Robot_Attack_191
+  - first:
+      213: -4237728658198402772
+    second: Robot_Attack_192
+  - first:
+      213: 3219447365703769755
+    second: Robot_Attack_193
+  - first:
+      213: -6081516229292654051
+    second: Robot_Attack_194
+  - first:
+      213: 254745900627346774
+    second: Robot_Attack_195
+  - first:
+      213: 8974068999029922873
+    second: Robot_Attack_196
+  - first:
+      213: 2635654332751661084
+    second: Robot_Attack_197
+  - first:
+      213: -3822041441663401990
+    second: Robot_Attack_198
+  - first:
+      213: -3599036616885341210
+    second: Robot_Attack_199
+  - first:
+      213: -740745520378186674
+    second: Robot_Attack_200
+  - first:
+      213: 2355378873934630029
+    second: Robot_Attack_201
+  - first:
+      213: -6819509546609309973
+    second: Robot_Attack_202
+  - first:
+      213: -8618737057649432467
+    second: Robot_Attack_203
+  - first:
+      213: -7092884480234401313
+    second: Robot_Attack_204
+  - first:
+      213: -4634240393519806396
+    second: Robot_Attack_205
+  - first:
+      213: -290503730415039303
+    second: Robot_Attack_206
+  - first:
+      213: 1803275291816277989
+    second: Robot_Attack_207
+  - first:
+      213: 6566684644702357044
+    second: Robot_Attack_208
+  - first:
+      213: -5074298494730436063
+    second: Robot_Attack_209
+  - first:
+      213: 2398041489000259718
+    second: Robot_Attack_210
+  - first:
+      213: 665644787741619507
+    second: Robot_Attack_211
+  - first:
+      213: -8007267505696100359
+    second: Robot_Attack_212
+  - first:
+      213: -7536626775128741523
+    second: Robot_Attack_213
+  - first:
+      213: 6048768892817576939
+    second: Robot_Attack_214
+  - first:
+      213: -6478815954742718213
+    second: Robot_Attack_215
+  - first:
+      213: -524786634453112735
+    second: Robot_Attack_216
+  - first:
+      213: 5701925712882070596
+    second: Robot_Attack_217
+  - first:
+      213: 8261363678308807893
+    second: Robot_Attack_218
+  - first:
+      213: 4534407034800451063
+    second: Robot_Attack_219
+  - first:
+      213: 3932799157571894949
+    second: Robot_Attack_220
+  - first:
+      213: -7358086360051552176
+    second: Robot_Attack_221
+  - first:
+      213: -5003255896770224934
+    second: Robot_Attack_222
+  - first:
+      213: -5877408041563766447
+    second: Robot_Attack_223
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Robot_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -1, y: -24}
+        - {x: 1, y: -22}
+        - {x: 3, y: -22}
+        - {x: 7, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 3, y: -3}
+        - {x: 3, y: -1}
+        - {x: -1, y: 4}
+        - {x: -4, y: 3}
+        - {x: -4, y: 0}
+        - {x: -6, y: 0}
+        - {x: -7, y: -3}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -23, y: -5}
+        - {x: -25, y: -8}
+        - {x: -24, y: -9}
+        - {x: -24, y: -15}
+        - {x: -22, y: -17}
+        - {x: -21, y: -17}
+        - {x: -19, y: -15}
+        - {x: -19, y: -16}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      physicsShape:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -1, y: -24}
+        - {x: 1, y: -22}
+        - {x: 3, y: -22}
+        - {x: 7, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 3, y: -3}
+        - {x: 3, y: -1}
+        - {x: -1, y: 4}
+        - {x: -4, y: 3}
+        - {x: -4, y: 0}
+        - {x: -6, y: 0}
+        - {x: -7, y: -3}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 0254e61402c075b40800000000000000
+      internalID: 5428821208494654752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: 5, y: -23}
+        - {x: 7, y: -22}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 9, y: -6}
+        - {x: 7, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: -1}
+        - {x: 2, y: 1}
+        - {x: 3, y: 2}
+        - {x: 2, y: 5}
+        - {x: 0, y: 5}
+        - {x: -2, y: 3}
+        - {x: -4, y: 3}
+        - {x: -7, y: 0}
+        - {x: -6, y: -4}
+        - {x: -4, y: -5}
+        - {x: -6, y: -7}
+        - {x: -6, y: -9}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -15, y: -7}
+        - {x: -18, y: -3}
+        - {x: -21, y: -4}
+        - {x: -24, y: -11}
+        - {x: -22, y: -13}
+        - {x: -23, y: -15}
+        - {x: -20, y: -18}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -12, y: -18}
+        - {x: -11, y: -16}
+      physicsShape:
+      - - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: 5, y: -23}
+        - {x: 7, y: -22}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 9, y: -6}
+        - {x: 7, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: -1}
+        - {x: 2, y: 1}
+        - {x: 3, y: 2}
+        - {x: 1, y: 5}
+        - {x: -2, y: 4}
+        - {x: -2, y: 1}
+        - {x: -3, y: 2}
+        - {x: -6, y: 1}
+        - {x: -6, y: -1}
+        - {x: -4, y: -3}
+        - {x: -4, y: -5}
+        - {x: -6, y: -7}
+        - {x: -6, y: -9}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -15, y: -7}
+        - {x: -17, y: -5}
+        - {x: -20, y: -5}
+        - {x: -22, y: -7}
+        - {x: -22, y: -14}
+        - {x: -20, y: -18}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -12, y: -18}
+        - {x: -11, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 626c4aca0f0de8820800000000000000
+      internalID: 2922502940317238822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -2, y: -19}
+        - {x: -1, y: -22}
+        - {x: 2, y: -23}
+        - {x: 7, y: -23}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 10, y: -4}
+        - {x: 6, y: -4}
+        - {x: 6, y: -1}
+        - {x: 4, y: 1}
+        - {x: 5, y: 2}
+        - {x: 4, y: 5}
+        - {x: -1, y: 6}
+        - {x: -4, y: 3}
+        - {x: -4, y: 2}
+        - {x: -3, y: 1}
+        - {x: -5, y: -3}
+        - {x: -2, y: -5}
+        - {x: -4, y: -9}
+        - {x: -13, y: -4}
+        - {x: -13, y: 5}
+        - {x: -15, y: 7}
+        - {x: -18, y: 6}
+        - {x: -18, y: -7}
+        - {x: -20, y: -9}
+        - {x: -24, y: -9}
+        - {x: -25, y: -10}
+        - {x: -25, y: -14}
+        - {x: -19, y: -14}
+        - {x: -18, y: -15}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -22}
+        - {x: -10, y: -21}
+        - {x: -10, y: -16}
+      physicsShape:
+      - - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -2, y: -19}
+        - {x: -1, y: -22}
+        - {x: 2, y: -23}
+        - {x: 7, y: -23}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 10, y: -4}
+        - {x: 6, y: -4}
+        - {x: 6, y: -1}
+        - {x: 4, y: 1}
+        - {x: 5, y: 2}
+        - {x: 4, y: 5}
+        - {x: 2, y: 5}
+        - {x: -2, y: 2}
+        - {x: -4, y: 0}
+        - {x: -2, y: -6}
+        - {x: -4, y: -9}
+        - {x: -13, y: -4}
+        - {x: -13, y: -2}
+        - {x: -15, y: 0}
+        - {x: -18, y: -1}
+        - {x: -18, y: -5}
+        - {x: -17, y: -6}
+        - {x: -18, y: -7}
+        - {x: -21, y: -11}
+        - {x: -21, y: -12}
+        - {x: -18, y: -15}
+        - {x: -18, y: -20}
+        - {x: -19, y: -21}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -22}
+        - {x: -10, y: -21}
+        - {x: -10, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: f26fd2efe0ab2aa80800000000000000
+      internalID: -8456992576691636689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -16}
+        - {x: -4, y: -17}
+        - {x: -6, y: -21}
+        - {x: -6, y: -24}
+        - {x: -5, y: -25}
+        - {x: 0, y: -25}
+        - {x: 1, y: -24}
+        - {x: 1, y: -23}
+        - {x: 2, y: -22}
+        - {x: 4, y: -23}
+        - {x: 4, y: -25}
+        - {x: 13, y: -25}
+        - {x: 16, y: -22}
+        - {x: 16, y: -17}
+        - {x: 17, y: -18}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 12, y: -7}
+        - {x: 10, y: -6}
+        - {x: 10, y: -3}
+        - {x: 9, y: -2}
+        - {x: 11, y: 0}
+        - {x: 11, y: 1}
+        - {x: 9, y: 3}
+        - {x: 7, y: 2}
+        - {x: 2, y: 2}
+        - {x: 1, y: 3}
+        - {x: -2, y: 1}
+        - {x: -1, y: -3}
+        - {x: 1, y: -7}
+        - {x: 3, y: -7}
+        - {x: 1, y: -10}
+        - {x: -2, y: -8}
+        - {x: -4, y: -8}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -11, y: -6}
+        - {x: -12, y: -3}
+        - {x: -17, y: -1}
+        - {x: -21, y: -8}
+        - {x: -17, y: -13}
+        - {x: -15, y: -13}
+        - {x: -18, y: -19}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -21}
+        - {x: -9, y: -18}
+        - {x: -8, y: -16}
+      physicsShape:
+      - - {x: -6, y: -16}
+        - {x: -4, y: -17}
+        - {x: -6, y: -21}
+        - {x: -6, y: -24}
+        - {x: -5, y: -25}
+        - {x: 0, y: -25}
+        - {x: 1, y: -24}
+        - {x: 1, y: -23}
+        - {x: 2, y: -22}
+        - {x: 4, y: -23}
+        - {x: 4, y: -25}
+        - {x: 13, y: -25}
+        - {x: 16, y: -22}
+        - {x: 16, y: -17}
+        - {x: 17, y: -18}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 12, y: -7}
+        - {x: 9, y: -6}
+        - {x: 10, y: -5}
+        - {x: 10, y: -3}
+        - {x: 9, y: -2}
+        - {x: 11, y: 0}
+        - {x: 11, y: 2}
+        - {x: 8, y: 3}
+        - {x: 6, y: 1}
+        - {x: 5, y: 2}
+        - {x: 2, y: 2}
+        - {x: 0, y: 3}
+        - {x: -2, y: 1}
+        - {x: -1, y: -3}
+        - {x: 3, y: -7}
+        - {x: 1, y: -10}
+        - {x: -2, y: -8}
+        - {x: -4, y: -8}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -15, y: -9}
+        - {x: -15, y: -14}
+        - {x: -18, y: -19}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -21}
+        - {x: -9, y: -18}
+        - {x: -8, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: f42610a0780077ba0800000000000000
+      internalID: -6091399391006858673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -16}
+        - {x: -4, y: -17}
+        - {x: -6, y: -21}
+        - {x: -6, y: -24}
+        - {x: -5, y: -25}
+        - {x: 0, y: -25}
+        - {x: 1, y: -24}
+        - {x: 1, y: -23}
+        - {x: 2, y: -22}
+        - {x: 4, y: -23}
+        - {x: 4, y: -25}
+        - {x: 13, y: -25}
+        - {x: 16, y: -22}
+        - {x: 16, y: -17}
+        - {x: 17, y: -18}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 13, y: -7}
+        - {x: 14, y: -3}
+        - {x: 9, y: 1}
+        - {x: 7, y: 1}
+        - {x: 6, y: 0}
+        - {x: 4, y: 1}
+        - {x: 2, y: -1}
+        - {x: 3, y: -3}
+        - {x: 3, y: -7}
+        - {x: 1, y: -10}
+        - {x: -2, y: -8}
+        - {x: -4, y: -8}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -9, y: -3}
+        - {x: -12, y: 1}
+        - {x: -13, y: 1}
+        - {x: -17, y: -3}
+        - {x: -17, y: -6}
+        - {x: -15, y: -10}
+        - {x: -15, y: -14}
+        - {x: -18, y: -19}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -21}
+        - {x: -9, y: -18}
+        - {x: -8, y: -16}
+      physicsShape:
+      - - {x: -6, y: -16}
+        - {x: -4, y: -17}
+        - {x: -6, y: -21}
+        - {x: -6, y: -24}
+        - {x: -5, y: -25}
+        - {x: 0, y: -25}
+        - {x: 1, y: -24}
+        - {x: 1, y: -23}
+        - {x: 2, y: -22}
+        - {x: 4, y: -23}
+        - {x: 4, y: -25}
+        - {x: 13, y: -25}
+        - {x: 16, y: -22}
+        - {x: 16, y: -17}
+        - {x: 17, y: -18}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 12, y: -7}
+        - {x: 14, y: -3}
+        - {x: 7, y: 1}
+        - {x: 6, y: 0}
+        - {x: 4, y: 1}
+        - {x: 2, y: -2}
+        - {x: 4, y: -6}
+        - {x: 1, y: -8}
+        - {x: 1, y: -10}
+        - {x: -2, y: -8}
+        - {x: -4, y: -8}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -15, y: -9}
+        - {x: -15, y: -14}
+        - {x: -18, y: -19}
+        - {x: -19, y: -25}
+        - {x: -11, y: -25}
+        - {x: -11, y: -21}
+        - {x: -9, y: -18}
+        - {x: -8, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: aa4b8b56e5a44ed60800000000000000
+      internalID: 7918535814118159530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -16}
+        - {x: -6, y: -17}
+        - {x: -7, y: -25}
+        - {x: 0, y: -25}
+        - {x: 0, y: -23}
+        - {x: 5, y: -23}
+        - {x: 7, y: -22}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -16}
+        - {x: 16, y: -17}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 17, y: -6}
+        - {x: 14, y: -9}
+        - {x: 12, y: -6}
+        - {x: 9, y: -6}
+        - {x: 9, y: -5}
+        - {x: 12, y: -3}
+        - {x: 11, y: 0}
+        - {x: 8, y: 0}
+        - {x: 6, y: 2}
+        - {x: 2, y: 3}
+        - {x: -2, y: 0}
+        - {x: -1, y: -4}
+        - {x: -6, y: -6}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -11, y: -6}
+        - {x: -12, y: 0}
+        - {x: -14, y: 2}
+        - {x: -15, y: 2}
+        - {x: -18, y: -1}
+        - {x: -18, y: -2}
+        - {x: -16, y: -4}
+        - {x: -16, y: -6}
+        - {x: -19, y: -6}
+        - {x: -22, y: -9}
+        - {x: -22, y: -14}
+        - {x: -19, y: -17}
+        - {x: -20, y: -18}
+        - {x: -21, y: -24}
+        - {x: -20, y: -25}
+        - {x: -14, y: -25}
+        - {x: -13, y: -24}
+        - {x: -13, y: -20}
+        - {x: -11, y: -16}
+      physicsShape:
+      - - {x: -8, y: -16}
+        - {x: -6, y: -17}
+        - {x: -7, y: -25}
+        - {x: 0, y: -25}
+        - {x: 0, y: -23}
+        - {x: 5, y: -23}
+        - {x: 7, y: -22}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -16}
+        - {x: 16, y: -17}
+        - {x: 17, y: -20}
+        - {x: 19, y: -23}
+        - {x: 19, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -20}
+        - {x: 23, y: -16}
+        - {x: 23, y: -14}
+        - {x: 22, y: -13}
+        - {x: 22, y: -8}
+        - {x: 20, y: -6}
+        - {x: 17, y: -6}
+        - {x: 14, y: -9}
+        - {x: 12, y: -6}
+        - {x: 9, y: -6}
+        - {x: 10, y: -3}
+        - {x: 7, y: 2}
+        - {x: 2, y: 3}
+        - {x: -2, y: 0}
+        - {x: -1, y: -4}
+        - {x: -6, y: -6}
+        - {x: -7, y: -5}
+        - {x: -10, y: -5}
+        - {x: -13, y: -7}
+        - {x: -14, y: -9}
+        - {x: -15, y: -9}
+        - {x: -17, y: -7}
+        - {x: -20, y: -7}
+        - {x: -22, y: -9}
+        - {x: -22, y: -14}
+        - {x: -19, y: -17}
+        - {x: -20, y: -18}
+        - {x: -21, y: -24}
+        - {x: -20, y: -25}
+        - {x: -14, y: -25}
+        - {x: -13, y: -24}
+        - {x: -13, y: -20}
+        - {x: -11, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: b0997e9c5f31afce0800000000000000
+      internalID: -1370761190205581045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -16}
+        - {x: -11, y: -20}
+        - {x: -11, y: -23}
+        - {x: -9, y: -25}
+        - {x: -6, y: -25}
+        - {x: -3, y: -22}
+        - {x: 3, y: -22}
+        - {x: 5, y: -21}
+        - {x: 5, y: -25}
+        - {x: 13, y: -25}
+        - {x: 13, y: -17}
+        - {x: 14, y: -17}
+        - {x: 16, y: -15}
+        - {x: 20, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -18}
+        - {x: 22, y: -12}
+        - {x: 22, y: -7}
+        - {x: 20, y: -5}
+        - {x: 17, y: -5}
+        - {x: 14, y: -7}
+        - {x: 14, y: -9}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 6, y: 2}
+        - {x: 3, y: 5}
+        - {x: 1, y: 5}
+        - {x: 0, y: 4}
+        - {x: -2, y: 5}
+        - {x: -4, y: 3}
+        - {x: -3, y: -3}
+        - {x: -5, y: -3}
+        - {x: -8, y: -5}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      - - {x: -19, y: -4}
+        - {x: -19, y: -5}
+        - {x: -17, y: -7}
+        - {x: -16, y: -7}
+        - {x: -13, y: -4}
+        - {x: -13, y: -2}
+        - {x: -16, y: -1}
+      - - {x: -15, y: -1}
+        - {x: -12, y: 0}
+        - {x: -12, y: 3}
+        - {x: -15, y: 4}
+        - {x: -17, y: 2}
+      physicsShape:
+      - - {x: -8, y: -16}
+        - {x: -11, y: -20}
+        - {x: -11, y: -23}
+        - {x: -9, y: -25}
+        - {x: -6, y: -25}
+        - {x: -3, y: -22}
+        - {x: 3, y: -22}
+        - {x: 5, y: -21}
+        - {x: 5, y: -25}
+        - {x: 13, y: -25}
+        - {x: 13, y: -17}
+        - {x: 14, y: -17}
+        - {x: 16, y: -15}
+        - {x: 20, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: -18}
+        - {x: 22, y: -12}
+        - {x: 22, y: -7}
+        - {x: 20, y: -5}
+        - {x: 17, y: -5}
+        - {x: 14, y: -7}
+        - {x: 14, y: -9}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 6, y: 2}
+        - {x: 3, y: 5}
+        - {x: 1, y: 5}
+        - {x: 0, y: 4}
+        - {x: -2, y: 5}
+        - {x: -4, y: 3}
+        - {x: -3, y: -3}
+        - {x: -5, y: -3}
+        - {x: -8, y: -5}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      tessellationDetail: 1
+      bones: []
+      spriteID: dbc480e3872b1c910800000000000000
+      internalID: 1855960750959905981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 5, y: -21}
+        - {x: 5, y: -25}
+        - {x: 13, y: -25}
+        - {x: 13, y: -17}
+        - {x: 15, y: -16}
+        - {x: 16, y: -17}
+        - {x: 16, y: -20}
+        - {x: 17, y: -21}
+        - {x: 17, y: -24}
+        - {x: 18, y: -25}
+        - {x: 24, y: -25}
+        - {x: 25, y: -24}
+        - {x: 25, y: -22}
+        - {x: 21, y: -15}
+        - {x: 21, y: -7}
+        - {x: 19, y: -5}
+        - {x: 16, y: -5}
+        - {x: 14, y: -6}
+        - {x: 14, y: -8}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 4, y: 1}
+        - {x: 1, y: 4}
+        - {x: -3, y: 5}
+        - {x: -5, y: 3}
+        - {x: -5, y: 0}
+        - {x: -7, y: -2}
+        - {x: -7, y: -3}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      - - {x: -16, y: 1}
+        - {x: -17, y: -3}
+        - {x: -15, y: -5}
+        - {x: -14, y: -5}
+        - {x: -11, y: -2}
+        - {x: -11, y: 0}
+        - {x: -13, y: 2}
+      physicsShape:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 5, y: -21}
+        - {x: 5, y: -25}
+        - {x: 13, y: -25}
+        - {x: 13, y: -17}
+        - {x: 14, y: -17}
+        - {x: 15, y: -16}
+        - {x: 16, y: -17}
+        - {x: 16, y: -20}
+        - {x: 17, y: -21}
+        - {x: 17, y: -24}
+        - {x: 18, y: -25}
+        - {x: 24, y: -25}
+        - {x: 25, y: -24}
+        - {x: 25, y: -22}
+        - {x: 21, y: -15}
+        - {x: 21, y: -7}
+        - {x: 19, y: -5}
+        - {x: 16, y: -5}
+        - {x: 14, y: -6}
+        - {x: 14, y: -8}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 3, y: -3}
+        - {x: 4, y: -2}
+        - {x: 4, y: 1}
+        - {x: 1, y: 4}
+        - {x: -3, y: 5}
+        - {x: -5, y: 3}
+        - {x: -5, y: -3}
+        - {x: -8, y: -5}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      tessellationDetail: 1
+      bones: []
+      spriteID: fde1baf7afed139b0800000000000000
+      internalID: -5102051735368950049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 6, y: -20}
+        - {x: 6, y: -24}
+        - {x: 7, y: -25}
+        - {x: 13, y: -25}
+        - {x: 14, y: -24}
+        - {x: 14, y: -17}
+        - {x: 14, y: -20}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 14, y: -7}
+        - {x: 12, y: -5}
+        - {x: 9, y: -5}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 5, y: -2}
+        - {x: 2, y: 1}
+        - {x: 2, y: 3}
+        - {x: 0, y: 5}
+        - {x: -3, y: 4}
+        - {x: -3, y: 2}
+        - {x: -7, y: -2}
+        - {x: -7, y: -3}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      physicsShape:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 6, y: -20}
+        - {x: 6, y: -24}
+        - {x: 7, y: -25}
+        - {x: 13, y: -25}
+        - {x: 14, y: -24}
+        - {x: 14, y: -17}
+        - {x: 14, y: -20}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 14, y: -7}
+        - {x: 12, y: -5}
+        - {x: 9, y: -5}
+        - {x: 8, y: -6}
+        - {x: 6, y: -3}
+        - {x: 4, y: -2}
+        - {x: 4, y: -1}
+        - {x: 2, y: 1}
+        - {x: 2, y: 3}
+        - {x: 0, y: 5}
+        - {x: -3, y: 4}
+        - {x: -3, y: 2}
+        - {x: -5, y: 0}
+        - {x: -5, y: -3}
+        - {x: -8, y: -5}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 7ed9d7b68c61b6ff0800000000000000
+      internalID: -41914721477222937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 7, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 5, y: -2}
+        - {x: -1, y: 4}
+        - {x: -2, y: 4}
+        - {x: -6, y: -1}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      physicsShape:
+      - - {x: -9, y: -15}
+        - {x: -8, y: -16}
+        - {x: -9, y: -17}
+        - {x: -10, y: -25}
+        - {x: -3, y: -25}
+        - {x: -3, y: -23}
+        - {x: -2, y: -22}
+        - {x: 3, y: -22}
+        - {x: 7, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -25}
+        - {x: 15, y: -25}
+        - {x: 15, y: -21}
+        - {x: 15, y: -25}
+        - {x: 23, y: -25}
+        - {x: 22, y: -19}
+        - {x: 21, y: -18}
+        - {x: 21, y: -14}
+        - {x: 20, y: -13}
+        - {x: 20, y: -8}
+        - {x: 18, y: -6}
+        - {x: 15, y: -6}
+        - {x: 13, y: -7}
+        - {x: 12, y: -6}
+        - {x: 8, y: -6}
+        - {x: 5, y: -3}
+        - {x: 3, y: -3}
+        - {x: 3, y: 0}
+        - {x: -1, y: 4}
+        - {x: -2, y: 4}
+        - {x: -6, y: -1}
+        - {x: -6, y: -4}
+        - {x: -8, y: -7}
+        - {x: -10, y: -5}
+        - {x: -13, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -8}
+        - {x: -19, y: -6}
+        - {x: -22, y: -6}
+        - {x: -24, y: -8}
+        - {x: -24, y: -13}
+        - {x: -22, y: -15}
+        - {x: -19, y: -15}
+        - {x: -21, y: -19}
+        - {x: -22, y: -25}
+        - {x: -14, y: -25}
+        - {x: -14, y: -21}
+        - {x: -10, y: -15}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 434443f8db1928fc0800000000000000
+      internalID: -3494070117548669900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

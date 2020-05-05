@@ -15088,9 +15088,9 @@ GameObject:
   - component: {fileID: 668216175}
   - component: {fileID: 668216177}
   - component: {fileID: 668216176}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108758,6 +108758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   Boss1: 0
+  Boss2: 0
 --- !u!114 &5092001963575478052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108772,6 +108773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   Boss1: 0
+  Boss2: 0
 --- !u!114 &5092001964055840519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108786,6 +108788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   Boss1: 0
+  Boss2: 0
 --- !u!114 &5092001964120600564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108800,6 +108803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   Boss1: 0
+  Boss2: 0
 --- !u!114 &5092001964245681471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108814,6 +108818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   Boss1: 0
+  Boss2: 0
 --- !u!61 &6031887338677624053
 BoxCollider2D:
   m_ObjectHideFlags: 0

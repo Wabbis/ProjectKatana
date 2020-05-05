@@ -529,10 +529,10 @@ public class LeanTween : MonoBehaviour {
     * @example LeanTween.move( gameObject, new Vector3(0f,1f,2f), 1f); <br />
     * LeanTween.cancel( gameObject );
     */
-    public static void cancel( GameObject gameObject ){
+    public static void cancel(GameObject gameObject ){
         cancel( gameObject, false);
     }
-    public static void cancel( GameObject gameObject, bool callOnComplete ){
+    public static void cancel(GameObject gameObject, bool callOnComplete ){
         init();
         Transform trans = gameObject.transform;
         for(int i = 0; i <= tweenMaxSearch; i++){
@@ -560,7 +560,7 @@ public class LeanTween : MonoBehaviour {
 //      }
 //  }
 
-    public static void cancel( GameObject gameObject, int uniqueId, bool callOnComplete = false ){
+    public static void cancel(GameObject gameObject, int uniqueId, bool callOnComplete = false ){
         if(uniqueId>=0){
             init();
             int backId = uniqueId & 0xFFFF;
@@ -685,8 +685,8 @@ public class LeanTween : MonoBehaviour {
         return descrs.ToArray();
     }
 
-    [System.Obsolete("Use 'pause( id )' instead")]
-    public static void pause( GameObject gameObject, int uniqueId ){
+    [Obsolete("Use 'pause( id )' instead")]
+    public static void pause(GameObject gameObject, int uniqueId ){
         pause( uniqueId );
     }
 
@@ -715,7 +715,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.pause
     * @param {GameObject} gameObject:GameObject GameObject whose tweens you want to pause
     */
-    public static void pause( GameObject gameObject ){
+    public static void pause(GameObject gameObject ){
         Transform trans = gameObject.transform;
         for(int i = 0; i <= tweenMaxSearch; i++){
             if(tweens[i].trans==trans){
@@ -748,8 +748,8 @@ public class LeanTween : MonoBehaviour {
         }
     }
 
-    [System.Obsolete("Use 'resume( id )' instead")]
-    public static void resume( GameObject gameObject, int uniqueId ){
+    [Obsolete("Use 'resume( id )' instead")]
+    public static void resume(GameObject gameObject, int uniqueId ){
         resume( uniqueId );
     }
 
@@ -778,7 +778,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.resume
     * @param {GameObject} gameObject:GameObject GameObject whose tweens you want to resume
     */
-    public static void resume( GameObject gameObject ){
+    public static void resume(GameObject gameObject ){
         Transform trans = gameObject.transform;
         for(int i = 0; i <= tweenMaxSearch; i++){
             if(tweens[i].trans==trans)
@@ -847,7 +847,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.isTweening
     * @param {GameObject} gameObject:GameObject GameObject that you want to test if it is tweening
     */
-    public static bool isTweening( GameObject gameObject = null ){
+    public static bool isTweening(GameObject gameObject = null ){
         if(gameObject==null){
             for(int i = 0; i <= tweenMaxSearch; i++){
                 if(tweens[i].toggle)
@@ -993,7 +993,8 @@ public class LeanTween : MonoBehaviour {
     }
 
 
-    public static GameObject tweenEmpty{
+    public static GameObject tweenEmpty
+    {
         get{
             init(maxTweens);
             return _tweenEmpty;
@@ -1003,7 +1004,7 @@ public class LeanTween : MonoBehaviour {
     public static int startSearch = 0;
     public static LTDescr d;
 
-    private static LTDescr pushNewTween( GameObject gameObject, Vector3 to, float time, LTDescr tween ){
+    private static LTDescr pushNewTween(GameObject gameObject, Vector3 to, float time, LTDescr tween ){
         init(maxTweens);
         if(gameObject==null || tween==null)
             return null;
@@ -1030,7 +1031,7 @@ public class LeanTween : MonoBehaviour {
     * @example
     * LeanTween.play(gameObject.GetComponent&lt;RectTransform&gt;(), sprites).setLoopPingPong();
     */  
-    public static LTDescr play(RectTransform rectTransform, UnityEngine.Sprite[] sprites){
+    public static LTDescr play(RectTransform rectTransform, Sprite[] sprites){
         float defaultFrameRate = 0.25f;
         float time = defaultFrameRate * sprites.Length;
         return pushNewTween(rectTransform.gameObject, new Vector3((float)sprites.Length - 1.0f,0,0), time, options().setCanvasPlaySprite().setSprites( sprites ).setRepeat(-1));
@@ -1236,11 +1237,11 @@ public class LeanTween : MonoBehaviour {
         return pushNewTween( tweenEmpty, Vector3.zero, delayTime, options().setCallback().setOnComplete(callback) );
     }
 
-    public static LTDescr delayedCall( GameObject gameObject, float delayTime, Action callback){
+    public static LTDescr delayedCall(GameObject gameObject, float delayTime, Action callback){
         return pushNewTween( gameObject, Vector3.zero, delayTime, options().setCallback().setOnComplete(callback) );
     }
 
-    public static LTDescr delayedCall( GameObject gameObject, float delayTime, Action<object> callback){
+    public static LTDescr delayedCall(GameObject gameObject, float delayTime, Action<object> callback){
         return pushNewTween( gameObject, Vector3.zero, delayTime, options().setCallback().setOnComplete(callback) );
     }
 
@@ -1947,7 +1948,7 @@ public class LeanTween : MonoBehaviour {
         return pushNewTween( tweenEmpty, pos, 0f, options().setDelayedSound().setTo( pos ).setFrom( new Vector3(volume,0,0) ).setAudio( audio ) );
     }
 
-    public static LTDescr delayedSound( GameObject gameObject, AudioClip audio, Vector3 pos, float volume ){
+    public static LTDescr delayedSound(GameObject gameObject, AudioClip audio, Vector3 pos, float volume ){
         //Debug.LogError("Delay sound??");
         return pushNewTween( gameObject, pos, 0f, options().setDelayedSound().setTo( pos ).setFrom( new Vector3(volume,0,0) ).setAudio( audio ) );
     }
@@ -2729,14 +2730,14 @@ public class LeanTween : MonoBehaviour {
 
     // LeanTween Listening/Dispatch
 
-    private static System.Action<LTEvent>[] eventListeners;
+    private static Action<LTEvent>[] eventListeners;
     private static GameObject[] goListeners;
     private static int eventsMaxSearch = 0;
     public static int EVENTS_MAX = 10;
     public static int LISTENERS_MAX = 10;
     private static int INIT_LISTENERS_MAX = LISTENERS_MAX;
 
-    public static void addListener( int eventId, System.Action<LTEvent> callback ){
+    public static void addListener( int eventId, Action<LTEvent> callback ){
         addListener(tweenEmpty, eventId, callback);
     }
 
@@ -2752,11 +2753,11 @@ public class LeanTween : MonoBehaviour {
     * <br />
     * void jumpUp( LTEvent e ){ Debug.Log("jump!"); }<br />
     */
-    public static void addListener( GameObject caller, int eventId, System.Action<LTEvent> callback ){
+    public static void addListener(GameObject caller, int eventId, Action<LTEvent> callback ){
         if(eventListeners==null){
             INIT_LISTENERS_MAX = LISTENERS_MAX;
-            eventListeners = new System.Action<LTEvent>[ EVENTS_MAX * LISTENERS_MAX ];
-            goListeners = new GameObject[ EVENTS_MAX * LISTENERS_MAX ];
+            eventListeners = new Action<LTEvent>[ EVENTS_MAX * LISTENERS_MAX ];
+            goListeners = new GameObject[EVENTS_MAX * LISTENERS_MAX];
         }
         // Debug.Log("searching for an empty space for:"+caller + " eventid:"+event);
         for(i = 0; i < INIT_LISTENERS_MAX; i++){
@@ -2785,7 +2786,7 @@ public class LeanTween : MonoBehaviour {
         Debug.LogError("You ran out of areas to add listeners, consider increasing LISTENERS_MAX, ex: LeanTween.LISTENERS_MAX = "+(LISTENERS_MAX*2));
     }
 
-    public static bool removeListener( int eventId, System.Action<LTEvent> callback ){
+    public static bool removeListener( int eventId, Action<LTEvent> callback ){
         return removeListener( tweenEmpty, eventId, callback);
     }
 
@@ -2808,7 +2809,7 @@ public class LeanTween : MonoBehaviour {
     * <br />
     * void jumpUp( LTEvent e ){ }<br />
     */
-    public static bool removeListener( GameObject caller, int eventId, System.Action<LTEvent> callback ){
+    public static bool removeListener(GameObject caller, int eventId, Action<LTEvent> callback ){
         for(i = 0; i < eventsMaxSearch; i++){
             int point = eventId*INIT_LISTENERS_MAX + i;
             #if UNITY_FLASH
@@ -3163,7 +3164,7 @@ public class LTBezierPath {
 * LeanTween.moveSpline(lt, ltSpline.vec3, 4.0f).setOrientToPath(true).setDelay(1f).setEase(LeanTweenType.easeInOutQuad); // animate <br />
 * Vector3 pt = ltSpline.point( 0.6f ); // retrieve a point along the path
 */
-[System.Serializable]
+[Serializable]
 public class LTSpline {
     public static int DISTANCE_COUNT = 3; // increase for a more accurate constant speed
     public static int SUBLINE_COUNT = 20; // increase for a more accurate smoothing of the curves into lines
@@ -3176,7 +3177,7 @@ public class LTSpline {
     public bool constantSpeed = true;
 
     public Vector3[] pts;
-    [System.NonSerialized]
+    [NonSerialized]
     public Vector3[] ptsAdj;
     public int ptsAdjLength;
     public bool orientToPath;
@@ -3615,7 +3616,7 @@ public class LTSpline {
 * @param {float} rotation:float (Optional) initial rotation in degrees (0-360) 
 */
 
-[System.Serializable]
+[Serializable]
 public class LTRect : System.Object{
     /**
     * Pass this value to the GUI Methods

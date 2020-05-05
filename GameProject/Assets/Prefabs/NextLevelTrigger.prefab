@@ -356,33 +356,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 886fd63590f4a9844ba286b479850ce6, type: 2}
     m_Events:
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3900125597651210862, guid: 157bc71de23042b4e8bf1369e19a6e71,
-            type: 3}
-          m_MethodName: SetControl
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3900125597651210862, guid: 157bc71de23042b4e8bf1369e19a6e71,
-            type: 3}
-          m_MethodName: SetControl
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 3343364879567393318}
           m_MethodName: LoadNextLevel
           m_Mode: 1

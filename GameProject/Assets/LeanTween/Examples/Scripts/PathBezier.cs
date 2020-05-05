@@ -17,7 +17,7 @@ public class PathBezier : MonoBehaviour {
 	}
 
 	void Start () {
-		avatar1 = GameObject.Find("Avatar1");
+            avatar1 = UnityEngine.GameObject.Find("Avatar1");
 
 		// Tween automatically
 		LTDescr descr = LeanTween.move(avatar1, cr.pts, 6.5f).setOrientToPath(true).setRepeat(-1);

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/preload.unity
     guid: 623174adbad3be04baadf483be8e2765
   - enabled: 1
+    path: Assets/Scenes/bossArena.unity
+    guid: 2110a4f5f24794945a5d2d1b918ee0b5
+  - enabled: 1
     path: Assets/Scenes/StartingCutscene.unity
     guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 1

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class UseComputer : MonoBehaviour
     public bool activate = false;
     public bool cutsceneStarted;
     public Slider hackBar;
+    public GameObject hackText;
 
     public float value = 0;
     public float gainPerMash;
@@ -24,7 +26,7 @@ public class UseComputer : MonoBehaviour
     {
         hackBar.value = 0.0f;
     }
-    
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         canHack = true;
@@ -35,7 +37,7 @@ public class UseComputer : MonoBehaviour
     }
     void Update()
     {
-        if(canHack == true)
+        if (canHack == true)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -43,33 +45,38 @@ public class UseComputer : MonoBehaviour
                 hackBar.value = value;
             }
         }
-        if(value < 0.0f)
+        if (value < 0.0f)
         {
             value = 0.0f;
         }
-        if(value >= 1.00f)
+        if (value >= 1.00f)
         {
             dwindle = false;
             activate = true;
         }
 
-        
+
     }
     void FixedUpdate()
     {
-        if(value > 0)
+        if (value > 0)
         {
-            if((value - 0.01f) > 0.0f && dwindle == true)
+            if ((value - 0.01f) > 0.0f && dwindle == true)
             {
                 value = value - (0.0001f * dwindleSpeed);
                 hackBar.value = value;
+
+                if (!hackText)
+                    hackText.GetComponentInChildren<TextMeshProUGUI>().alpha = 0.5f - value;
             }
         }
-        if(activate == true)
+        if (activate == true)
         {
             lightRed.SetActive(false);
             lightGreen.SetActive(true);
-            //placeHolderThing.SetActive(false);
+
+            if (placeHolderThing != null)
+                placeHolderThing.SetActive(false);
 
             //start cutscene
             if (placeHolderThing2 != null && !cutsceneStarted)

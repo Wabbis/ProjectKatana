@@ -9,12 +9,18 @@ public class LevelManager : MonoBehaviour
     public int currentLevel;
     private int deaths;
 
+    private void Start()
+    {
+        topLevel = PlayerPrefs.GetInt("topLevel", 3);
+    }
+
     private void OnLevelWasLoaded(int level)
     {
         deaths = 0;
-        if (topLevel < level)
+        if (level > topLevel)
         {
-            topLevel = SceneManager.GetSceneByBuildIndex(level).buildIndex;
+            topLevel = level;                                                                                               
+            PlayerPrefs.SetInt("topLevel", topLevel);
         }
 
         if (level == 1)
@@ -39,6 +45,4 @@ public class LevelManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentLevel);
         SceneManager.LoadScene("MainMenu");
     }
-
-
 }
