@@ -139,7 +139,9 @@ public class RangedEnemy : MonoBehaviour
         Debug.Log("died");
         dead = true;
         animator.SetTrigger("Die");
+        eyes.gameObject.SetActive(false);
         GetComponent<StateMachine>().enabled = false;
+        
     }
 
     public bool CheckObstacles(GameObject target)

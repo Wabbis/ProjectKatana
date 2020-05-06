@@ -19,11 +19,14 @@ public class ChargingEnemy : MonoBehaviour
     public bool exploding;
     public Image indicator;
     public float explosionSize=5;
+    Animator animator;
+    
 
     public float rayLength;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         layermask2 = (LayerMask.GetMask("Player"));
         timeLeft = waitTime;
         indicator.gameObject.SetActive(false);
@@ -39,6 +42,7 @@ public class ChargingEnemy : MonoBehaviour
             hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), rayLength, layermask2);
             if (hit)
             {
+                animator.SetTrigger("Charge");
                 charging = true;
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * hit.distance, Color.yellow);
                 targetPos = new Vector2(hit.transform.position.x, transform.position.y);
@@ -59,9 +63,11 @@ public class ChargingEnemy : MonoBehaviour
                 if (exploding)
                 {
                     indicator.gameObject.SetActive(true);
+                    animator.SetTrigger("Die");
                 }
-                
+                animator.SetTrigger("Idle");
                 timeLeft -= Time.deltaTime;
+             
                 if (timeLeft < 0)
                 {
                     
@@ -70,10 +76,12 @@ public class ChargingEnemy : MonoBehaviour
                         Destroy(indicator.gameObject);
                         GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity);
                         expl.transform.localScale = expl.transform.localScale * explosionSize;
+                        Destroy(expl.gameObject, 1);
                         transform.DetachChildren();
                         Destroy(gameObject);
 
                     }
+                    animator.SetTrigger("Patrol");
                     charging = false;
                     timeLeft = waitTime;
                 }
