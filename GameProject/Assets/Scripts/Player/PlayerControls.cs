@@ -28,6 +28,7 @@ public class PlayerControls : MonoBehaviour
     public bool block;
     public int maxJumps;
     private int jumpsLeft;
+    private bool dead;
 
     //Player Statistics
     public float playerSpeed;
@@ -69,6 +70,7 @@ public class PlayerControls : MonoBehaviour
         canAttack = true;
         canCounter = true;
         block = false;
+        dead = false;
         canTakeDamage = true;
         jumpsLeft = maxJumps;
         SetControl(true);
@@ -110,9 +112,22 @@ public class PlayerControls : MonoBehaviour
             block = true;
             Debug.Log("Blocking");
         }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (canTakeDamage) { canTakeDamage = false; } else { canTakeDamage = true; }
+        }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            Die();
+            if (!dead)
+            {
+                Die();
+            }
+            else
+            {
+                SetControl(true);
+                animator.SetBool("IsDead", false);
+            }
+               
         }
         else
         {
