@@ -66,8 +66,8 @@ public class UseComputer : MonoBehaviour
                 value = value - (0.0001f * dwindleSpeed);
                 hackBar.value = value;
 
-                if (!hackText)
-                    hackText.GetComponentInChildren<TextMeshProUGUI>().alpha = 0.5f - value;
+                if (hackText != null)
+                    hackText.GetComponent<TextMeshProUGUI>().alpha = 1f - (value * 2f);
             }
         }
         if (activate == true)

@@ -60,7 +60,7 @@ public class TurretScript : MonoBehaviour
                     Destroy(newBullet, 5);
                     yield return new WaitForSeconds(1f / rateOfFire);
                 }
-                else if (gameObject.transform.rotation.y == 0 && gameObject.transform.position.x < player.transform.position.x)
+                else if (gameObject.transform.rotation.y == 0 && gameObject.transform.position.x < player.transform.position.x && range > dist)
                 {
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
                     // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
