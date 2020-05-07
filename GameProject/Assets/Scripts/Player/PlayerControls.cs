@@ -11,8 +11,6 @@ public class PlayerControls : MonoBehaviour
     public GameObject player;
     public Animator animator;
     public Rigidbody2D playerRB;
-    public Collider2D playerCollider;
-    public Transform headCheck;
     public Transform groundCheck;
     public Transform attackPoint;
     public LayerMask groundLayers;
@@ -21,9 +19,7 @@ public class PlayerControls : MonoBehaviour
 
 
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
-    public float headCheckRadius = 0.84f;    //works well for scale 4 & 4
     public bool grounded;
-    public bool canCrouch;
     public bool canTakeDamage;
     public bool block;
     public int maxJumps;
@@ -34,7 +30,7 @@ public class PlayerControls : MonoBehaviour
     public float playerSpeed;
     public float jumpForce;
     public float dashForce;
-    public float airDragMultiplier;
+    
 
     //Attacks
     public bool canAttack;
@@ -49,12 +45,11 @@ public class PlayerControls : MonoBehaviour
     private float movDirTemp;
     private bool jumpTemp;
     private bool counterTemp;
-    private bool crouchTemp;
     private bool attackTemp;
     private bool facingRight = true;
 
 
-    private bool isCrouching = false;
+   
 
     //Getter and Setter for player controls
     public bool GetControl() { return gm.GetComponent<GameManager>().acceptPlayerInput; }
@@ -63,12 +58,15 @@ public class PlayerControls : MonoBehaviour
 
 
 
+
+
+
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManagement");
         gm.GetComponent<GameManager>().player = gameObject;
         canAttack = true;
-        canCounter = true;
+        canCounter = false;
         block = false;
         dead = false;
         canTakeDamage = true;
@@ -93,10 +91,6 @@ public class PlayerControls : MonoBehaviour
         {
             jumpTemp = true;
         }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            crouchTemp = true;
-        }
         if (Input.GetButtonDown("Fire1"))
         {
             attackTemp = true;
@@ -114,7 +108,7 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            if (canTakeDamage) { canTakeDamage = false; } else { canTakeDamage = true; }
+            SetCounter(!GetCounter()); 
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -139,7 +133,6 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         CheckGround();
-        CheckHead();
         Movement();
         Attacking();
         UpdateAnimations();
@@ -167,25 +160,11 @@ public class PlayerControls : MonoBehaviour
         } 
     }
 
-    //Checks if the player can stand up
-    private void CheckHead()
-    {
-        canCrouch = true;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(headCheck.position, headCheckRadius, groundLayers);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
-            {
-                canCrouch = false;
-            }
-        }
-    }
-
 
     public void Die()
     {
 
-        if (canTakeDamage)
+        if (canTakeDamage == true)
         {
             SetControl(false);
             animator.SetBool("IsDead", true);
@@ -207,23 +186,7 @@ public class PlayerControls : MonoBehaviour
     private void Movement()
     {
  
-        //Enables and Disables collider whenever player is crouching
-        if (crouchTemp)
-        {
-            if (!isCrouching)
-            {
-                playerCollider.enabled = false;
-                isCrouching = true;
-            }
-            else
-            {
-                if (canCrouch)
-                {
-                    playerCollider.enabled = true;
-                    isCrouching = false;
-                }  
-            }
-        }
+       
         if (facingRight)
         {
             transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
@@ -247,11 +210,20 @@ public class PlayerControls : MonoBehaviour
         jumpsLeft--;
     }
 
+
+
+
+    public bool GetCounter() { return canCounter; }
+    public void SetCounter(bool state)
+    { canCounter = state; }
+
+
     //Moves the player
     private void Counter()
     {
         Debug.Log("Counter");
         animator.SetTrigger("Counter");
+        StartCoroutine(Invunerable(1.5f));
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
 
@@ -263,7 +235,6 @@ public class PlayerControls : MonoBehaviour
     {
         movDirTemp = 0;
         jumpTemp = false;
-        crouchTemp = false;
         attackTemp = false;
         counterTemp = false;
     }
@@ -327,6 +298,13 @@ public class PlayerControls : MonoBehaviour
         
     }
 
+    public IEnumerator Invunerable(float seconds)
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(seconds);
+        canTakeDamage = true;
+    }
+
 
     /*
    -----------------------------------------------
@@ -379,7 +357,6 @@ public class PlayerControls : MonoBehaviour
    */
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
