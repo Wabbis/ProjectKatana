@@ -30,6 +30,16 @@ public class Level4Script : MonoBehaviour
         //GUI.Label(new Rect(10, 10, 100, 50), "Components collected: " + componentsCollected + "/3");
     }
 
+    public void ElevatorOpen()
+    {
+        SoundManager.PlaySound("ELEVATOROPEN");
+    }
+
+    public void ElevatorMove()
+    {
+        SoundManager.PlaySound("ELEVATORMOVE");
+    }
+
     public void AddComponent(int number)
     {
         componentsCollected = number;
