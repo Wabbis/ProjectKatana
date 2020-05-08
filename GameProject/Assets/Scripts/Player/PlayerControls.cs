@@ -36,6 +36,7 @@ public class PlayerControls : MonoBehaviour
     //Attacks
     public bool canAttack;
     public bool canCounter;
+    public bool deflecting;
     public float attackRange;
     public float attackDamage;
     public float attackCooldown;
@@ -75,6 +76,7 @@ public class PlayerControls : MonoBehaviour
         block = false;
         dead = false;
         canTakeDamage = true;
+        deflecting = false;
         jumpsLeft = maxJumps;
         SetControl(true);
     }
@@ -226,9 +228,7 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.Log("Counter");
         animator.SetTrigger("Counter");
-
-        if (improvedCounter) { StartCoroutine(Invunerable(1.5f)); }
-
+         StartCoroutine(Invunerable(1.5f));
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
 
@@ -307,8 +307,10 @@ public class PlayerControls : MonoBehaviour
     public IEnumerator Invunerable(float seconds)
     {
         canTakeDamage = false;
+        if (improvedCounter) { deflecting = true; }
         yield return new WaitForSeconds(seconds);
         canTakeDamage = true;
+        deflecting = false;
     }
 
 

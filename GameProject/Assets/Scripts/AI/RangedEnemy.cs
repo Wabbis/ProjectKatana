@@ -142,6 +142,7 @@ public class RangedEnemy : MonoBehaviour
         dead = true;
         animator.SetTrigger("Die");
         eyes.gameObject.SetActive(false);
+        
         GetComponent<StateMachine>().enabled = false;
         
     }
