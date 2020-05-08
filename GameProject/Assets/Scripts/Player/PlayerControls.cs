@@ -259,6 +259,7 @@ public class PlayerControls : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             Debug.Log("Attack");
+            SoundManager.PlaySound("SWORD");
             //Gets array of hit targets
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
