@@ -102,18 +102,20 @@ public class RangedEnemy : MonoBehaviour
     {
         GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
         newBullet.GetComponent<EnemyBullet>().dir = (bulletSpawn.transform.position - gunRotator.transform.position)*bulletSpeed * 0.01f;
-     //   newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
-
+        //   newBullet.GetComponent<Rigidbody2D>().AddForce((bulletSpawn.transform.position - gunRotator.transform.position) * bulletSpeed*0.0001f, ForceMode2D.Impulse);
+        SoundManager.PlaySound("PISTOLENEMY");
         Destroy(newBullet, 10);
 
     }
     public void Hit()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(meleeAttackPoint.position, meleeAttackRange, enemyLayers);
+        SoundManager.PlaySound("MELEESTAB");
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Hit: " + enemy.name);
+
             enemy.GetComponent<PlayerControls>().Die();
 
 

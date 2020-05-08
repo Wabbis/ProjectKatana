@@ -30,11 +30,13 @@ public class PlayerControls : MonoBehaviour
     public float playerSpeed;
     public float jumpForce;
     public float dashForce;
+    public bool improvedCounter;
     
 
     //Attacks
     public bool canAttack;
     public bool canCounter;
+    public bool deflecting;
     public float attackRange;
     public float attackDamage;
     public float attackCooldown;
@@ -57,6 +59,10 @@ public class PlayerControls : MonoBehaviour
     { gm.GetComponent<GameManager>().acceptPlayerInput = state; }
 
 
+    //Getter and Setter for Improved Counter
+    public bool GetCounterDeflect() { return improvedCounter; }
+    public void SetCounterDeflect(bool state)
+    { improvedCounter = state; }
 
 
 
@@ -66,10 +72,11 @@ public class PlayerControls : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManagement");
         gm.GetComponent<GameManager>().player = gameObject;
         canAttack = true;
-        canCounter = false;
+        canCounter = true;
         block = false;
         dead = false;
         canTakeDamage = true;
+        deflecting = false;
         jumpsLeft = maxJumps;
         SetControl(true);
     }
@@ -108,7 +115,7 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            SetCounter(!GetCounter()); 
+            SetCounterDeflect(!GetCounterDeflect()); 
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -214,17 +221,14 @@ public class PlayerControls : MonoBehaviour
 
 
 
-    public bool GetCounter() { return canCounter; }
-    public void SetCounter(bool state)
-    { canCounter = state; }
-
+   
 
     //Moves the player
     private void Counter()
     {
         Debug.Log("Counter");
         animator.SetTrigger("Counter");
-        StartCoroutine(Invunerable(1.5f));
+         StartCoroutine(Invunerable(1.5f));
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
 
@@ -255,6 +259,7 @@ public class PlayerControls : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             Debug.Log("Attack");
+            SoundManager.PlaySound("SWORD");
             //Gets array of hit targets
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -302,8 +307,10 @@ public class PlayerControls : MonoBehaviour
     public IEnumerator Invunerable(float seconds)
     {
         canTakeDamage = false;
+        if (improvedCounter) { deflecting = true; }
         yield return new WaitForSeconds(seconds);
         canTakeDamage = true;
+        deflecting = false;
     }
 
 
