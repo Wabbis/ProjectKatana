@@ -54,6 +54,7 @@ public class TurretScript : MonoBehaviour
 
                     newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized * bulletSpeed * 0.1f;
                     gameObject.GetComponent<Animator>().SetTrigger("ShootTrigger");
+                    SoundManager.PlaySound("ARENEMY");
 
                     //   newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right * -1;
                     //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
@@ -68,6 +69,7 @@ public class TurretScript : MonoBehaviour
                     //  newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right;
                     newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized * bulletSpeed * 0.1f;
                     gameObject.GetComponent<Animator>().SetTrigger("ShootTrigger");
+                    SoundManager.PlaySound("ARENEMY");
 
                     //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
                     Destroy(newBullet, 5);

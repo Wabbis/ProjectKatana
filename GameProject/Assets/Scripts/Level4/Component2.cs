@@ -24,6 +24,7 @@ public class Component2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             levelManager.GetComponent<Level4Script>().AddComponent(2);
+            SoundManager.PlaySound("PICKUP");
             cutscene.SetActive(true);
             gameObject.SetActive(false);
         }
