@@ -59,7 +59,7 @@ public class PatrolState : BaseState
         _rangedEnemy.eyes.transform.rotation = _rangedEnemy.transform.rotation;
 
         //palauttaa silmän reunalta paluun jälkeen
-        if (!_rangedEnemy.eyes.activeInHierarchy)
+      /*  if (!_rangedEnemy.eyes.activeInHierarchy)
         {
             delayLeft--;
             if (delayLeft < 0)
@@ -68,7 +68,7 @@ public class PatrolState : BaseState
                 delayLeft = delay;
             }
 
-        }
+        }*/
 
         return null;
     }

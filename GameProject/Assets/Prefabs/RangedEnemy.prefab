@@ -156,7 +156,7 @@ MonoBehaviour:
   gunRotator: {fileID: 1817093043759907374}
   bulletSpawn: {fileID: 1817093043245275346}
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
-  bulletSpeed: 300
+  bulletSpeed: 500
   firstMelee: 0.5
   meleeCD: 1
   firstShot: 0.1
@@ -328,7 +328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817093043245275346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 0.027, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1817093043759907375}
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817093043413030037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.089, y: 0.125, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0.125, z: 0}
   m_LocalScale: {x: 0.2825783, y: 0.2825783, z: 0.2825783}
   m_Children:
   - {fileID: 1817093043253843176}
