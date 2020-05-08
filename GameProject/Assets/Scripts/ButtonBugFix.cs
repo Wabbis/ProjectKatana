@@ -7,7 +7,7 @@ public class ButtonBugFix : MonoBehaviour
     
     private void OnEnable()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(null);
         btn.Select();
     }
 

@@ -206,6 +206,7 @@ public class PlayerControls : MonoBehaviour
     private void Jump()
     {
         animator.SetTrigger("Jump");
+        SoundManager.PlaySound("WHOOSH");
         playerRB.velocity = Vector2.up * jumpForce;
         jumpsLeft--;
     }

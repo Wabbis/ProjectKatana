@@ -13,7 +13,7 @@ public class PlayerKillZone : MonoBehaviour
         {
             Debug.Log("Player died in goop");
             collision.GetComponent<PlayerControls>().Die();
-           
+            collision.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
             collision.GetComponent<SpriteRenderer>().sortingOrder = -1;
            
         }

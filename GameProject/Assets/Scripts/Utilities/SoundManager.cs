@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip ALARM, ARENEMY, PISTOLENEMY, EXPLODE, BOSSSHOT, CHARGEUP, ELEVATORMOVE, ELEVATOROPEN, MELEESTAB, MENUHOVER, MENUSELECT, PICKUP, ROBOTAIM, ROBOTMOVE, SWITCH, TELEPORT;
+    public static AudioClip ALARM, ARENEMY, PISTOLENEMY, EXPLODE, BOSSSHOT, CHARGEUP, ELEVATORMOVE, ELEVATOROPEN, MELEESTAB, MENUHOVER, MENUSELECT, PICKUP, ROBOTAIM, ROBOTMOVE, SWITCH, TELEPORT, WHOOSH;
     static AudioSource audioSrc;
     public AudioMixer audioMixer;
 
@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
         ROBOTAIM = Resources.Load<AudioClip>("ROBOTAIM");
         ROBOTMOVE = Resources.Load<AudioClip>("ROBOTMOVE");
         SWITCH = Resources.Load<AudioClip>("SWITCH");
+        WHOOSH = Resources.Load<AudioClip>("WHOOSH");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -136,6 +137,12 @@ public class SoundManager : MonoBehaviour
                 audioSrc.Stop();
                 audioSrc.loop = false;
                 audioSrc.clip = SWITCH;
+                audioSrc.Play();
+                break;
+            case "WHOOSH":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = WHOOSH;
                 audioSrc.Play();
                 break;
 

@@ -111,8 +111,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied()
-    {
-        
+    {   // Väliaikainen
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
     
 }
