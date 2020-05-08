@@ -638,7 +638,6 @@ MonoBehaviour:
   acceptPlayerInput: 0
   sceneIndex: 0
   canScore: 0
-  levelscompleted: 0000000000000000
   paused: 0
 --- !u!114 &60645021
 MonoBehaviour:
@@ -926,7 +925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5da3c2c0e96f2468b81228197eddce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGroup: {fileID: 0}
+  targetGroup: {fileID: -371475299744411652, guid: f00bedc7218b89b479a138a6ec99d388,
+    type: 2}
   soundManager: {fileID: 0}
   mixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}
   slider: {fileID: 146926057}
@@ -2245,7 +2245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5da3c2c0e96f2468b81228197eddce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGroup: {fileID: 0}
+  targetGroup: {fileID: -1006214871702121541, guid: f00bedc7218b89b479a138a6ec99d388,
+    type: 2}
   soundManager: {fileID: 0}
   mixer: {fileID: 24100000, guid: f00bedc7218b89b479a138a6ec99d388, type: 2}
   slider: {fileID: 567468765}
