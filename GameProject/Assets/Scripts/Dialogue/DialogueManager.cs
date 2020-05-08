@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour {
 	{
         Debug.Log("hasControl = false");
         PlayerControls sn = player.GetComponent<PlayerControls>();
-        sn.hasControl = false;
+        sn.SetControl(false);
         vaiht1 = dialogue.vaiht1;
 		vaiht2 = dialogue.vaiht2;
 		vaiht3 = dialogue.vaiht3;
@@ -169,7 +169,7 @@ public class DialogueManager : MonoBehaviour {
         PlayerControls sn = player.GetComponent<PlayerControls>();
         Debug.Log("End");
 		dialogueBox.SetActive(false);
-        sn.hasControl = true;
+        sn.SetControl(true);
     }
 
 	void Update(){
