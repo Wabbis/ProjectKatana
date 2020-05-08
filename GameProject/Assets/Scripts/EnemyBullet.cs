@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(dir * Time.deltaTime * speed) ;
+        transform.Translate(dir * Time.deltaTime * speed);
     }
     public void ChangeLayer()
     {
@@ -66,7 +66,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Debug.Log("Bullet hit Player");
-            if (collision.gameObject.GetComponent<PlayerControls>().block)
+            if (!collision.gameObject.GetComponent<PlayerControls>().canTakeDamage)
             {
                 Reflect();
                 Debug.Log("Reflected");

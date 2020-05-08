@@ -30,6 +30,7 @@ public class PlayerControls : MonoBehaviour
     public float playerSpeed;
     public float jumpForce;
     public float dashForce;
+    public bool improvedCounter;
     
 
     //Attacks
@@ -57,6 +58,10 @@ public class PlayerControls : MonoBehaviour
     { gm.GetComponent<GameManager>().acceptPlayerInput = state; }
 
 
+    //Getter and Setter for Improved Counter
+    public bool GetCounterDeflect() { return improvedCounter; }
+    public void SetCounterDeflect(bool state)
+    { improvedCounter = state; }
 
 
 
@@ -66,7 +71,7 @@ public class PlayerControls : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManagement");
         gm.GetComponent<GameManager>().player = gameObject;
         canAttack = true;
-        canCounter = false;
+        canCounter = true;
         block = false;
         dead = false;
         canTakeDamage = true;
@@ -108,7 +113,7 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            SetCounter(!GetCounter()); 
+            SetCounterDeflect(!GetCounterDeflect()); 
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -214,17 +219,16 @@ public class PlayerControls : MonoBehaviour
 
 
 
-    public bool GetCounter() { return canCounter; }
-    public void SetCounter(bool state)
-    { canCounter = state; }
-
+   
 
     //Moves the player
     private void Counter()
     {
         Debug.Log("Counter");
         animator.SetTrigger("Counter");
-        StartCoroutine(Invunerable(1.5f));
+
+        if (improvedCounter) { StartCoroutine(Invunerable(1.5f)); }
+
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
 
