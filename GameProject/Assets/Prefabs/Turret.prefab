@@ -170,7 +170,7 @@ MonoBehaviour:
   shooting: 0
   animator: {fileID: 9500000}
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 60
   bulletSpawn: {fileID: 100002}
   dist: 0
   range: 0
