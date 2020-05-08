@@ -11698,16 +11698,17 @@ MonoBehaviour:
   shield: {fileID: 1748043816}
   indicator: {fileID: 1647099164}
   animator: {fileID: 0}
-  speed: 30
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  speed: 75
   dashes: 3
-  projectileSpeed: 5
+  projectileSpeed: 25
   dead: 0
   hit: 0
   vulnerable: 0
-  vulnerTimer: 2
-  timeLeft: 0
-  left: 0
-  health: 0
+  vulnerTimer: 4
+  startTime: 6
 --- !u!212 &1018388406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11747,7 +11748,7 @@ SpriteRenderer:
   m_SortingLayerID: -2143180499
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4788827534459425075, guid: ce59a1dbce96d654c84ee152ddaa82c5,
+  m_Sprite: {fileID: -4788827534459425075, guid: b669265eaa25c2c4e99f59cda71a3004,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12502,7 +12503,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 21
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12592,7 +12593,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13662,23 +13663,22 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 6061764472836402334, guid: db14f23763646224c8afa82c0b6c3738,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 13
     m_Data: {fileID: 7097940072361402209, guid: db14f23763646224c8afa82c0b6c3738,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: -7621980539823836093, guid: db14f23763646224c8afa82c0b6c3738,
+    m_Data: {fileID: 6061764472836402334, guid: db14f23763646224c8afa82c0b6c3738,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 3559360603218808947, guid: db14f23763646224c8afa82c0b6c3738,
       type: 3}
@@ -13688,8 +13688,9 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -8517587149584893438, guid: db14f23763646224c8afa82c0b6c3738,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -7621980539823836093, guid: db14f23763646224c8afa82c0b6c3738,
+      type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 5253455963495665107, guid: db14f23763646224c8afa82c0b6c3738,
       type: 3}
@@ -15879,6 +15880,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900125597651210862, guid: 157bc71de23042b4e8bf1369e19a6e71,
+        type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900125597651210862, guid: 157bc71de23042b4e8bf1369e19a6e71,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3900125597651210863, guid: 157bc71de23042b4e8bf1369e19a6e71,
         type: 3}

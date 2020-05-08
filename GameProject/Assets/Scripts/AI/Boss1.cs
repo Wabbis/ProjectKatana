@@ -12,6 +12,7 @@ public class Boss1 : MonoBehaviour
     public GameObject shield;
     public Image indicator;
     public Animator animator;
+    public LayerMask layer;
 
   //  public float baseSpeed;
     public float speed;
@@ -25,10 +26,11 @@ public class Boss1 : MonoBehaviour
     public bool hit;
     public bool vulnerable;
     public float vulnerTimer;
-    public float timeLeft;
+    float timeLeft;
+    public float startTime;
     int nextPos;
-    public bool left;
-    public int health;
+    bool left;
+   
 
     float attacTime = 1;
     float attackTimeLeft=1;
@@ -37,9 +39,9 @@ public class Boss1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dashesLeft = dashes;
+       // dashesLeft = dashes;
       //  speed = baseSpeed;
-        timeLeft = vulnerTimer;
+        timeLeft = startTime;
         nextPos = Random.Range(0, 4);
         player = FindObjectOfType<PlayerControls>();
         indicator.gameObject.SetActive(false);
@@ -56,6 +58,25 @@ public class Boss1 : MonoBehaviour
 
             if (dashesLeft > 0)
             {
+                Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 3f, layer);
+                if (hit!=null)
+                {
+                    Debug.Log("player hit");
+                    animator.SetTrigger("Attack");
+                    // kutsutaan pelaajan tappavaafunktiota
+                    foreach (Collider2D h in hit)
+                    {                    
+                                                                      
+                        h.GetComponent<PlayerControls>().Die();
+
+
+
+                    }
+
+                }
+                 
+                
+
                 start = false;
               //  speed -= dashSlow * Time.deltaTime;
                 if (!left)
@@ -167,7 +188,9 @@ public class Boss1 : MonoBehaviour
             if (collision.tag == "Player")
             {
                 Debug.Log("player hit");
+                animator.SetTrigger("Attack");
                 // kutsutaan pelaajan tappavaafunktiota
+                collision.gameObject.GetComponent<PlayerControls>().Die();
             }
         }
     }
