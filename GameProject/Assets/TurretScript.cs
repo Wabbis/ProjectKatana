@@ -25,7 +25,7 @@ public class TurretScript : MonoBehaviour
             StartCoroutine(ShootOnSpawn());
 
         if (range == 0)
-            range = 20;
+            range = 30;
     }
 
     // Update is called once per frame

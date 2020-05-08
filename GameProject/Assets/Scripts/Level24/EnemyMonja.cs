@@ -23,6 +23,8 @@ public class EnemyMonja : MonoBehaviour
             Debug.Log("Enemy Took Damage");
             rb = collision.GetComponent<Rigidbody2D>();
             rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            collision.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
+            collision.GetComponent<SpriteRenderer>().sortingOrder = -1;
             collision.GetComponent<EnemyHealth>().TakeDamage();
             
             Destroy(collision);
