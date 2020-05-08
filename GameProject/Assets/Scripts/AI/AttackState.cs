@@ -40,10 +40,13 @@ public class AttackState : BaseState
         }
         //katsoo pelaajaa kohti
         Vector3 vectorToTarget = _rangedEnemy._target.transform.position - _rangedEnemy.eyes.transform.position;
+        Vector3 gunVector = _rangedEnemy._target.transform.position - _rangedEnemy.gunRotator.transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        float gunAngle = Mathf.Atan2(gunVector.y, gunVector.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion q2 = Quaternion.AngleAxis(gunAngle, Vector3.forward);
         _rangedEnemy.eyes.transform.rotation = Quaternion.Slerp(_rangedEnemy.eyes.transform.rotation, q, Time.deltaTime * 100);
-        _rangedEnemy.gunRotator.transform.rotation = Quaternion.Slerp(_rangedEnemy.gunRotator.transform.rotation, q, Time.deltaTime * 100);
+        _rangedEnemy.gunRotator.transform.rotation = Quaternion.Slerp(_rangedEnemy.gunRotator.transform.rotation, q2, Time.deltaTime * 100);
 
         //kääntää vihollisen kohti pelaajaa
         if (_rangedEnemy._target.transform.position.x < _rangedEnemy.transform.position.x)
