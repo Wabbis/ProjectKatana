@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerKillZone : MonoBehaviour
 {
+    public GameObject player;
     
     // Start is called before the first frame update
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            PlayerControls sn = player.GetComponent<PlayerControls>();
+            sn.canTakeDamage = true;
             Debug.Log("Player died in goop");
             collision.GetComponent<PlayerControls>().Die();
             collision.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
