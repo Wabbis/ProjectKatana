@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -5625565481741920870
     second: Big_Samurai_DODGE_5
+  - first:
+      213: -756000112229217356
+    second: Big_Samurai_DODGE_0
+  - first:
+      213: 9124013491817225264
+    second: Big_Samurai_DODGE_1
+  - first:
+      213: -5935506341926113575
+    second: Big_Samurai_DODGE_2
+  - first:
+      213: -7728473346049399789
+    second: Big_Samurai_DODGE_3
+  - first:
+      213: -3403764952574542695
+    second: Big_Samurai_DODGE_4
+  - first:
+      213: -3485732509738776347
+    second: Big_Samurai_DODGE_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -63,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 75
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,7 +100,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +112,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,10 +138,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 0
         y: 0
-        width: 35
-        height: 67
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c770a06ec1b9489a0800000000000000
-      internalID: -6231685435953117316
+      spriteID: 4bb0c6447e52285f0800000000000000
+      internalID: -756000112229217356
       vertices: []
       indices: 
       edges: []
@@ -129,10 +159,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_1
       rect:
         serializedVersion: 2
-        x: 105
+        x: 75
         y: 0
-        width: 39
-        height: 60
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +170,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def3f9ee619165ec0800000000000000
-      internalID: -3578645267615891475
+      spriteID: 03c13a10ee10f9e70800000000000000
+      internalID: 9124013491817225264
       vertices: []
       indices: 
       edges: []
@@ -150,10 +180,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_2
       rect:
         serializedVersion: 2
-        x: 168
+        x: 150
         y: 0
-        width: 51
-        height: 60
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc78b63171ab9cc80800000000000000
-      internalID: -8301899829807970357
+      spriteID: 9de6a6ffd68d0ada0800000000000000
+      internalID: -5935506341926113575
       vertices: []
       indices: 
       edges: []
@@ -171,10 +201,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_3
       rect:
         serializedVersion: 2
-        x: 228
+        x: 225
         y: 0
-        width: 66
-        height: 68
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbee8366de65a2b80800000000000000
-      internalID: -8418820975793475908
+      spriteID: 314a6a06072feb490800000000000000
+      internalID: -7728473346049399789
       vertices: []
       indices: 
       edges: []
@@ -192,10 +222,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_4
       rect:
         serializedVersion: 2
-        x: 311
+        x: 300
         y: 0
-        width: 59
-        height: 66
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +233,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85137e409db2d91b0800000000000000
-      internalID: -5648310146562576040
+      spriteID: 99cbede3fc563c0d0800000000000000
+      internalID: -3403764952574542695
       vertices: []
       indices: 
       edges: []
@@ -213,10 +243,10 @@ TextureImporter:
       name: Big_Samurai_DODGE_5
       rect:
         serializedVersion: 2
-        x: 410
+        x: 375
         y: 0
-        width: 34
-        height: 69
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +254,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a95d218fff9fde1b0800000000000000
-      internalID: -5625565481741920870
+      spriteID: 5e84df620c030afc0800000000000000
+      internalID: -3485732509738776347
       vertices: []
       indices: 
       edges: []
