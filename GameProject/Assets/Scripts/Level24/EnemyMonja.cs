@@ -26,9 +26,16 @@ public class EnemyMonja : MonoBehaviour
             collision.GetComponent<SpriteRenderer>().sortingLayerName = "foreground";
             collision.GetComponent<SpriteRenderer>().sortingOrder = -1;
             collision.GetComponent<EnemyHealth>().TakeDamage();
-            
+            StartCoroutine(ActivateUcco(collision.gameObject));
             Destroy(collision);
         }
 
     }
+    IEnumerator ActivateUcco(GameObject vihu)
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject valo = vihu.transform.GetChild(4).gameObject;
+        valo.SetActive(false);
+    }
 }
+
