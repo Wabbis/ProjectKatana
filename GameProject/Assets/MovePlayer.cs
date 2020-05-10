@@ -16,11 +16,15 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MovePlayerCharacter()
     {
         player.transform.position = newPosition;
+        if(player.transform.rotation.eulerAngles.y != 0)
+        {
+            player.transform.Rotate(0, -180, 0);
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss2 : MonoBehaviour
 {
     public Animator anim;
+    public LineRenderer linerenderer;
     public Transform[] teleportLocation;
     public Transform player;
     public float bulletspeed;
@@ -12,6 +13,7 @@ public class Boss2 : MonoBehaviour
     public GameObject firepoint;
     private SpriteRenderer spriteRenderer;
     private Vector2 _direction;
+    public GameObject endingCutscene;
      
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class Boss2 : MonoBehaviour
     {
         
         anim = gameObject.GetComponent<Animator>();
+        linerenderer = gameObject.GetComponentInChildren<LineRenderer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         StartCoroutine("Teleport");
     }
@@ -43,6 +46,7 @@ public class Boss2 : MonoBehaviour
     public IEnumerator Teleport()
     {
         Debug.Log("Teleporting");
+        linerenderer.enabled = false;
         Transform target = teleportLocation[Random.Range(0, 4)];
         Debug.Log("New location: " + target.position);
         while (target.position == transform.position)
@@ -58,6 +62,7 @@ public class Boss2 : MonoBehaviour
         spriteRenderer.enabled = true;
         anim.Play("Teleport2");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        linerenderer.enabled = true;
         StartCoroutine("Attack");
     }
 
@@ -88,8 +93,14 @@ public class Boss2 : MonoBehaviour
     public void Die()
     {
         StopAllCoroutines();
-        anim.Play("Dead");
+        //anim.Play("Dead");
+        endingCutscene.SetActive(true);
         
+    }
+
+    public void PlayDieAnimation()
+    {
+        anim.Play("Dead");
     }
 
 
