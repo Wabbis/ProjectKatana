@@ -14,6 +14,8 @@ public class Boss2 : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector2 _direction;
     public GameObject endingCutscene;
+
+    private bool playerDead;
      
 
     // Start is called before the first frame update
@@ -68,15 +70,22 @@ public class Boss2 : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        Debug.Log("Aiming");
-        anim.Play("Attack");
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-        GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
-        Vector2 dir = player.position - firepoint.transform.position;
-        go.GetComponent<EnemyBullet>().dir = dir;
-        anim.Play("Idle");
-        yield return new WaitForSeconds(3);
-        StartCoroutine("Teleport");
+        if (playerDead)
+        {
+            PlayerDead();
+        }
+        else
+        {
+            Debug.Log("Aiming");
+            anim.Play("Attack");
+            yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+            GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
+            Vector2 dir = player.position - firepoint.transform.position;
+            go.GetComponent<EnemyBullet>().dir = dir;
+            anim.Play("Idle");
+            yield return new WaitForSeconds(3);
+            StartCoroutine("Teleport");
+        }
     }
 
 
@@ -90,12 +99,24 @@ public class Boss2 : MonoBehaviour
         StartCoroutine("Teleport");
     }
 
+    public void SetPlayerDead(bool value)
+    {
+        playerDead = value;
+    }
+
     public void Die()
     {
         StopAllCoroutines();
         //anim.Play("Dead");
         endingCutscene.SetActive(true);
         
+    }
+
+    public void PlayerDead()
+    {
+        StopAllCoroutines();
+        anim.Play("Idle");
+        GetComponentInChildren<LineRenderer>().enabled = false;
     }
 
     public void PlayDieAnimation()
