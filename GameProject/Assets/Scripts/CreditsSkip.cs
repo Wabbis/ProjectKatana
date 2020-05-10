@@ -13,6 +13,6 @@ public class CreditsSkip : MonoBehaviour
 
     public void SkipCredits()
     {
-        SceneManager.LoadScene(2);
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(2);
     }
 }

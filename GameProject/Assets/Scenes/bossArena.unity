@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2717,7 +2717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716066907}
   m_LocalRotation: {x: -0.01080955, y: -0.0039016816, z: 0.000043059965, w: -0.999934}
-  m_LocalPosition: {x: 28.131828, y: -1.8083845, z: -10.017491}
+  m_LocalPosition: {x: 28.131828, y: -1.8083838, z: -10.017491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013139924}
@@ -3889,14 +3889,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1258437242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09ae02c5ced1d1489b94af8adba477a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c2a3b86cdf386f4d833515a5eb9a07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electronicComponents: []
-  componentsCollected: 0
-  gameManagerObject: {fileID: 7514281149189798912, guid: 91fc23af2eee5a346a5e70c3856d0f76,
-    type: 3}
-  gameManagerScript: {fileID: 0}
+  fadeToBlack: 0
+  fadeToBlackGameObject: {fileID: 0}
 --- !u!4 &1258437244
 Transform:
   m_ObjectHideFlags: 0
@@ -21900,7 +21897,7 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1258437243}
-          m_MethodName: EndLevel
+          m_MethodName: LoadNextLevel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22650,7 +22647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694896632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.74, y: 4.04, z: -10}
+  m_LocalPosition: {x: 4.6, y: -9.1, z: -89.67595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
