@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
             if (boss.vulnerable)
             {
                 health--;
+                SoundManager.PlaySound("BOSSOOF");
                 if (health == 0)
                 {
                     boss.Die();
@@ -53,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
             RangedEnemy enemy = gameObject.GetComponent<RangedEnemy>();
             if (!enemy.dead)
             {
+                SoundManager.PlaySound("DEEPOOF");
                 health--;
 
                 if (health <= 0)
@@ -63,6 +65,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }else if(turret)
         {
+            SoundManager.PlaySound("EXPLODE");
             health--;
             
             if (health <= 0)

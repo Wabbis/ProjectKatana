@@ -127,6 +127,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLevels()
     {
+        SoundManager.PlaySound("MENUHOVER");
         UpdateLevels();
         menuPanel.gameObject.SetActive(false);
         levelPanel.gameObject.SetActive(true);
@@ -135,6 +136,7 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseLevels()
     {
+        SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(true);
         levelPanel.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
@@ -143,6 +145,7 @@ public class MainMenu : MonoBehaviour
   
     public void OpenOptions()
     {
+        SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(false);
         optionsPanel.gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
@@ -150,6 +153,7 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseOptions()
     {
+        SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(true);
         optionsPanel.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
@@ -157,6 +161,7 @@ public class MainMenu : MonoBehaviour
     }
     public void ExitGame()
     {
+        SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(false);
         exitPanel.gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
@@ -164,6 +169,7 @@ public class MainMenu : MonoBehaviour
     }
     public void CancelExit()
     {
+        SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(true);
         exitPanel.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
@@ -171,12 +177,14 @@ public class MainMenu : MonoBehaviour
     }
     public void ConfirmExit()
     {
+        SoundManager.PlaySound("MENUSELECT");
         UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
         Application.Quit();
     }
 
     public void LoadLevel(int level)
     {
+        SoundManager.PlaySound("MENUSELECT");
         SceneManager.LoadScene(level);
     }
 }

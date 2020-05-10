@@ -47,12 +47,14 @@ public class GameManager : MonoBehaviour
             {
                 if (!paused)
                 {
+                    SoundManager.PlaySound("MENUHOVER");
                     paused = true;
                     pauseMenu.SetActive(true);
                     Time.timeScale = 0;
                 }
                 else
                 {
+                    SoundManager.PlaySound("MENUSELECT");
                     paused = false;
                     pauseMenu.SetActive(false);
 

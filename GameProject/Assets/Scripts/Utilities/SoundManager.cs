@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip ALARM, ARENEMY, PISTOLENEMY, EXPLODE, BOSSSHOT, CHARGEUP, ELEVATORMOVE, ELEVATOROPEN, MELEESTAB, MENUHOVER, MENUSELECT, PICKUP, ROBOTAIM, ROBOTMOVE, SWITCH, TELEPORT, WHOOSH, SWORD;
+    public static AudioClip DEATHOOF, BOSSOOF, DEEPOOF, OOF, QUICKOOF, DODGE, ALARM, ARENEMY, PISTOLENEMY, EXPLODE, BOSSSHOT, CHARGEUP, ELEVATORMOVE, ELEVATOROPEN, MELEESTAB, MENUHOVER, MENUSELECT, PICKUP, ROBOTAIM, ROBOTMOVE, SWITCH, TELEPORT, WHOOSH, SWORD;
     static AudioSource audioSrc;
     public AudioMixer audioMixer;
 
@@ -30,6 +30,12 @@ public class SoundManager : MonoBehaviour
         SWITCH = Resources.Load<AudioClip>("SWITCH");
         WHOOSH = Resources.Load<AudioClip>("WHOOSH");
         SWORD = Resources.Load<AudioClip>("SWORD");
+        DEEPOOF = Resources.Load<AudioClip>("DEEPOOF");
+        OOF = Resources.Load<AudioClip>("OOF");
+        QUICKOOF = Resources.Load<AudioClip>("QUICKOOF");
+        DODGE = Resources.Load<AudioClip>("DODGE");
+        BOSSOOF = Resources.Load<AudioClip>("BOSSOOF");
+        DEATHOOF = Resources.Load<AudioClip>("DEATHOOF");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -150,6 +156,42 @@ public class SoundManager : MonoBehaviour
                 audioSrc.Stop();
                 audioSrc.loop = false;
                 audioSrc.clip = SWORD;
+                audioSrc.Play();
+                break;
+            case "DEEPOOF":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = DEEPOOF;
+                audioSrc.Play();
+                break;
+            case "OOF":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = OOF;
+                audioSrc.Play();
+                break;
+            case "QUICKOOF":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = QUICKOOF;
+                audioSrc.Play();
+                break;
+            case "DODGE":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = DODGE;
+                audioSrc.Play();
+                break;
+            case "BOSSOOF":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = BOSSOOF;
+                audioSrc.Play();
+                break;
+            case "DEATHOOF":
+                audioSrc.Stop();
+                audioSrc.loop = false;
+                audioSrc.clip = DEATHOOF;
                 audioSrc.Play();
                 break;
 

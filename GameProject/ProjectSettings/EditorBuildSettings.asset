@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BossFight1.unity
     guid: 85ac8a321afd839499480fc672c0844b
   - enabled: 1
-    path: Assets/Scenes/World2Level1.unity
+    path: Assets/Scenes/world2level1.unity
     guid: da627fbcd70e8ae478707b29ef6dea30
   - enabled: 1
     path: Assets/Scenes/World2Level2.unity

@@ -175,6 +175,11 @@ public class PlayerControls : MonoBehaviour
         {
             SetControl(false);
             animator.SetBool("IsDead", true);
+            //SoundManager.PlaySound("DEATHOOF");
+
+            /*
+            pelaaja atm ei kuole oikein niin toistaseksi poissa 
+            */
         }
 
     }
@@ -228,6 +233,7 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.Log("Counter");
         animator.SetTrigger("Counter");
+        SoundManager.PlaySound("DODGE");
          StartCoroutine(Invunerable(1.5f));
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;

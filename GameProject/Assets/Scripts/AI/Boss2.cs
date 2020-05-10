@@ -50,6 +50,7 @@ public class Boss2 : MonoBehaviour
         Debug.Log("Teleporting");
         linerenderer.enabled = false;
         Transform target = teleportLocation[Random.Range(0, 4)];
+        SoundManager.PlaySound("TELEPORT");
         Debug.Log("New location: " + target.position);
         while (target.position == transform.position)
         {
@@ -94,6 +95,7 @@ public class Boss2 : MonoBehaviour
         GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
         Vector2 dir = player.position - firepoint.transform.position;
         go.GetComponent<Rigidbody2D>().velocity = dir * bulletspeed;
+        SoundManager.PlaySound("BOSSSHOT");
         anim.Play("Idle");
         yield return new WaitForSeconds(1);
         StartCoroutine("Teleport");
