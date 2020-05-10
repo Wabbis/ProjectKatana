@@ -9,20 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/preload.unity
     guid: 623174adbad3be04baadf483be8e2765
   - enabled: 1
-    path: Assets/Scenes/World2Level4.unity
-    guid: fb97890371d8dad4cbaee550d777459a
-  - enabled: 1
-    path: Assets/Scenes/World1Level3.unity
-    guid: 9d5a3c226e2d2f3479e59073cec712c6
-  - enabled: 1
-    path: Assets/Scenes/TutorialLevel.unity
-    guid: 92121de89ed5c634997c891a91734fe5
-  - enabled: 1
     path: Assets/Scenes/StartingCutscene.unity
     guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 0e0491da5c0260c4fa362acdd79d6afe
+  - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: 92121de89ed5c634997c891a91734fe5
   - enabled: 1
     path: Assets/Scenes/World1Level1.unity
     guid: 27bc1e8122134c244a3fb31566e7830b
@@ -30,10 +24,13 @@ EditorBuildSettings:
     path: Assets/Scenes/World1Level2.unity
     guid: 7acaec1fe6a73f74dab81425ea244723
   - enabled: 1
+    path: Assets/Scenes/World1Level3.unity
+    guid: 9d5a3c226e2d2f3479e59073cec712c6
+  - enabled: 1
     path: Assets/Scenes/BossFight1.unity
     guid: 85ac8a321afd839499480fc672c0844b
   - enabled: 1
-    path: Assets/Scenes/world2level1.unity
+    path: Assets/Scenes/World2Level1.unity
     guid: da627fbcd70e8ae478707b29ef6dea30
   - enabled: 1
     path: Assets/Scenes/World2Level2.unity
@@ -42,8 +39,14 @@ EditorBuildSettings:
     path: Assets/Scenes/World2Level3.unity
     guid: 9bdab5913daaef34e8a37f51c4e488cf
   - enabled: 1
+    path: Assets/Scenes/World2Level4.unity
+    guid: fb97890371d8dad4cbaee550d777459a
+  - enabled: 1
     path: Assets/Scenes/bossArena.unity
     guid: 2110a4f5f24794945a5d2d1b918ee0b5
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 52694b4fac560324a80b2493f620e951
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
