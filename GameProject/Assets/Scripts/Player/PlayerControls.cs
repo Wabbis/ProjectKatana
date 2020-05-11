@@ -21,7 +21,6 @@ public class PlayerControls : MonoBehaviour
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
     public bool grounded;
     public bool canTakeDamage;
-    public bool block;
     public int maxJumps;
     private int jumpsLeft;
     private bool dead;
@@ -73,7 +72,6 @@ public class PlayerControls : MonoBehaviour
         gm.GetComponent<GameManager>().player = gameObject;
         canAttack = true;
         canCounter = true;
-        block = false;
         dead = false;
         canTakeDamage = true;
         deflecting = false;
@@ -105,14 +103,9 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             counterTemp = true;
-            block = true;
+        }
 
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            block = true;
-            Debug.Log("Blocking");
-        }
+        //Testausta varten
         if (Input.GetKeyDown(KeyCode.U))
         {
             SetCounterDeflect(!GetCounterDeflect()); 
@@ -130,10 +123,7 @@ public class PlayerControls : MonoBehaviour
             }
                
         }
-        else
-        {
-            block = false;
-        }
+       
     }
 
 
