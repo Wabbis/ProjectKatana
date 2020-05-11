@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/preload.unity
     guid: 623174adbad3be04baadf483be8e2765
   - enabled: 1
+    path: Assets/Scenes/MainMenuVideo.unity
+    guid: 5c3b57c75da3f7743b38f24e7add4ae8
+  - enabled: 1
     path: Assets/Scenes/StartingCutscene.unity
     guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 1
