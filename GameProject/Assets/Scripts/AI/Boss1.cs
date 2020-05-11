@@ -13,6 +13,7 @@ public class Boss1 : MonoBehaviour
     public Image indicator;
     public Animator animator;
     public LayerMask layer;
+    public GameObject endingCutscene;
 
   //  public float baseSpeed;
     public float speed;
@@ -223,8 +224,19 @@ public class Boss1 : MonoBehaviour
     public void Die()
     {
         dead = true;
-        animator.SetTrigger("Die");
+        endingCutscene.SetActive(true);
 
        // Destroy(gameObject);
+    }
+
+    public void PlayDieAnimation()
+    {
+        animator.SetTrigger("Die");
+    }
+
+    public void PlayerAttack()
+    {
+        player.GetComponent<Animator>().SetTrigger("Attack");
+        SoundManager.PlaySound("SWORD");
     }
 }

@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
+        SoundManager.PlaySound("MENUSELECT");
         gameManager.paused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1;
@@ -26,30 +27,35 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenOptions()
     {
+        SoundManager.PlaySound("MENUHOVER");
         pausePanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
     public void CloseOptions()
     {
+        SoundManager.PlaySound("MENUHOVER");
         optionsPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
 
     public void ExitGame()
     {
+        SoundManager.PlaySound("MENUHOVER");
         pausePanel.SetActive(false);
         exitPanel.SetActive(true);
     }
 
     public void CancelExit()
     {
+        SoundManager.PlaySound("MENUHOVER");
         exitPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
 
     public void ConfirmExit()
     {
+        SoundManager.PlaySound("MENUSELECT");
         gameManager.paused = false;
         levelManager.QuitGame();
         exitPanel.SetActive(false);

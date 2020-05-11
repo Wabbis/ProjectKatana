@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level4Script : MonoBehaviour
 {
@@ -47,6 +48,6 @@ public class Level4Script : MonoBehaviour
 
     public void EndLevel()
     {
-        gameManagerScript.LoadNextScene();
+        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

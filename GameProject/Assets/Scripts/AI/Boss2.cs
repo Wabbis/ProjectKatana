@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss2 : MonoBehaviour
 {
     public Animator anim;
+    public LineRenderer linerenderer;
     public Transform[] teleportLocation;
     public Transform player;
     public float bulletspeed;
@@ -12,6 +13,9 @@ public class Boss2 : MonoBehaviour
     public GameObject firepoint;
     private SpriteRenderer spriteRenderer;
     private Vector2 _direction;
+    public GameObject endingCutscene;
+
+    private bool playerDead;
      
 
     // Start is called before the first frame update
@@ -19,6 +23,7 @@ public class Boss2 : MonoBehaviour
     {
         
         anim = gameObject.GetComponent<Animator>();
+        linerenderer = gameObject.GetComponentInChildren<LineRenderer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         StartCoroutine("Teleport");
     }
@@ -43,7 +48,9 @@ public class Boss2 : MonoBehaviour
     public IEnumerator Teleport()
     {
         Debug.Log("Teleporting");
+        linerenderer.enabled = false;
         Transform target = teleportLocation[Random.Range(0, 4)];
+        SoundManager.PlaySound("TELEPORT");
         Debug.Log("New location: " + target.position);
         while (target.position == transform.position)
         {
@@ -58,20 +65,28 @@ public class Boss2 : MonoBehaviour
         spriteRenderer.enabled = true;
         anim.Play("Teleport2");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        linerenderer.enabled = true;
         StartCoroutine("Attack");
     }
 
     public IEnumerator Attack()
     {
-        Debug.Log("Aiming");
-        anim.Play("Attack");
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-        GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
-        Vector2 dir = player.position - firepoint.transform.position;
-        go.GetComponent<EnemyBullet>().dir = dir;
-        anim.Play("Idle");
-        yield return new WaitForSeconds(3);
-        StartCoroutine("Teleport");
+        if (playerDead)
+        {
+            PlayerDead();
+        }
+        else
+        {
+            Debug.Log("Aiming");
+            anim.Play("Attack");
+            yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+            GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
+            Vector2 dir = player.position - firepoint.transform.position;
+            go.GetComponent<EnemyBullet>().dir = dir;
+            anim.Play("Idle");
+            yield return new WaitForSeconds(3);
+            StartCoroutine("Teleport");
+        }
     }
 
 
@@ -80,16 +95,35 @@ public class Boss2 : MonoBehaviour
         GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
         Vector2 dir = player.position - firepoint.transform.position;
         go.GetComponent<Rigidbody2D>().velocity = dir * bulletspeed;
+        SoundManager.PlaySound("BOSSSHOT");
         anim.Play("Idle");
         yield return new WaitForSeconds(1);
         StartCoroutine("Teleport");
     }
 
+    public void SetPlayerDead(bool value)
+    {
+        playerDead = value;
+    }
+
     public void Die()
     {
         StopAllCoroutines();
-        anim.Play("Dead");
+        //anim.Play("Dead");
+        endingCutscene.SetActive(true);
         
+    }
+
+    public void PlayerDead()
+    {
+        StopAllCoroutines();
+        anim.Play("Idle");
+        GetComponentInChildren<LineRenderer>().enabled = false;
+    }
+
+    public void PlayDieAnimation()
+    {
+        anim.Play("Dead");
     }
 
 

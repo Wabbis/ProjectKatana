@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: 1965293176849883049
     second: Big_Samurai_Attack_8
+  - first:
+      213: -3832149939586471247
+    second: Big_Samurai_Attack_0
+  - first:
+      213: -2717637520618649418
+    second: Big_Samurai_Attack_1
+  - first:
+      213: 6424281722512916998
+    second: Big_Samurai_Attack_2
+  - first:
+      213: -3784712101101199284
+    second: Big_Samurai_Attack_3
+  - first:
+      213: 1574340656507403258
+    second: Big_Samurai_Attack_4
+  - first:
+      213: -4653051197023643724
+    second: Big_Samurai_Attack_5
+  - first:
+      213: 1758075504488238148
+    second: Big_Samurai_Attack_6
+  - first:
+      213: 587293487361883996
+    second: Big_Samurai_Attack_7
+  - first:
+      213: -3404959783514358330
+    second: Big_Samurai_Attack_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -91,7 +118,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +130,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,72 +156,9 @@ TextureImporter:
       name: Big_Samurai_Attack_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 0
         y: 0
-        width: 35
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff1a8d4363461d500800000000000000
-      internalID: 419226424299790847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Big_Samurai_Attack_1
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 0
-        width: 39
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60100e53ab2e2fcd0800000000000000
-      internalID: -2525707151605759738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Big_Samurai_Attack_2
-      rect:
-        serializedVersion: 2
-        x: 171
-        y: 0
-        width: 48
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8665482c11e6df090800000000000000
-      internalID: -7999116340583180696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Big_Samurai_Attack_3
-      rect:
-        serializedVersion: 2
-        x: 249
-        y: 0
-        width: 44
+        width: 75
         height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -191,8 +167,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8587f080e43fe2a90800000000000000
-      internalID: -7336659226471729064
+      spriteID: 1bae9ecfee771dac0800000000000000
+      internalID: -3832149939586471247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Samurai_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8804bd213094ad0800000000000000
+      internalID: -2717637520618649418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Samurai_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602ca677032a72950800000000000000
+      internalID: 6424281722512916998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big_Samurai_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40adb475600a7bc0800000000000000
+      internalID: -3784712101101199284
       vertices: []
       indices: 
       edges: []
@@ -203,8 +242,8 @@ TextureImporter:
         serializedVersion: 2
         x: 300
         y: 0
-        width: 69
-        height: 60
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +251,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edaab9764a12d0cf0800000000000000
-      internalID: -284534211457864994
+      spriteID: afb34926c7e29d510800000000000000
+      internalID: 1574340656507403258
       vertices: []
       indices: 
       edges: []
@@ -222,10 +261,10 @@ TextureImporter:
       name: Big_Samurai_Attack_5
       rect:
         serializedVersion: 2
-        x: 388
+        x: 375
         y: 0
-        width: 57
-        height: 66
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,8 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 308f25b7d6ac6d170800000000000000
-      internalID: 8202966342871218179
+      spriteID: 4b713b7d69a0d6fb0800000000000000
+      internalID: -4653051197023643724
       vertices: []
       indices: 
       edges: []
@@ -243,10 +282,10 @@ TextureImporter:
       name: Big_Samurai_Attack_6
       rect:
         serializedVersion: 2
-        x: 483
+        x: 450
         y: 0
-        width: 35
-        height: 69
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,8 +293,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba5c2df293b16c30800000000000000
-      internalID: 4350956158910749366
+      spriteID: 44c465d4b50f56810800000000000000
+      internalID: 1758075504488238148
       vertices: []
       indices: 
       edges: []
@@ -264,10 +303,10 @@ TextureImporter:
       name: Big_Samurai_Attack_7
       rect:
         serializedVersion: 2
-        x: 559
+        x: 525
         y: 0
-        width: 34
-        height: 69
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,8 +314,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e86828090e8f8c5f0800000000000000
-      internalID: -736064895694240114
+      spriteID: c5ffa1da05c762800800000000000000
+      internalID: 587293487361883996
       vertices: []
       indices: 
       edges: []
@@ -285,10 +324,10 @@ TextureImporter:
       name: Big_Samurai_Attack_8
       rect:
         serializedVersion: 2
-        x: 635
+        x: 600
         y: 0
-        width: 33
-        height: 69
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,8 +335,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9afd2a55bbf164b10800000000000000
-      internalID: 1965293176849883049
+      spriteID: 6cdb22dfd172fb0d0800000000000000
+      internalID: -3404959783514358330
       vertices: []
       indices: 
       edges: []
