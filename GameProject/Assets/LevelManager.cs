@@ -43,6 +43,6 @@ public class LevelManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.UnloadSceneAsync(currentLevel);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuVideo");
     }
 }
