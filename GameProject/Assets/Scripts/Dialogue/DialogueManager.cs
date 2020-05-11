@@ -65,8 +65,11 @@ public class DialogueManager : MonoBehaviour {
         {
             portrait.GetComponent<Image>().sprite = portrait2;
         }
+
         npc = UnityEngine.GameObject.Find(name);
-		kaapo = npc.GetComponent<DialogueNext>();
+        if (npc.GetComponent<DialogueNext>() != null) { kaapo = npc.GetComponent<DialogueNext>(); }
+        
+		
 		
 		
 		dialogueNexts = npc.GetComponents<DialogueNext>();

@@ -445,6 +445,8 @@ MonoBehaviour:
   killable: 1
   indicator: {fileID: 3764389212934764251}
   explosionSize: 10
+  light1: {fileID: 6290918140948741653}
+  light2: {fileID: 6592480901319882198}
   rayLength: 10
 --- !u!95 &9215797117670299873
 Animator:

@@ -25,7 +25,8 @@ public class RangedEnemy : MonoBehaviour
     public GameObject gunRotator;
     public GameObject bulletSpawn;
     public GameObject bullet;
-    
+    public GameObject light;
+
     public float bulletSpeed = 20;
     public float firstMelee=0.5f;
     public float meleeCD=1;
@@ -142,7 +143,8 @@ public class RangedEnemy : MonoBehaviour
         dead = true;
         animator.SetTrigger("Die");
         eyes.gameObject.SetActive(false);
-        
+        light.gameObject.SetActive(false);
+
         GetComponent<StateMachine>().enabled = false;
         
     }

@@ -22,7 +22,9 @@ public class ChargingEnemy : MonoBehaviour
     public Image indicator;
     public float explosionSize=5;
     Animator animator;
-    
+    public GameObject light1;
+    public GameObject light2;
+
 
     public float rayLength;
 
@@ -123,6 +125,8 @@ public class ChargingEnemy : MonoBehaviour
         Debug.Log("Die");
         animator.SetTrigger("Explode");
         Destroy(gameObject,0.5f);
+        light1.SetActive(false);
+        light2.SetActive(false);
     }
 
     void Patrol()
