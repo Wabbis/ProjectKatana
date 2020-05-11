@@ -16,8 +16,8 @@ public class Level4Script : MonoBehaviour
     {
         componentsCollected = 0;
 
-        gameManagerObject = UnityEngine.GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
-        gameManagerScript = gameManagerObject.GetComponent<GameManager>();
+        //gameManagerObject = UnityEngine.GameObject.Find("GameManager") ?? Instantiate(gameManagerObject, new Vector3(0, 0, 0), Quaternion.identity);
+        //gameManagerScript = gameManagerObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
