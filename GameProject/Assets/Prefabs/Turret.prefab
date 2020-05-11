@@ -176,6 +176,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 100002}
   dist: 0
   range: 0
+  angleOffset: 20
   playerInRange: 0
 --- !u!114 &5641562852467947068
 MonoBehaviour:

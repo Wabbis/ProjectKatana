@@ -71,6 +71,7 @@ public class EnemyHealth : MonoBehaviour
             if (health <= 0)
             {
                 //tuhotaan turret animaattorin avustuksella
+                gameObject.GetComponent<TurretScript>().SetDead(true);
                 gameObject.GetComponent<Animator>().SetTrigger("Die");
                 
             }

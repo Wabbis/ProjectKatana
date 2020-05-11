@@ -18,7 +18,13 @@ public class TurretScript : MonoBehaviour
     public float dist;
     public float range;
 
+    public float angleOffset;
     public bool playerInRange;
+
+    private Vector3 dir;
+    private float angle;
+
+    public bool dead;
 
     // Start is called before the first frame update
     void Start()
@@ -41,61 +47,75 @@ public class TurretScript : MonoBehaviour
             (player.transform.position.y - gameObject.transform.position.y) * (player.transform.position.y - gameObject.transform.position.y));
         if (player != null)
             bulletSpawn.transform.right = player.transform.position - bulletSpawn.transform.position;
+
+        Vector3 dir = gameObject.transform.position - player.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //Debug.Log("Kulma: " + angle);
     }
 
     IEnumerator Shoot()
     {
+        dir = gameObject.transform.position - player.transform.position;
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        // Tarkastetaan alkuun onko pelaaja turretin näkökentässä
+
+        if (gameObject.transform.rotation.y == 1 && ((angle > -90f + angleOffset && angle < 0) || (angle < 90f - angleOffset && angle > 0)) && range > dist)
+        {
+            gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(true);
+        }
+        else if (gameObject.transform.rotation.y == 0 && ((angle < -90 - angleOffset && angle > -180f) || (angle > 90 + angleOffset && angle < 180f)) && range > dist)
+        {
+            gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(false);
+        }
+
+        // Ampumis-skripti
+
         while (shooting)
         {
-            //Debug.Log(gameObject.transform.rotation.y);
+
+            dir = gameObject.transform.position - player.transform.position;
+            angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
             if (player != null)
             {
 
-                if (gameObject.transform.rotation.y == 1 && gameObject.transform.position.x > player.transform.position.x && range > dist)
+                if (gameObject.transform.rotation.y == 1 && ((angle > -90f + angleOffset && angle < 0) || (angle < 90f - angleOffset && angle > 0)) && range > dist)
                 {
-                    if (!playerInRange)
+
+                    if (!gameObject.GetComponentInChildren<TurretLineRenderer>().GetFollowingPlayer())
                     {
                         gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(true);
-                        playerInRange = true;
                     }
 
-                    // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
-                    //Debug.Log(bulletSpawn.transform.rotation.z);
 
                     newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized * bulletSpeed * 0.1f;
                     gameObject.GetComponent<Animator>().SetTrigger("ShootTrigger");
                     SoundManager.PlaySound("ARENEMY");
 
-                    //   newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right * -1;
-                    //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
                     Destroy(newBullet, 5);
                     yield return new WaitForSeconds(1f / rateOfFire);
                 }
-                else if (gameObject.transform.rotation.y == 0 && gameObject.transform.position.x < player.transform.position.x && range > dist)
+                else if (gameObject.transform.rotation.y == 0 && ((angle < -90 - angleOffset && angle > -180f) || (angle > 90 + angleOffset && angle < 180f)) && range > dist)
                 {
-                    if (!playerInRange)
+
+                    if (!gameObject.GetComponentInChildren<TurretLineRenderer>().GetFollowingPlayer())
                     {
                         gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(true);
-                        playerInRange = true;
                     }
 
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
-                    // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
-                    //Debug.Log(bulletSpawn.transform.rotation.z);
-                    //  newBullet.GetComponent<EnemyBullet>().dir = bulletSpawn.transform.right;
                     newBullet.GetComponent<EnemyBullet>().dir = (player.transform.position - bulletSpawn.transform.position).normalized * bulletSpeed * 0.1f;
                     gameObject.GetComponent<Animator>().SetTrigger("ShootTrigger");
                     SoundManager.PlaySound("ARENEMY");
 
-                    //newBullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.transform.right * bulletSpeed * 0.0001f, ForceMode2D.Impulse);
                     Destroy(newBullet, 5);
                     yield return new WaitForSeconds(1f / rateOfFire);
                 }
                 else
                 {
-                    if (playerInRange)
+                    if (gameObject.GetComponentInChildren<TurretLineRenderer>().GetFollowingPlayer())
                     {
                         gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(false);
                         playerInRange = false;
@@ -112,7 +132,9 @@ public class TurretScript : MonoBehaviour
     public IEnumerator ShootOnSpawn()
     {
         yield return new WaitForSeconds(2.5f);
-        StartShooting();
+
+        if (!dead)
+            StartShooting();
     }
 
     public void StartShooting()
@@ -127,5 +149,10 @@ public class TurretScript : MonoBehaviour
         shooting = false;
         linerenderer.SetActive(false);
         StopCoroutine("Shoot");
+    }
+
+    public void SetDead(bool value)
+    {
+        dead = value;
     }
 }

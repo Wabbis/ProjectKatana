@@ -31,8 +31,6 @@ public class TurretLineRenderer : MonoBehaviour
 
         SetLineDefaultPosition();
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < lengthOfLineRenderer) { followingPlayer = true; }
-
         startFinished = true;
     }
 
@@ -46,7 +44,7 @@ public class TurretLineRenderer : MonoBehaviour
             endPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
             linerenderer.SetPosition(1, (player.transform.position - gameObject.transform.position).normalized * lengthOfLineRenderer + transform.position);
         }
-        else if(!lerping)
+        else if(!followingPlayer && !lerping)
             SetLineDefaultPosition();
 
         //Debug.Log(Vector3.Distance(linerenderer.GetPosition(0), linerenderer.GetPosition(1)));
@@ -85,6 +83,11 @@ public class TurretLineRenderer : MonoBehaviour
                 StartCoroutine(Lerp(linerenderer.GetPosition(1), new Vector3(gameObject.transform.position.x - lengthOfLineRenderer, gameObject.transform.position.y, gameObject.transform.position.z)));
             }
         }
+    }
+
+    public bool GetFollowingPlayer()
+    {
+        return followingPlayer;
     }
 
     public IEnumerator Lerp(Vector3 startingPos, Vector3 endingPos)
