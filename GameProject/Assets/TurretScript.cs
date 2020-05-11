@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class TurretScript : MonoBehaviour
 {
     public bool shootOnSpawn;       //Amppuko heti syntyessään -- Jos ei, kutsumalla StartShooting-funktiota turret alkaa ampumaan
     public float rateOfFire;       // Luotia sekunissa
+    public GameObject linerenderer;
     public bool shooting;
     public Animator animator;
     public GameObject bullet;
@@ -15,6 +17,8 @@ public class TurretScript : MonoBehaviour
     private GameObject player;
     public float dist;
     public float range;
+
+    public bool playerInRange;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class TurretScript : MonoBehaviour
 
         if (range == 0)
             range = 30;
+
     }
 
     // Update is called once per frame
@@ -44,10 +49,17 @@ public class TurretScript : MonoBehaviour
         {
             //Debug.Log(gameObject.transform.rotation.y);
 
-            if(player != null)
+            if (player != null)
             {
+
                 if (gameObject.transform.rotation.y == 1 && gameObject.transform.position.x > player.transform.position.x && range > dist)
                 {
+                    if (!playerInRange)
+                    {
+                        gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(true);
+                        playerInRange = true;
+                    }
+
                     // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
                     //Debug.Log(bulletSpawn.transform.rotation.z);
@@ -63,6 +75,12 @@ public class TurretScript : MonoBehaviour
                 }
                 else if (gameObject.transform.rotation.y == 0 && gameObject.transform.position.x < player.transform.position.x && range > dist)
                 {
+                    if (!playerInRange)
+                    {
+                        gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(true);
+                        playerInRange = true;
+                    }
+
                     GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
                     // GameObject newBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.Euler(new Vector3(0, 0, bulletSpawn.transform.rotation.eulerAngles.z)));
                     //Debug.Log(bulletSpawn.transform.rotation.z);
@@ -77,6 +95,12 @@ public class TurretScript : MonoBehaviour
                 }
                 else
                 {
+                    if (playerInRange)
+                    {
+                        gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(false);
+                        playerInRange = false;
+                    }
+
                     yield return null;
                 }
             }
@@ -94,12 +118,14 @@ public class TurretScript : MonoBehaviour
     public void StartShooting()
     {
         shooting = true;
+        linerenderer.SetActive(true);
         StartCoroutine(Shoot());
     }
 
     public void StopShooting()
     {
         shooting = false;
+        linerenderer.SetActive(false);
         StopCoroutine("Shoot");
     }
 }
