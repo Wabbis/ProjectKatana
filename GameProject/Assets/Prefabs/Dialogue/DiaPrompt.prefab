@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6874179052539683385}
   - component: {fileID: 6874179052539683390}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: DiaPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,4 +249,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"E"'
+  m_Text: ' E'
