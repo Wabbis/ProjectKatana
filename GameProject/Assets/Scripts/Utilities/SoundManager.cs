@@ -38,6 +38,9 @@ public class SoundManager : MonoBehaviour
         DEATHOOF = Resources.Load<AudioClip>("DEATHOOF");
 
         audioSrc = GetComponent<AudioSource>();
+
+        audioMixer.SetFloat("Sound", Mathf.Log10(PlayerPrefs.GetFloat("Sound")) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(PlayerPrefs.GetFloat("Music")) * 20);
     }
 
     public void SetVolume(AudioMixerGroup targetGroup, float value)

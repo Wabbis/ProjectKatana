@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartingCutscene.unity
     guid: 02070cc670e1c9842b18d275d90109a8
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 0e0491da5c0260c4fa362acdd79d6afe
-  - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 92121de89ed5c634997c891a91734fe5
   - enabled: 1
@@ -50,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 52694b4fac560324a80b2493f620e951
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0e0491da5c0260c4fa362acdd79d6afe
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
