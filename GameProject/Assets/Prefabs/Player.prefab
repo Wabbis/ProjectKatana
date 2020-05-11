@@ -172,7 +172,7 @@ MonoBehaviour:
     m_Bits: 8192
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 262656
   groundCheckRadius: 0.02
   grounded: 0
   canTakeDamage: 0
@@ -181,8 +181,10 @@ MonoBehaviour:
   playerSpeed: 10
   jumpForce: 20
   dashForce: 20
+  improvedCounter: 0
   canAttack: 0
   canCounter: 0
+  deflecting: 0
   attackRange: 1.65
   attackDamage: 5
   attackCooldown: 0.3

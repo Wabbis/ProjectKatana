@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
-    public bool Boss1, Boss2, normal, turret;
+    public bool Boss1, Boss2, normal, turret,charging;
 
     //tätä funktiota kutsutaan pelaajan hyökkäyksessä
     public void TakeDamage()
@@ -71,6 +71,21 @@ public class EnemyHealth : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetTrigger("Die");
                 
             }
+
+        }
+        else if (charging)
+        {
+            if (gameObject.GetComponent<ChargingEnemy>().killable)
+            {
+                health--;
+
+                if (health <= 0)
+                {
+                    gameObject.GetComponent<ChargingEnemy>().Die();
+
+                }
+            }
+
         }
     }
   /*  public void Die()

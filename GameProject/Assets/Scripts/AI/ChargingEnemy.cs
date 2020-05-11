@@ -17,6 +17,8 @@ public class ChargingEnemy : MonoBehaviour
     int layermask2;
     public GameObject explosion;
     public bool exploding;
+    public bool killable = true;
+    bool dead;
     public Image indicator;
     public float explosionSize=5;
     Animator animator;
@@ -26,6 +28,7 @@ public class ChargingEnemy : MonoBehaviour
 
     private void Start()
     {
+        
         animator = GetComponent<Animator>();
         layermask2 = (LayerMask.GetMask("Player"));
         timeLeft = waitTime;
@@ -35,78 +38,96 @@ public class ChargingEnemy : MonoBehaviour
     {
         indicator.fillAmount = timeLeft / waitTime;
 
-
-        if (!charging)
-        {
-            Patrol();
-            hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), rayLength, layermask2);
-            if (hit)
+        if (!dead)
+       {
+            if (!charging)
             {
-                animator.SetTrigger("Charge");
-                charging = true;
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * hit.distance, Color.yellow);
-                targetPos = new Vector2(hit.transform.position.x, transform.position.y);
+                Patrol();
+                hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), rayLength, layermask2);
+                if (hit)
+                {
+                    animator.SetTrigger("Charge");
+                    charging = true;
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * hit.distance, Color.yellow);
+                    targetPos = new Vector2(hit.transform.position.x, transform.position.y);
 
+                }
+                else
+                {
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * rayLength, Color.white);
+
+                }
             }
             else
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * rayLength, Color.white);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, chargeSpeed * Time.deltaTime);
 
-            }
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, chargeSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPos) < 0.001f)
-            {
-                if (exploding)
+                if (Vector3.Distance(transform.position, targetPos) < 0.001f)
                 {
-                    indicator.gameObject.SetActive(true);
-                    animator.SetTrigger("Die");
-                }
-                animator.SetTrigger("Idle");
-                timeLeft -= Time.deltaTime;
-             
-                if (timeLeft < 0)
-                {
-                    
                     if (exploding)
                     {
-                        Destroy(indicator.gameObject);
-                        GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity);
-                        expl.transform.localScale = expl.transform.localScale * explosionSize;
-                        Destroy(expl.gameObject, 1);
-                        transform.DetachChildren();
-                        Destroy(gameObject);
-
+                        indicator.gameObject.SetActive(true);
+                        animator.SetTrigger("Die");
                     }
-                    animator.SetTrigger("Patrol");
-                    charging = false;
-                    timeLeft = waitTime;
+                    animator.SetTrigger("Idle");
+                    timeLeft -= Time.deltaTime;
+
+                    if (timeLeft < 0)
+                    {
+
+                        if (exploding)
+                        {
+                            Destroy(indicator.gameObject);
+                            GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity);
+                            expl.transform.localScale = expl.transform.localScale * explosionSize;
+                            Destroy(expl.gameObject, 1);
+                            transform.DetachChildren();
+                            Destroy(gameObject);
+
+                        }
+                        animator.SetTrigger("Patrol");
+                        charging = false;
+                        timeLeft = waitTime;
+                    }
                 }
             }
+
         }
+
+       
 
 
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (charging)
         {
-
-            if (!collision.gameObject.GetComponent<PlayerControls>().block)
+            if (collision.transform.tag == "Player")
             {
-             
-            
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+                collision.gameObject.GetComponent<PlayerControls>().Die();
+                /* if (!collision.gameObject.GetComponent<PlayerControls>().block)
+                 {
+
+
+                     Destroy(collision.gameObject);
+                   //  Destroy(gameObject);
+                 }*/
             }
         }
+  
+    }
+
+    public void Die()
+    {
+        dead = true;
+        Debug.Log("Die");
+        animator.SetTrigger("Explode");
+        Destroy(gameObject,0.5f);
     }
 
     void Patrol()
     {
+        
 
         float step = speed * Time.deltaTime;
 
