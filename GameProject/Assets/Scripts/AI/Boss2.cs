@@ -80,9 +80,9 @@ public class Boss2 : MonoBehaviour
             Debug.Log("Aiming");
             anim.Play("Attack");
             yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-            GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
-            Vector2 dir = player.position - firepoint.transform.position;
-            go.GetComponent<EnemyBullet>().dir = dir;
+            // GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
+            // Vector2 dir = player.position - firepoint.transform.position;
+            // go.GetComponent<EnemyBullet>().dir = dir;
             anim.Play("Idle");
             yield return new WaitForSeconds(3);
             StartCoroutine("Teleport");
@@ -90,15 +90,12 @@ public class Boss2 : MonoBehaviour
     }
 
 
-    public IEnumerator Shoot()
+    public void Shoot()
     {
         GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
         Vector2 dir = player.position - firepoint.transform.position;
         go.GetComponent<Rigidbody2D>().velocity = dir * bulletspeed;
         SoundManager.PlaySound("BOSSSHOT");
-        anim.Play("Idle");
-        yield return new WaitForSeconds(1);
-        StartCoroutine("Teleport");
     }
 
     public void SetPlayerDead(bool value)

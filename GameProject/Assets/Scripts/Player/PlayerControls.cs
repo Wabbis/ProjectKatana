@@ -7,7 +7,6 @@ public class PlayerControls : MonoBehaviour
     // Ehkä turha
     public bool hasControl = true;
 
-    public GameObject gm; 
     public GameObject player;
     public Animator animator;
     public Rigidbody2D playerRB;
@@ -15,7 +14,7 @@ public class PlayerControls : MonoBehaviour
     public Transform attackPoint;
     public LayerMask groundLayers;
     public LayerMask enemyLayers;
-    
+    public GameManager gameManager;
 
 
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
@@ -31,7 +30,6 @@ public class PlayerControls : MonoBehaviour
     public float dashForce;
     public bool improvedCounter;
     
-
     //Attacks
     public bool canAttack;
     public bool canCounter;
@@ -47,16 +45,12 @@ public class PlayerControls : MonoBehaviour
     private bool jumpTemp;
     private bool counterTemp;
     private bool attackTemp;
-    private bool facingRight = true;
-
-
-   
+    private bool facingRight = true;   
 
     //Getter and Setter for player controls
-    public bool GetControl() { return gm.GetComponent<GameManager>().acceptPlayerInput; }
+    public bool GetControl() { return gameManager.acceptPlayerInput; }
     public void SetControl(bool state) 
-    { gm.GetComponent<GameManager>().acceptPlayerInput = state; }
-
+    { gameManager.acceptPlayerInput = state; }
 
     //Getter and Setter for Improved Counter
     public bool GetCounterDeflect() { return improvedCounter; }
@@ -68,8 +62,8 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManagement");
-        gm.GetComponent<GameManager>().player = gameObject;
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.player = gameObject;
         canAttack = true;
         canCounter = true;
         dead = false;
@@ -82,7 +76,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
-        if (gm.GetComponent<GameManager>().acceptPlayerInput)
+        if (gameManager.acceptPlayerInput)
         {
             Controls();
         }
@@ -110,22 +104,15 @@ public class PlayerControls : MonoBehaviour
         {
             SetCounterDeflect(!GetCounterDeflect()); 
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Y)) // KYS Bind
         {
             if (!dead)
             {
                 Die();
-            }
-            else
-            {
-                SetControl(true);
-                animator.SetBool("IsDead", false);
-            }
-               
+            }               
         }
        
     }
-
 
     private void FixedUpdate()
     {
@@ -157,38 +144,31 @@ public class PlayerControls : MonoBehaviour
         } 
     }
 
-
     public void Die()
     {
 
         if (canTakeDamage == true)
         {
             SetControl(false);
-            animator.SetBool("IsDead", true);
-            //SoundManager.PlaySound("DEATHOOF");
-
-            /*
-            pelaaja atm ei kuole oikein niin toistaseksi poissa 
-            */
+            animator.SetTrigger("Dead");
+            SoundManager.PlaySound("DEATHOOF");
+            gameManager.PlayerDied();
         }
-
     }
 
 
-    /*
-    -----------------------------------------------
-    |                                             |
-    |             MOVEMENT HANDLING               |
-    |                                             |
-    -----------------------------------------------
-    */
+        /*
+        -----------------------------------------------
+        |                                             |
+        |             MOVEMENT HANDLING               |
+        |                                             |
+        -----------------------------------------------
+        */
 
-
-    //Moves player according to inputs
+        //Moves player according to inputs
     private void Movement()
     {
  
-       
         if (facingRight)
         {
             transform.Translate(new Vector3(movDirTemp * playerSpeed * Time.deltaTime, 0, 0));
@@ -212,11 +192,6 @@ public class PlayerControls : MonoBehaviour
         playerRB.velocity = Vector2.up * jumpForce;
         jumpsLeft--;
     }
-
-
-
-
-   
 
     //Moves the player
     private void Counter()
@@ -268,17 +243,10 @@ public class PlayerControls : MonoBehaviour
                     {
                         Debug.Log("Hit: " + enemy.name);
 
-
                     //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
                     enemy.GetComponent<EnemyHealth>().TakeDamage();
-                        
-
-
                     }
                 }
-
-
-
             canAttack = false;
             
             StartCoroutine(Cooldown(attackCooldown));
@@ -297,7 +265,7 @@ public class PlayerControls : MonoBehaviour
         {
             canCounter = true;
         }
-        
+    
     }
 
     public IEnumerator Invunerable(float seconds)

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int sceneIndex;
     public bool canScore;
     public bool paused = false;
+    private bool playerAlive = true;
     private SaveAndLoad saveAndLoad;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         // Inputs
 
-        if (acceptPlayerInput)
+        if (acceptPlayerInput || !playerAlive)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -62,7 +63,15 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+            // Restarttaa levelin
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+
+                FindObjectOfType<LevelManager>().RestartLevel();
+                Time.timeScale = 1;
+            }
         }
+
 
     }
 
@@ -113,8 +122,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied()
-    {   // Väliaikainen
-        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(SceneManager.GetActiveScene().buildIndex);
+    {
+        playerAlive = false;
+        Time.timeScale = 0;
     }
     
 }
