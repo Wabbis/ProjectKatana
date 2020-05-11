@@ -157,6 +157,7 @@ MonoBehaviour:
   gunRotator: {fileID: 1817093043759907374}
   bulletSpawn: {fileID: 1817093043245275346}
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
+  light: {fileID: 7984393362109641019}
   bulletSpeed: 500
   firstMelee: 0.5
   meleeCD: 1

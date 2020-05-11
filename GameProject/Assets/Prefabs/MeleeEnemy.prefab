@@ -157,6 +157,7 @@ MonoBehaviour:
   gunRotator: {fileID: 1817093043759907374}
   bulletSpawn: {fileID: 1817093043245275346}
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
+  light: {fileID: 6031345869182640963}
   bulletSpeed: 20
   firstMelee: 0.5
   meleeCD: 1
@@ -252,6 +253,7 @@ MonoBehaviour:
   Boss2: 0
   normal: 1
   turret: 0
+  charging: 0
 --- !u!60 &6031038873638203392
 PolygonCollider2D:
   m_ObjectHideFlags: 0

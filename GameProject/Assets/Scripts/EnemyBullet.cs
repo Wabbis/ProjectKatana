@@ -105,7 +105,8 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Debug.Log("Hit Player again");
-            if (collision.gameObject.GetComponent<PlayerControls>().block) // .deflecting nyt
+
+            if (collision.gameObject.GetComponent<PlayerControls>().deflecting)
             {
                 Debug.Log("Reflected");
                 Reflect();
