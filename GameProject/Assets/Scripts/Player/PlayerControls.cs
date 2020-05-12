@@ -201,7 +201,7 @@ public class PlayerControls : MonoBehaviour
     // Kills the player if they can take damage
     public void Die()
     {
-        if (canTakeDamage == true)
+        if (canTakeDamage == true && !dead)
         {
             dead = true;
             SetControl(false);
