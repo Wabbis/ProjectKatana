@@ -86,6 +86,8 @@ public class MainMenu : MonoBehaviour
 
         }
 
+        UnlockLevel(0);         //Ensimmäinen kenttä aina auki riippumatta progressista
+
         Time.timeScale = 1;     // Pause valikosta poistuttaessa timescale jäi aikaisemmin arvoon 0
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -116,6 +118,8 @@ public class MainMenu : MonoBehaviour
                 UnlockLevel(i);
             }
         }
+
+        UnlockLevel(0);
     }
 
     private void Update()
