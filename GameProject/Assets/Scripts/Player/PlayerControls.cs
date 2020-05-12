@@ -49,8 +49,13 @@ public class PlayerControls : MonoBehaviour
 
     //Getter and Setter for player controls
     public bool GetControl() { return gameManager.acceptPlayerInput; }
+
     public void SetControl(bool state) 
-    { gameManager.acceptPlayerInput = state; }
+    { gameManager.acceptPlayerInput = state;
+
+        if (!state)
+            playerRB.velocity = new Vector2(0,0);
+    }
 
     //Getter and Setter for Improved Counter
     public bool GetCounterDeflect() { return improvedCounter; }
