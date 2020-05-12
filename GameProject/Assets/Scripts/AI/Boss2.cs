@@ -14,6 +14,7 @@ public class Boss2 : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector2 _direction;
     public GameObject endingCutscene;
+    public PolygonCollider2D polygonCollider;
 
     private bool playerDead;
      
@@ -21,7 +22,7 @@ public class Boss2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        polygonCollider = GetComponent<PolygonCollider2D>();
         anim = gameObject.GetComponent<Animator>();
         linerenderer = gameObject.GetComponentInChildren<LineRenderer>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -49,6 +50,7 @@ public class Boss2 : MonoBehaviour
     {
         Debug.Log("Teleporting");
         linerenderer.enabled = false;
+        polygonCollider.enabled = false;
         Transform target = teleportLocation[Random.Range(0, 4)];
         SoundManager.PlaySound("TELEPORT");
         Debug.Log("New location: " + target.position);
@@ -77,6 +79,7 @@ public class Boss2 : MonoBehaviour
         }
         else
         {
+            polygonCollider.enabled = true;
             Debug.Log("Aiming");
             anim.Play("Attack");
             yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
