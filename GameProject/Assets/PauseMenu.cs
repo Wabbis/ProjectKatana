@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     public GameObject optionsPanel;
     public GameObject exitPanel;
+    public GameObject deathPanel;
     public LevelManager levelManager;
     public GameManager gameManager;
 
@@ -59,6 +60,11 @@ public class PauseMenu : MonoBehaviour
         gameManager.paused = false;
         levelManager.QuitGame();
         exitPanel.SetActive(false);
+    }
+
+    public void ToggleDeathPanel(bool state)
+    {
+        deathPanel.SetActive(state);
     }
 
 }

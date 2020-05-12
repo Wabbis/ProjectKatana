@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerControls : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerControls : MonoBehaviour
     public LayerMask enemyLayers;
     public GameManager gameManager;
     public LevelManager levelManager;
+    public PauseMenu pauseMenu;
+   
 
 
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
@@ -52,10 +55,13 @@ public class PlayerControls : MonoBehaviour
     public bool GetControl() { return gameManager.acceptPlayerInput; }
 
     public void SetControl(bool state) 
-    { gameManager.acceptPlayerInput = state;
+    {
+        gameManager.acceptPlayerInput = state;
 
         if (!state)
-            playerRB.velocity = new Vector2(0,0);
+        {
+            playerRB.velocity = new Vector2(0, 0);
+        }
     }
 
     //Getter and Setter for Improved Counter
@@ -79,19 +85,24 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
-        playerRB.isKinematic = false;
-        playerCollider.enabled = true;
+        //
         gameManager = FindObjectOfType<GameManager>();
         gameManager.player = gameObject;
         levelManager = FindObjectOfType<LevelManager>();
-        CheckLevel();
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        //
+        playerRB.isKinematic = false;
+        playerCollider.enabled = true;
         canAttack = true;
         canCounter = true;
         dead = false;
         canTakeDamage = true;
         deflecting = false;
         jumpsLeft = maxJumps;
+        //
+        CheckLevel();
         SetControl(true);
+        DisableDeathPanel();
     }
 
 
@@ -143,7 +154,7 @@ public class PlayerControls : MonoBehaviour
         UpdateAnimations();
         ResetTemp();
     }
-
+   
     //Checks if the player is standing on the ground
     private void CheckGround()
     {
@@ -165,9 +176,14 @@ public class PlayerControls : MonoBehaviour
         } 
     }
 
+
+    // Sets Panel on (called from Player_Death animation)
+    public void EnableDeathPanel() { pauseMenu.ToggleDeathPanel(true); }
+    public void DisableDeathPanel() { pauseMenu.ToggleDeathPanel(false); }
+
+    // Kills the player if they can take damage
     public void Die()
     {
-
         if (canTakeDamage == true)
         {
             SetControl(false);
@@ -177,7 +193,6 @@ public class PlayerControls : MonoBehaviour
 
             playerCollider.enabled = false;
             playerRB.isKinematic = true;
-
         }
     }
 
