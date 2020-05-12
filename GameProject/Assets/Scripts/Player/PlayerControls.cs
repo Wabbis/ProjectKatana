@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerControls : MonoBehaviour
 {   
-    // Ehkä turha
-    public bool hasControl = true;
 
     public GameObject player;
     public Animator animator;
@@ -15,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     public LayerMask groundLayers;
     public LayerMask enemyLayers;
     public GameManager gameManager;
+    public LevelManager levelManager;
 
 
     public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
@@ -63,12 +63,25 @@ public class PlayerControls : MonoBehaviour
     { improvedCounter = state; }
 
 
+    private void CheckLevel()
+    {
+        if (levelManager.currentLevel >= 8)
+        {
+            SetCounterDeflect(true);
+        }
+        else
+        {
+            SetCounterDeflect(false);
+        }
+    }
 
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         gameManager.player = gameObject;
+        levelManager = FindObjectOfType<LevelManager>();
+        CheckLevel();
         canAttack = true;
         canCounter = true;
         dead = false;
