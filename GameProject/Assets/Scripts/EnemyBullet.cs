@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (!counter)
         {
-            dir *= -1;
+            dir = -dir;
             counter = true;
             ChangeLayer();
             Debug.Log("reflect");
