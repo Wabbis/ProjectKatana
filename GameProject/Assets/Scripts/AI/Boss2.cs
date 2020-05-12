@@ -16,12 +16,23 @@ public class Boss2 : MonoBehaviour
     public GameObject endingCutscene;
     public PolygonCollider2D polygonCollider;
 
+    public GameObject hpBars;
+    public GameObject hp1;
+    public GameObject hp2;
+    public GameObject hp3;
+    public GameObject hp4;
+    public GameObject hp5;
+    public GameObject hp6;
+
+    public int hitCounter;
+
     private bool playerDead;
      
 
     // Start is called before the first frame update
     void Start()
     {
+        hitCounter = 0;
         polygonCollider = GetComponent<PolygonCollider2D>();
         anim = gameObject.GetComponent<Animator>();
         linerenderer = gameObject.GetComponentInChildren<LineRenderer>();
@@ -51,6 +62,9 @@ public class Boss2 : MonoBehaviour
         Debug.Log("Teleporting");
         linerenderer.enabled = false;
         polygonCollider.enabled = false;
+
+        //hp:t piiloon
+        hpBars.SetActive(false);
         Transform target = teleportLocation[Random.Range(0, 4)];
         SoundManager.PlaySound("TELEPORT");
         Debug.Log("New location: " + target.position);
@@ -62,6 +76,8 @@ public class Boss2 : MonoBehaviour
         }
         anim.Play("Teleport");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        //hp:t näkyviin
+        hpBars.SetActive(true);
         spriteRenderer.enabled = false;
         transform.position = target.position;
         spriteRenderer.enabled = true;
@@ -96,8 +112,8 @@ public class Boss2 : MonoBehaviour
     public void Shoot()
     {
         GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
-        Vector2 dir = player.position - firepoint.transform.position;
-        go.GetComponent<Rigidbody2D>().velocity = dir * bulletspeed;
+        Vector2 dir = (player.position - firepoint.transform.position);
+        go.GetComponent<Rigidbody2D>().velocity = dir.normalized * bulletspeed;
         SoundManager.PlaySound("BOSSSHOT");
     }
 
@@ -108,9 +124,46 @@ public class Boss2 : MonoBehaviour
 
     public void Die()
     {
-        StopAllCoroutines();
-        //anim.Play("Dead");
-        endingCutscene.SetActive(true);
+        hitCounter++;
+        if(hitCounter == 1)
+        {
+            hp6.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine("Teleport");
+        }
+        if (hitCounter == 2)
+        {
+            hp5.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine("Teleport");
+        }
+        if (hitCounter == 3)
+        {
+            hp4.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine("Teleport");
+        }
+        if (hitCounter == 4)
+        {
+            hp3.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine("Teleport");
+        }
+        if (hitCounter == 5)
+        {
+            hp2.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine("Teleport");
+        }
+        if (hitCounter == 6)
+        {
+            hp1.SetActive(false);
+            StopAllCoroutines();
+            //anim.Play("Dead");
+            endingCutscene.SetActive(true);
+        }
+
+        
         
     }
 
