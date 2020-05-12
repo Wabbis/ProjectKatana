@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public GameObject exitMenu;
+    public GameObject deathMenu;
     public bool acceptPlayerInput = true;
     public int sceneIndex;
     public bool canScore;
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
                 {
                     SoundManager.PlaySound("MENUHOVER");
                     paused = true;
+
+                    if (deathMenu.activeSelf)
+                        deathMenu.SetActive(false);
+
                     pauseMenu.SetActive(true);
                     Time.timeScale = 0;
                 }
@@ -62,16 +67,18 @@ public class GameManager : MonoBehaviour
                     pauseMenu.SetActive(false);
                     optionsMenu.SetActive(false);
                     exitMenu.SetActive(false);
-                    
+
+                    if (player != null && player.GetComponent<PlayerControls>().getDead())
+                        deathMenu.SetActive(true);
+
 
                     Time.timeScale = 1;
                 }
             }
 
             // Restarttaa levelin
-            if (Input.GetKeyDown(KeyCode.R))
+            if (player != null && player.GetComponent<PlayerControls>().getDead() && Input.GetKeyDown(KeyCode.R))
             {
-
                 FindObjectOfType<LevelManager>().RestartLevel();
                 Time.timeScale = 1;
             }

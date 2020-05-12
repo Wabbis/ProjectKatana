@@ -51,7 +51,7 @@ public class PlayerControls : MonoBehaviour
     private bool attackTemp;
     private bool facingRight = true;   
 
-   
+
 
 
     private void Start()
@@ -155,6 +155,10 @@ public class PlayerControls : MonoBehaviour
     { improvedCounter = state; }
 
 
+    //Getter for Player Dead
+    public bool getDead() { return dead; }
+
+
     // Improves the Players Counter ability after the Boss is defeated
     private void CheckLevel()
     {
@@ -199,6 +203,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (canTakeDamage == true)
         {
+            dead = true;
             SetControl(false);
             animator.SetTrigger("Dead");
             SoundManager.PlaySound("DEATHOOF");
