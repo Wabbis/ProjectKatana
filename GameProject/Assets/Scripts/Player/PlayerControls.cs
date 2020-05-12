@@ -195,9 +195,31 @@ public class PlayerControls : MonoBehaviour
             SoundManager.PlaySound("DEATHOOF");
             gameManager.PlayerDied();
 
-            playerCollider.enabled = false;
-            playerRB.isKinematic = true;
+            if(playerRB.IsSleeping())
+            {
+                playerCollider.enabled = false;
+                playerRB.isKinematic = true;
+            }
+            else
+            {
+                // Check if player is moving/in the air - Slower to respond but ensures that player doesn't stay hovering in the air
+                StartCoroutine(DeadAndStoppedMoving());
+            }
         }
+    }
+
+    public IEnumerator DeadAndStoppedMoving()
+    {
+        //Wait till player's rigidbody is sleeping and then turn off collider and stop rigidbody
+
+        while(!playerRB.IsSleeping())
+        {
+            yield return null;
+        }
+
+        playerCollider.enabled = false;
+        playerRB.isKinematic = true;
+        yield return null;
     }
 
 
