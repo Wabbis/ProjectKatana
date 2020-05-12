@@ -144,9 +144,12 @@ public class TurretScript : MonoBehaviour
 
     public void StartShooting()
     {
-        shooting = true;
-        linerenderer.SetActive(true);
-        StartCoroutine(Shoot());
+        if (!dead)
+        {
+            shooting = true;
+            linerenderer.SetActive(true);
+            StartCoroutine(Shoot());
+        }
     }
 
     public void StopShooting()
