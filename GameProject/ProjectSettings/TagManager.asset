@@ -12,6 +12,7 @@ TagManager:
   - Timeline
   - EnemyBullet
   - GameManagement
+  - BossBullet
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - ReflectBullet
   - Office
   - Enemy2
-  - 
+  - BossBullet
   - 
   - 
   - 
