@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject player;
     public GameObject pausePanel;
     public GameObject optionsPanel;
     public GameObject exitPanel;
@@ -22,6 +23,13 @@ public class PauseMenu : MonoBehaviour
         SoundManager.PlaySound("MENUSELECT");
         gameManager.paused = false;
         pausePanel.SetActive(false);
+
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null && player.GetComponent<PlayerControls>().getDead())
+            deathPanel.SetActive(true);
+
         Time.timeScale = 1;
 
     }
@@ -60,6 +68,7 @@ public class PauseMenu : MonoBehaviour
         gameManager.paused = false;
         levelManager.QuitGame();
         exitPanel.SetActive(false);
+        deathPanel.SetActive(false);
     }
 
     public void ToggleDeathPanel(bool state)

@@ -69,6 +69,9 @@ public class PlayerControls : MonoBehaviour
     public void SetCounterDeflect(bool state)
     { improvedCounter = state; }
 
+    //Getter for Player Dead
+    public bool getDead() { return dead; }
+
 
     private void CheckLevel()
     {
@@ -186,6 +189,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (canTakeDamage == true)
         {
+            dead = true;
             SetControl(false);
             animator.SetTrigger("Dead");
             SoundManager.PlaySound("DEATHOOF");
