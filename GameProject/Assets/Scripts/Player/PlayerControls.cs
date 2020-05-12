@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject player;
     public Animator animator;
     public Rigidbody2D playerRB;
+    public Collider2D playerCollider;
     public Transform groundCheck;
     public Transform attackPoint;
     public LayerMask groundLayers;
@@ -78,6 +79,8 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
+        playerRB.isKinematic = false;
+        playerCollider.enabled = true;
         gameManager = FindObjectOfType<GameManager>();
         gameManager.player = gameObject;
         levelManager = FindObjectOfType<LevelManager>();
@@ -171,6 +174,10 @@ public class PlayerControls : MonoBehaviour
             animator.SetTrigger("Dead");
             SoundManager.PlaySound("DEATHOOF");
             gameManager.PlayerDied();
+
+            playerCollider.enabled = false;
+            playerRB.isKinematic = true;
+
         }
     }
 

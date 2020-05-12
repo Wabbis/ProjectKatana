@@ -160,11 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547986642a4d05f47aa67577ad6cd209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasControl: 1
-  gm: {fileID: 0}
   player: {fileID: 3900125597651210861}
   animator: {fileID: 2868815892336417599}
   playerRB: {fileID: 3900125597651210857}
+  playerCollider: {fileID: 3900125597651210856}
   groundCheck: {fileID: 3900125597418744204}
   attackPoint: {fileID: 1694611892722231096}
   groundLayers:
@@ -173,10 +172,11 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 262656
+  gameManager: {fileID: 0}
+  levelManager: {fileID: 0}
   groundCheckRadius: 0.02
   grounded: 0
   canTakeDamage: 0
-  block: 0
   maxJumps: 2
   playerSpeed: 10
   jumpForce: 20
