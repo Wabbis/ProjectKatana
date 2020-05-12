@@ -43,7 +43,7 @@ public class Boss1 : MonoBehaviour
        // dashesLeft = dashes;
       //  speed = baseSpeed;
         timeLeft = startTime;
-        nextPos = Random.Range(0, 4);
+        nextPos = Random.Range(0, 3);
         player = FindObjectOfType<PlayerControls>();
         indicator.gameObject.SetActive(false);
         animator = GetComponent<Animator>();
@@ -59,7 +59,7 @@ public class Boss1 : MonoBehaviour
 
             if (dashesLeft > 0)
             {
-                Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 3f, layer);
+               /* Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 3f, layer);
                 if (hit!=null)
                 {
                     Debug.Log("player hit");
@@ -74,7 +74,7 @@ public class Boss1 : MonoBehaviour
 
                     }
 
-                }
+                }*/
                  
                 
 
@@ -101,7 +101,7 @@ public class Boss1 : MonoBehaviour
                             
                             left = true;
                           //  speed = baseSpeed;
-                            nextPos = Random.Range(0, 4);
+                            nextPos = Random.Range(0, 3);
                             next = rightPositions[nextPos];
                             dashesLeft--;
                             attackTimeLeft = attacTime;
@@ -132,7 +132,7 @@ public class Boss1 : MonoBehaviour
                             
                             left = false;
                           //  speed = baseSpeed;
-                            nextPos = Random.Range(0, 4);
+                            nextPos = Random.Range(0, 3);
                             next = leftPositions[nextPos];
                             dashesLeft--;
                             attackTimeLeft = attacTime;
@@ -206,14 +206,15 @@ public class Boss1 : MonoBehaviour
         Debug.Log("shoot");
         animator.SetTrigger("Attack");
         GameObject newBullet = Object.Instantiate(projectile, transform.position, Quaternion.identity);
-        //  newBullet.GetComponent<Rigidbody2D>().AddForce((player.transform.position - transform.position).normalized * projectileSpeed, ForceMode2D.Impulse);
-        newBullet.GetComponent<BossProjectile>().dir = (player.transform.position - transform.position).normalized * projectileSpeed;
+       
+       newBullet.GetComponent<BossProjectile>().dir = (player.transform.position - transform.position).normalized * projectileSpeed;
         Destroy(newBullet.gameObject, 10);
     }
 
 
     public void TakeDamage()
     {
+        StartCoroutine("TurnRed");
         dashes++;
         Debug.Log("dmg taken");
         vulnerable = false;
@@ -238,5 +239,12 @@ public class Boss1 : MonoBehaviour
     {
         player.GetComponent<Animator>().SetTrigger("Attack");
         SoundManager.PlaySound("SWORD");
+    }
+    IEnumerator TurnRed()
+    {
+        Debug.Log("red");
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

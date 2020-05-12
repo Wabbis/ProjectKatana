@@ -50,7 +50,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Environment")
         {
             Debug.Log("Hit a wall");
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
         }
         if (counter)
@@ -88,7 +88,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Environment")
         {
             Debug.Log("Hit wall");
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
         }
         if (counter)

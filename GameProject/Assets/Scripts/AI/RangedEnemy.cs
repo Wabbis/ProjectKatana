@@ -88,11 +88,11 @@ public class RangedEnemy : MonoBehaviour
         animator.SetTrigger("Attack");
         if (!melee)
         {
-            Shoot();
+           // Shoot();
         }
         else
         {
-            Hit();
+           // Hit();
         }
        // animator.SetTrigger("Idle");
 

@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playerAlive = false;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
     
 }
