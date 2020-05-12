@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
     public Button continueButton;
     public Button closeLevels;
     public Button startGame;
+    public Button unlockAllLevelsButton;
+    public Button unlockAllLevelsConfirmButton;
+    public Button unlockAllLevelsCancelButton;
 
     public Sprite locked, unlocked;
     public Color activeColor, inactiveColor;
@@ -27,8 +30,9 @@ public class MainMenu : MonoBehaviour
     public GameObject levelPanel;
     public GameObject optionsPanel;
     public GameObject exitPanel;
+    public GameObject unlockAllLevelsPanel;
     public GameObject buttons;
-    public GameObject MenuFirstButton, OptionsFirstButton, OptionBackButton, LevelBackButton, ExitBackButton;
+    public GameObject MenuFirstButton, OptionsFirstButton, OptionBackButton, LevelBackButton, ExitBackButton, UnlockAllLevelsButtonGameobject;
     public int firstLevelIndex;
     public int numberOfLevels;
 
@@ -114,10 +118,10 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            UnlockAllLevels();
-        }
+        //if (Input.GetKeyDown(KeyCode.F5))
+        //{
+        //    UnlockAllLevels();
+        //}
     }
 
     public void StartGame()
@@ -139,6 +143,7 @@ public class MainMenu : MonoBehaviour
         SoundManager.PlaySound("MENUHOVER");
         menuPanel.gameObject.SetActive(true);
         levelPanel.gameObject.SetActive(false);
+        UnlockAllLevelsButtonGameobject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(MenuFirstButton);
     }
@@ -180,6 +185,27 @@ public class MainMenu : MonoBehaviour
         SoundManager.PlaySound("MENUSELECT");
         UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<ScoreManager>().SaveScore();
         Application.Quit();
+    }
+
+    public void UnlockAllLevelsButton()
+    {
+        SoundManager.PlaySound("MENUHOVER");
+        levelPanel.gameObject.SetActive(false);
+        unlockAllLevelsPanel.SetActive(true);
+    }
+    public void UnlockAllLevelsConfirm()
+    {
+        SoundManager.PlaySound("MENUHOVER");
+        unlockAllLevelsPanel.SetActive(false);
+        levelPanel.gameObject.SetActive(true);
+        UnlockAllLevelsButtonGameobject.SetActive(false);
+        UnlockAllLevels();
+    }
+    public void UnlockAllLevelsCancel()
+    {
+        SoundManager.PlaySound("MENUHOVER");
+        unlockAllLevelsPanel.SetActive(false);
+        levelPanel.gameObject.SetActive(true);
     }
 
     public void LoadLevel(int level)
