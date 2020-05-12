@@ -11,6 +11,10 @@ public class SettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
+    private void Awake()
+    {
+        Debug.Log("Awakened");
+    }
     // Start is called before the first frame update
     void Start()
     {

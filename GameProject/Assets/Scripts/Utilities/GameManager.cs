@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject pauseMenu;
+    public GameObject optionsMenu;
+    public GameObject exitMenu;
     public bool acceptPlayerInput = true;
     public int sceneIndex;
     public bool canScore;
@@ -58,6 +60,9 @@ public class GameManager : MonoBehaviour
                     SoundManager.PlaySound("MENUSELECT");
                     paused = false;
                     pauseMenu.SetActive(false);
+                    optionsMenu.SetActive(false);
+                    exitMenu.SetActive(false);
+                    
 
                     Time.timeScale = 1;
                 }
