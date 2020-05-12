@@ -6,7 +6,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CameraEnemyHallway : MonoBehaviour
 {
     private GameObject player;
-    public bool destroyable;                //  Onko kamera tuhottavissa
 
     public float angle;                     // Kameran vartoima kulma
     public float rotationTime;              // Yhteen täyteen rotaatiion kuluva aika
@@ -54,11 +53,7 @@ public class CameraEnemyHallway : MonoBehaviour
         originalSize = gameObject.transform.localScale;
         tweenID = 0;
 
-
-        if (destroyable)
-            GetComponentInParent<BoxCollider2D>().enabled = true;
-        else
-            GetComponentInParent<BoxCollider2D>().enabled = false;
+        GetComponentInParent<BoxCollider2D>().enabled = false;
 
         StartCoroutine(Rotate(angle / 2, rotationTime / 2));    // Ensimmäinen rotaatio puolet tavallisesta
     }
