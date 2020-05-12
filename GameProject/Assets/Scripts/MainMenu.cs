@@ -36,6 +36,8 @@ public class MainMenu : MonoBehaviour
     public int firstLevelIndex;
     public int numberOfLevels;
 
+    public bool allLevelsUnlocked = false;
+
     public void UnlockAllLevels()
     {
         for (int j = 0; j < levelButtons.Length; j++)
@@ -77,11 +79,11 @@ public class MainMenu : MonoBehaviour
                 levelButtons[i].GetComponent<Image>().color = inactiveColor;
                 Debug.Log("Button " + i + " Disabled");
             }
-            else 
+            else
             {
                 UnlockLevel(i);
             }
- 
+
         }
 
         Time.timeScale = 1;     // Pause valikosta poistuttaessa timescale jäi aikaisemmin arvoon 0
@@ -100,7 +102,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void UpdateLevels()
-    { 
+    {
         for (int i = 0; i < levelButtons.Length; i++)
         {
             if (i + 2 > FindObjectOfType<LevelManager>().topLevel)
@@ -132,7 +134,12 @@ public class MainMenu : MonoBehaviour
     public void OpenLevels()
     {
         SoundManager.PlaySound("MENUHOVER");
-        UpdateLevels();
+
+        if (!allLevelsUnlocked)
+            UpdateLevels();
+        else
+            UnlockAllLevelsButtonGameobject.SetActive(false);
+
         menuPanel.gameObject.SetActive(false);
         levelPanel.gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
@@ -147,7 +154,7 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(MenuFirstButton);
     }
-  
+
     public void OpenOptions()
     {
         SoundManager.PlaySound("MENUHOVER");
@@ -199,6 +206,7 @@ public class MainMenu : MonoBehaviour
         unlockAllLevelsPanel.SetActive(false);
         levelPanel.gameObject.SetActive(true);
         UnlockAllLevelsButtonGameobject.SetActive(false);
+        allLevelsUnlocked = true;
         UnlockAllLevels();
     }
     public void UnlockAllLevelsCancel()
