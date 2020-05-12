@@ -73,7 +73,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log(i + "  " + FindObjectOfType<LevelManager>().topLevel);
 
 
-            if (i + 2 > FindObjectOfType<LevelManager>().topLevel)
+            if (i + 3 > FindObjectOfType<LevelManager>().topLevel)
             {
                 levelButtons[i].interactable = false;
                 levelButtons[i].GetComponent<Image>().color = inactiveColor;
@@ -105,7 +105,7 @@ public class MainMenu : MonoBehaviour
     {
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if (i + 2 > FindObjectOfType<LevelManager>().topLevel)
+            if (i + 3 > FindObjectOfType<LevelManager>().topLevel)
             {
                 levelButtons[i].interactable = false;
                 levelButtons[i].GetComponent<Image>().color = inactiveColor;
