@@ -51,36 +51,7 @@ public class PlayerControls : MonoBehaviour
     private bool attackTemp;
     private bool facingRight = true;   
 
-    //Getter and Setter for player controls
-    public bool GetControl() { return gameManager.acceptPlayerInput; }
-
-    public void SetControl(bool state) 
-    {
-        gameManager.acceptPlayerInput = state;
-
-        if (!state)
-        {
-            playerRB.velocity = new Vector2(0, 0);
-        }
-    }
-
-    //Getter and Setter for Improved Counter
-    public bool GetCounterDeflect() { return improvedCounter; }
-    public void SetCounterDeflect(bool state)
-    { improvedCounter = state; }
-
-
-    private void CheckLevel()
-    {
-        if (levelManager.currentLevel >= 8)
-        {
-            SetCounterDeflect(true);
-        }
-        else
-        {
-            SetCounterDeflect(false);
-        }
-    }
+   
 
 
     private void Start()
@@ -154,8 +125,50 @@ public class PlayerControls : MonoBehaviour
         UpdateAnimations();
         ResetTemp();
     }
-   
-    //Checks if the player is standing on the ground
+
+
+    /*
+    -----------------------------------------------
+    |                                             |
+    |                  UTILITIES                  |
+    |                                             |
+    -----------------------------------------------
+    */
+
+
+    //Getter and Setter for player controls
+    public bool GetControl() { return gameManager.acceptPlayerInput; }
+
+    public void SetControl(bool state)
+    {
+        gameManager.acceptPlayerInput = state;
+
+        if (!state)
+        {
+            playerRB.velocity = new Vector2(0, 0);
+        }
+    }
+
+    // Getter and Setter for Improved Counter
+    public bool GetCounterDeflect() { return improvedCounter; }
+    public void SetCounterDeflect(bool state)
+    { improvedCounter = state; }
+
+
+    // Improves the Players Counter ability after the Boss is defeated
+    private void CheckLevel()
+    {
+        if (levelManager.currentLevel >= 8)
+        {
+            SetCounterDeflect(true);
+        }
+        else
+        {
+            SetCounterDeflect(false);
+        }
+    }
+
+    // Checks if the player is standing on the ground
     private void CheckGround()
     {
         bool wasGrounded = grounded;
@@ -197,15 +210,15 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-        /*
-        -----------------------------------------------
-        |                                             |
-        |             MOVEMENT HANDLING               |
-        |                                             |
-        -----------------------------------------------
-        */
+    /*
+    -----------------------------------------------
+    |                                             |
+    |             MOVEMENT HANDLING               |
+    |                                             |
+    -----------------------------------------------
+    */
 
-        //Moves player according to inputs
+    // Moves player according to inputs
     private void Movement()
     {
  
@@ -263,7 +276,7 @@ public class PlayerControls : MonoBehaviour
    -----------------------------------------------
    */
 
-
+    // Checks an area around Attack-point and Deals damage to them
     private void Attacking()
     {
         if (attackTemp && canAttack)
@@ -283,8 +296,7 @@ public class PlayerControls : MonoBehaviour
                     {
                         Debug.Log("Hit: " + enemy.name);
 
-                    //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
-                    enemy.GetComponent<EnemyHealth>().TakeDamage();
+                        enemy.GetComponent<EnemyHealth>().TakeDamage();
                     }
                 }
             canAttack = false;
@@ -293,7 +305,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    
+    // Sets Cooldown for player abilities
     public IEnumerator Cooldown(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -308,6 +320,7 @@ public class PlayerControls : MonoBehaviour
     
     }
 
+    // Makes the player Invunerable for a duration and Deflects bullets if the Player has the Improved Counter 
     public IEnumerator Invunerable(float seconds)
     {
         canTakeDamage = false;
@@ -326,7 +339,7 @@ public class PlayerControls : MonoBehaviour
    -----------------------------------------------
    */
 
-
+    // Updates the Animators parametres
     private void UpdateAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(movDirTemp * playerSpeed));
@@ -342,7 +355,7 @@ public class PlayerControls : MonoBehaviour
         Flip();
     }
 
-
+    // Flips the player model to face the other way
     private void Flip()
     {
         if (facingRight && movDirTemp < 0)
@@ -367,6 +380,8 @@ public class PlayerControls : MonoBehaviour
    |                                             |
    -----------------------------------------------
    */
+
+    // Draws a visualization of ground checks and attacks radius (ONLY IN EDITOR)
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
