@@ -146,7 +146,7 @@ MonoBehaviour:
   meleeAttackRange: 2
   evadeRange: 10
   _rayDistance: 7
-  chaseSpeed: 10
+  chaseSpeed: 15
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -159,7 +159,7 @@ MonoBehaviour:
   bullet: {fileID: 3673067400835110325, guid: 94f8a115b19f5fe48a901118c5fc8732, type: 3}
   light: {fileID: 6031345869182640963}
   bulletSpeed: 20
-  firstMelee: 0.5
+  firstMelee: 0
   meleeCD: 1
   firstShot: 0.1
   reloadTime: 1
