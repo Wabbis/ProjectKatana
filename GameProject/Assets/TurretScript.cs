@@ -165,8 +165,11 @@ public class TurretScript : MonoBehaviour
         StopCoroutine("Shoot");
     }
 
-    public void SetDead(bool value)
+    public void Dead()
     {
-        dead = value;
+        dead = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        gameObject.GetComponent<Animator>().SetTrigger("Die");
     }
 }
