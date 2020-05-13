@@ -63,6 +63,7 @@ public class PlayerControls : MonoBehaviour
         //
         gameManager = FindObjectOfType<GameManager>();
         gameManager.player = gameObject;
+        gameManager.playerAlive = true;
         levelManager = FindObjectOfType<LevelManager>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         //
@@ -107,17 +108,18 @@ public class PlayerControls : MonoBehaviour
         }
 
         //Testausta varten
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SetCounterDeflect(!GetCounterDeflect()); 
-        }
-        if (Input.GetKeyDown(KeyCode.Y)) // KYS Bind
-        {
-            if (!dead)
-            {
-                Die();
-            }               
-        }
+
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    SetCounterDeflect(!GetCounterDeflect()); 
+        //}
+        //if (Input.GetKeyDown(KeyCode.Y)) // KYS Bind
+        //{
+        //    if (!dead)
+        //    {
+        //        Die();
+        //    }               
+        //}
        
     }
 
@@ -349,7 +351,9 @@ public class PlayerControls : MonoBehaviour
         else if(duration == counterCooldown)
         {
             canCounter = true;
-            light.SetActive(true);
+
+            if(dead == false) { light.SetActive(true); }
+            
         }
     
     }

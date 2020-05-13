@@ -29,11 +29,13 @@ public class UseComputer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        canHack = true;
+        if (collision.gameObject.CompareTag("Player"))
+            canHack = true;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        canHack = false;
+        if (collision.gameObject.CompareTag("Player"))
+            canHack = false;
     }
     void Update()
     {

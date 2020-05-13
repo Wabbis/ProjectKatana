@@ -5,6 +5,7 @@ using UnityEngine;
 public class World1Level1Script : MonoBehaviour
 {
     public bool trapActivated;
+    public GameObject cameraEnemy;
     public GameObject gameplayCamera;
     public GameObject trapCamera;
     public GameObject alertLights;
@@ -35,6 +36,7 @@ public class World1Level1Script : MonoBehaviour
             alertLights.SetActive(false);
             normalLights.SetActive(true);
             trapCamera.SetActive(false);
+            cameraEnemy.SetActive(false);
             gameplayCamera.SetActive(true);
 
             for (int i = 0; i < turrets.Length; i++)

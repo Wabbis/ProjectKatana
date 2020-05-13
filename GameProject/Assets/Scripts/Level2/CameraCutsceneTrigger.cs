@@ -22,7 +22,7 @@ public class CameraCutsceneTrigger : MonoBehaviour
             cutscene.SetActive(true);
             platforms.SetActive(false);
             levelManager.GetComponent<World1Level1Script>().SetTrapActivated(true);
-            cameraEnemy.GetComponent<AudioSource>().Play();
+            cameraEnemy.GetComponent<AudioSource>().enabled = true;
             gameObject.SetActive(false);
         }
     }

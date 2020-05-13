@@ -29,6 +29,7 @@ public class DoorScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            mysteeriMies.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(OpenDoor());
             mysteeriMies.GetComponent<Animator>().SetBool("Despawn", true);
             Destroy(mysteeriMies, 1.4f);
