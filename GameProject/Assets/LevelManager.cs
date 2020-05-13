@@ -11,16 +11,20 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        topLevel = PlayerPrefs.GetInt("topLevel", 3);
+
     }
 
     private void OnLevelWasLoaded(int level)
     {
+        topLevel = PlayerPrefs.GetInt("topLevel", 3);
+
         deaths = 0;
         if (level > topLevel)
         {
-            topLevel = level;                                                                                               
+            topLevel = level;
+            Debug.Log("save");
             PlayerPrefs.SetInt("topLevel", topLevel);
+            PlayerPrefs.Save();
         }
 
         if (level == 1)
