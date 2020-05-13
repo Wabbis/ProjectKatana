@@ -42,11 +42,12 @@ public class TrapScript : MonoBehaviour
 
             elapsedTime += Time.deltaTime;
         }
-        if((trapActive && elapsedTime >= trapTime) || playerOutOfRoom == true)
+        if((trapActive && elapsedTime >= trapTime) || playerOutOfRoom == true || (turret1.GetComponent<EnemyHealth>().health == 0 && turret2.GetComponent<EnemyHealth>().health == 0))
         {
             turret1.GetComponent<Animator>().SetTrigger("Die");
             turret2.GetComponent<Animator>().SetTrigger("Die");
             StartCoroutine(SwitchCameras());
+            GetComponent<AudioSource>().enabled = false;
             //Destroy(turret1);
             //Destroy(turret2);
         }

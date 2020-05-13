@@ -610,7 +610,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 9035660281853972637}
   m_OnClick:
     m_PersistentCalls:
@@ -703,7 +703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Continue(E)
 --- !u!114 &9035660281862300634
 MonoBehaviour:
   m_ObjectHideFlags: 0

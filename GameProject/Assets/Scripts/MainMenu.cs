@@ -73,7 +73,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log(i + "  " + FindObjectOfType<LevelManager>().topLevel);
 
 
-            if (i + 2 > FindObjectOfType<LevelManager>().topLevel)
+            if (i + 3 > FindObjectOfType<LevelManager>().topLevel)
             {
                 levelButtons[i].interactable = false;
                 levelButtons[i].GetComponent<Image>().color = inactiveColor;
@@ -85,6 +85,8 @@ public class MainMenu : MonoBehaviour
             }
 
         }
+
+        UnlockLevel(0);         //Ensimmäinen kenttä aina auki riippumatta progressista
 
         Time.timeScale = 1;     // Pause valikosta poistuttaessa timescale jäi aikaisemmin arvoon 0
 
@@ -105,7 +107,7 @@ public class MainMenu : MonoBehaviour
     {
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if (i + 2 > FindObjectOfType<LevelManager>().topLevel)
+            if (i + 3 > FindObjectOfType<LevelManager>().topLevel)
             {
                 levelButtons[i].interactable = false;
                 levelButtons[i].GetComponent<Image>().color = inactiveColor;
@@ -116,6 +118,8 @@ public class MainMenu : MonoBehaviour
                 UnlockLevel(i);
             }
         }
+
+        UnlockLevel(0);
     }
 
     private void Update()
@@ -128,7 +132,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        UnityEngine.GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
+         GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
     }
 
     public void OpenLevels()
