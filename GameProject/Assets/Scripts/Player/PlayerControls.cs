@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
     public GameManager gameManager;
     public LevelManager levelManager;
     public PauseMenu pauseMenu;
+    public GameObject light;
    
 
 
@@ -285,6 +286,7 @@ public class PlayerControls : MonoBehaviour
          StartCoroutine(Invunerable(1.5f));
         playerRB.velocity = gameObject.transform.right * dashForce;
         canCounter = false;
+        light.SetActive(false);
 
         StartCoroutine(Cooldown(counterCooldown));
     }
@@ -346,6 +348,7 @@ public class PlayerControls : MonoBehaviour
         else if(duration == counterCooldown)
         {
             canCounter = true;
+            light.SetActive(true);
         }
     
     }
