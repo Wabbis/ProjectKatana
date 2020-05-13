@@ -13,6 +13,7 @@ public class EnemyBullet : MonoBehaviour
     public Vector2 dir;
     public GameManager gameManager;
     
+    
 
     private void Start()
     {
@@ -50,7 +51,8 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Environment")
         {
             Debug.Log("Hit a wall");
-            //Destroy(this.gameObject);
+            
+                Destroy(this.gameObject);
 
         }
         if (counter)

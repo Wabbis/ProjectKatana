@@ -16,18 +16,22 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
-        if (!_rangedEnemy._target)
+        if (!_rangedEnemy._target || _rangedEnemy.CheckObstacles(_rangedEnemy._target))
         {
-            if (_rangedEnemy.patrolling)
-            {
-                _rangedEnemy.animator.SetTrigger("Walk");
-                return typeof(PatrolState);
-            }
-            else
-            {
-                _rangedEnemy.animator.SetTrigger("Idle");
-                return typeof(WatchState);
-            }
+            
+            
+                if (_rangedEnemy.patrolling)
+                {
+                    _rangedEnemy.animator.SetTrigger("Walk");
+                    return typeof(PatrolState);
+                }
+                else
+                {
+                    _rangedEnemy.animator.SetTrigger("Idle");
+                    return typeof(WatchState);
+                }
+            
+       
 
         }
 
