@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3900125597418744205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0661, y: -0.5028, z: 0}
+  m_LocalPosition: {x: -0.0661, y: -0.371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3900125597651210863}
@@ -174,7 +174,8 @@ MonoBehaviour:
     m_Bits: 262656
   gameManager: {fileID: 0}
   levelManager: {fileID: 0}
-  groundCheckRadius: 0.02
+  pauseMenu: {fileID: 0}
+  groundCheckRadius: 0.59
   grounded: 0
   canTakeDamage: 0
   maxJumps: 2

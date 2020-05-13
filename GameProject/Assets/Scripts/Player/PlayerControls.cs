@@ -11,17 +11,20 @@ public class PlayerControls : MonoBehaviour
     public Animator animator;
     public Rigidbody2D playerRB;
     public Collider2D playerCollider;
+
     public Transform groundCheck;
     public Transform attackPoint;
+
     public LayerMask groundLayers;
     public LayerMask enemyLayers;
+
     public GameManager gameManager;
     public LevelManager levelManager;
     public PauseMenu pauseMenu;
    
 
 
-    public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
+    public float groundCheckRadius = 0.59f;
     public bool grounded;
     public bool canTakeDamage;
     public int maxJumps;
