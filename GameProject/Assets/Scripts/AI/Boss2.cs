@@ -112,8 +112,8 @@ public class Boss2 : MonoBehaviour
     public void Shoot()
     {
         GameObject go = Instantiate(bulletPrefab, firepoint.transform.position, Quaternion.identity);
-        Vector2 dir = (player.position - firepoint.transform.position);
-        go.GetComponent<EnemyBullet1>().dir = dir;
+        Vector2 dir = (player.position - firepoint.transform.position).normalized;
+        go.GetComponent<EnemyBullet1>().dir = dir * bulletspeed;
         //go.GetComponent<Rigidbody2D>().velocity = dir.normalized * bulletspeed;
         SoundManager.PlaySound("BOSSSHOT");
     }
