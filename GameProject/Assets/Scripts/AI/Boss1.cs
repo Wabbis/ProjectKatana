@@ -101,6 +101,7 @@ public class Boss1 : MonoBehaviour
                             
                             left = true;
                           //  speed = baseSpeed;
+                         
                             nextPos = Random.Range(0, 3);
                             next = rightPositions[nextPos];
                             dashesLeft--;
@@ -181,12 +182,11 @@ public class Boss1 : MonoBehaviour
     {
         transform.Rotate(0, 180, 0);
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (dashesLeft > 0)
         {
-            if (collision.tag == "Player")
+            if (collision.transform.tag == "Player")
             {
                 Debug.Log("player hit");
                 animator.SetTrigger("Attack");
@@ -195,6 +195,21 @@ public class Boss1 : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (dashesLeft > 0)
+        {
+            if (collision.transform.tag == "Player")
+            {
+                Debug.Log("player hit");
+                animator.SetTrigger("Attack");
+                // kutsutaan pelaajan tappavaafunktiota
+                collision.gameObject.GetComponent<PlayerControls>().Die();
+            }
+        }
+    }
+
+
     public void Counter()
     {
         animator.SetTrigger("Counter");
@@ -203,7 +218,7 @@ public class Boss1 : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("shoot");
+        
         animator.SetTrigger("Attack");
         GameObject newBullet = Object.Instantiate(projectile, transform.position, Quaternion.identity);
        

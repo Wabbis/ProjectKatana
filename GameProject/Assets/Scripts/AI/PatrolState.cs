@@ -21,13 +21,13 @@ public class PatrolState : BaseState
         _rangedEnemy = rangedEnemy;
         _waypoints = waypoints;
         nextWaypoint = waypoints[0];
-        _rangedEnemy.animator.SetTrigger("Walk");
+        
     }
 
 
     public override Type Tick()
     {
-     
+        _rangedEnemy.animator.SetTrigger("Walk");
 
         if (_rangedEnemy._target)
         {

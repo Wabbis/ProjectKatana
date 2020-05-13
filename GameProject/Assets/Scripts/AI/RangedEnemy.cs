@@ -96,8 +96,7 @@ public class RangedEnemy : MonoBehaviour
         }
        // animator.SetTrigger("Idle");
 
-        //pelaajaa ei voi tuhota vielä tässä, koska ei voi tietää osuuko vihollinen
-        //Destroy(target);
+     
     }
     public void Shoot()
     {
