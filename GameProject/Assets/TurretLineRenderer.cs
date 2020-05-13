@@ -27,7 +27,7 @@ public class TurretLineRenderer : MonoBehaviour
 
         lengthOfLineRenderer = parent.GetComponent<TurretScript>().range;
         linerenderer = GetComponent<LineRenderer>();
-        linerenderer.SetPosition(0, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
+        StartCoroutine(CheckGround());
 
         SetLineDefaultPosition();
 
@@ -38,6 +38,7 @@ public class TurretLineRenderer : MonoBehaviour
     void Update()
     {
         lengthOfLineRenderer = parent.GetComponent<TurretScript>().range;
+        linerenderer.SetPosition(0, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
 
         if (followingPlayer && !lerping)
         {
@@ -111,6 +112,17 @@ public class TurretLineRenderer : MonoBehaviour
         }
 
         // Make sure we got there
+        yield return null;
+    }
+
+    public IEnumerator CheckGround()
+    {
+        while(!gameObject.GetComponentInParent<Rigidbody2D>().IsSleeping())
+        {
+            yield return null;
+        }
+
+        linerenderer.SetPosition(0, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
         yield return null;
     }
 }
