@@ -635,6 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pauseMenu: {fileID: 106324665}
+  optionsMenu: {fileID: 874540185}
+  exitMenu: {fileID: 1539026898}
   acceptPlayerInput: 0
   sceneIndex: 0
   canScore: 0
@@ -3108,6 +3110,7 @@ GameObject:
   - component: {fileID: 874540186}
   - component: {fileID: 874540188}
   - component: {fileID: 874540187}
+  - component: {fileID: 874540189}
   m_Layer: 5
   m_Name: OptionsPanel
   m_TagString: Untagged
@@ -3177,6 +3180,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874540185}
   m_CullTransparentMesh: 0
+--- !u!114 &874540189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874540185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7bd1b5881d7186439c6caa4aeba0fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 1884556042}
 --- !u!1 &945761354
 GameObject:
   m_ObjectHideFlags: 0
