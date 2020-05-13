@@ -141,7 +141,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("MENUHOVER");
 
-        if (PlayerPrefs.GetInt("topLevel") < 12)
+        if (PlayerPrefs.GetInt("topLevel", 3) < 12)
             UpdateLevels();
         else
             UnlockAllLevelsButtonGameobject.SetActive(false);
