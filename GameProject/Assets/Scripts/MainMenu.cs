@@ -36,8 +36,6 @@ public class MainMenu : MonoBehaviour
     public int firstLevelIndex;
     public int numberOfLevels;
 
-    public bool allLevelsUnlocked = false;
-
     public void UnlockAllLevels()
     {
         for (int j = 0; j < levelButtons.Length; j++)
@@ -51,6 +49,8 @@ public class MainMenu : MonoBehaviour
             levelButtons[j].transform.Find("lock").transform.localScale = new Vector3(0.36072f, 0.36072f, 0.36072f);
 
 
+            PlayerPrefs.SetInt("topLevel", 13);
+            PlayerPrefs.Save();
 
         }
     }
@@ -133,13 +133,15 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
          GameObject.FindGameObjectWithTag("GameManagement").GetComponent<LevelManager>().LoadLevel(3); // Huomioitu aloituscutscene
+        PlayerPrefs.SetInt("topLevel", 3);
+        PlayerPrefs.Save();
     }
 
     public void OpenLevels()
     {
         SoundManager.PlaySound("MENUHOVER");
 
-        if (!allLevelsUnlocked)
+        if (PlayerPrefs.GetInt("topLevel") < 12)
             UpdateLevels();
         else
             UnlockAllLevelsButtonGameobject.SetActive(false);
@@ -210,7 +212,6 @@ public class MainMenu : MonoBehaviour
         unlockAllLevelsPanel.SetActive(false);
         levelPanel.gameObject.SetActive(true);
         UnlockAllLevelsButtonGameobject.SetActive(false);
-        allLevelsUnlocked = true;
         UnlockAllLevels();
     }
     public void UnlockAllLevelsCancel()
