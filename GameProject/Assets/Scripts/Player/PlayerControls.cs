@@ -349,7 +349,9 @@ public class PlayerControls : MonoBehaviour
         else if(duration == counterCooldown)
         {
             canCounter = true;
-            light.SetActive(true);
+
+            if(dead == false) { light.SetActive(true); }
+            
         }
     
     }
