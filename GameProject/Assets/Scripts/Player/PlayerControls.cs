@@ -209,6 +209,7 @@ public class PlayerControls : MonoBehaviour
         {
             dead = true;
             SetControl(false);
+            light.SetActive(false);
             animator.SetTrigger("Dead");
             SoundManager.PlaySound("DEATHOOF");
             gameManager.PlayerDied();
