@@ -189,7 +189,7 @@ MonoBehaviour:
   attackRange: 1.65
   attackDamage: 5
   attackCooldown: 0.3
-  counterCooldown: 1
+  counterCooldown: 3
 --- !u!50 &3900125597651210857
 Rigidbody2D:
   serializedVersion: 4
