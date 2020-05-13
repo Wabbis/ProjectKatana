@@ -37,6 +37,11 @@ public class TurretScript : MonoBehaviour
         if (range == 0)
             range = 30;
 
+
+        linerenderer.SetActive(true);
+        linerenderer.GetComponent<LineRenderer>().startWidth = 0;
+        linerenderer.GetComponent<LineRenderer>().endWidth = 0;
+
     }
 
     // Update is called once per frame
@@ -147,7 +152,8 @@ public class TurretScript : MonoBehaviour
         if (!dead)
         {
             shooting = true;
-            linerenderer.SetActive(true);
+            linerenderer.GetComponent<LineRenderer>().startWidth = 0.06f;
+            linerenderer.GetComponent<LineRenderer>().endWidth = 0.06f;
             StartCoroutine(Shoot());
         }
     }
