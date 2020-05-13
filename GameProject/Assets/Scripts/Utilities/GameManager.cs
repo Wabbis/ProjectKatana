@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int sceneIndex;
     public bool canScore;
     public bool paused = false;
-    private bool playerAlive = true;
+    public bool playerAlive = true;
     private SaveAndLoad saveAndLoad;
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
