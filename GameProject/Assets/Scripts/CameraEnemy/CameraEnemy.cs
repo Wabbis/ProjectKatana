@@ -6,7 +6,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CameraEnemy : MonoBehaviour
 {
     private GameObject player;
-    public bool destroyable;                //  Onko kamera tuhottavissa
 
     public float angle;                     // Kameran vartoima kulma
     public float rotationTime;              // Yhteen täyteen rotaatiion kuluva aika
@@ -51,10 +50,7 @@ public class CameraEnemy : MonoBehaviour
         originalSize = gameObject.transform.localScale;
         tweenID = 0;
 
-        if (destroyable)
-            GetComponentInParent<BoxCollider2D>().enabled = true;
-        else
-            GetComponentInParent<BoxCollider2D>().enabled = false;
+        GetComponentInParent<BoxCollider2D>().enabled = false;
 
         StartCoroutine(Rotate(angle / 2, rotationTime / 2));    // Ensimmäinen rotaatio puolet tavallisesta
     }
@@ -151,7 +147,7 @@ public class CameraEnemy : MonoBehaviour
 
         while (true)
         {
-            if(player != null)
+            if (player != null)
             {
                 Vector3 dir = player.transform.position - transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

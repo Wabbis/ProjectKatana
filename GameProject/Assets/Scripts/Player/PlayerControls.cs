@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerControls : MonoBehaviour
@@ -9,15 +10,21 @@ public class PlayerControls : MonoBehaviour
     public GameObject player;
     public Animator animator;
     public Rigidbody2D playerRB;
+    public Collider2D playerCollider;
+
     public Transform groundCheck;
     public Transform attackPoint;
+
     public LayerMask groundLayers;
     public LayerMask enemyLayers;
+
     public GameManager gameManager;
     public LevelManager levelManager;
+    public PauseMenu pauseMenu;
+   
 
 
-    public float groundCheckRadius = 0.02f; //works well for scale 4 & 4
+    public float groundCheckRadius = 0.59f;
     public bool grounded;
     public bool canTakeDamage;
     public int maxJumps;
@@ -47,48 +54,29 @@ public class PlayerControls : MonoBehaviour
     private bool attackTemp;
     private bool facingRight = true;   
 
-    //Getter and Setter for player controls
-    public bool GetControl() { return gameManager.acceptPlayerInput; }
 
-    public void SetControl(bool state) 
-    { gameManager.acceptPlayerInput = state;
-
-        if (!state)
-            playerRB.velocity = new Vector2(0,0);
-    }
-
-    //Getter and Setter for Improved Counter
-    public bool GetCounterDeflect() { return improvedCounter; }
-    public void SetCounterDeflect(bool state)
-    { improvedCounter = state; }
-
-
-    private void CheckLevel()
-    {
-        if (levelManager.currentLevel >= 8)
-        {
-            SetCounterDeflect(true);
-        }
-        else
-        {
-            SetCounterDeflect(false);
-        }
-    }
 
 
     private void Start()
     {
+        //
         gameManager = FindObjectOfType<GameManager>();
         gameManager.player = gameObject;
         levelManager = FindObjectOfType<LevelManager>();
-        CheckLevel();
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        //
+        playerRB.isKinematic = false;
+        playerCollider.enabled = true;
         canAttack = true;
         canCounter = true;
         dead = false;
         canTakeDamage = true;
         deflecting = false;
         jumpsLeft = maxJumps;
+        //
+        CheckLevel();
         SetControl(true);
+        DisableDeathPanel();
     }
 
 
@@ -141,7 +129,53 @@ public class PlayerControls : MonoBehaviour
         ResetTemp();
     }
 
-    //Checks if the player is standing on the ground
+
+    /*
+    -----------------------------------------------
+    |                                             |
+    |                  UTILITIES                  |
+    |                                             |
+    -----------------------------------------------
+    */
+
+
+    //Getter and Setter for player controls
+    public bool GetControl() { return gameManager.acceptPlayerInput; }
+
+    public void SetControl(bool state)
+    {
+        gameManager.acceptPlayerInput = state;
+
+        if (!state)
+        {
+            playerRB.velocity = new Vector2(0, 0);
+        }
+    }
+
+    // Getter and Setter for Improved Counter
+    public bool GetCounterDeflect() { return improvedCounter; }
+    public void SetCounterDeflect(bool state)
+    { improvedCounter = state; }
+
+
+    //Getter for Player Dead
+    public bool getDead() { return dead; }
+
+
+    // Improves the Players Counter ability after the Boss is defeated
+    private void CheckLevel()
+    {
+        if (levelManager.currentLevel >= 8)
+        {
+            SetCounterDeflect(true);
+        }
+        else
+        {
+            SetCounterDeflect(false);
+        }
+    }
+
+    // Checks if the player is standing on the ground
     private void CheckGround()
     {
         bool wasGrounded = grounded;
@@ -162,28 +196,59 @@ public class PlayerControls : MonoBehaviour
         } 
     }
 
+
+    // Sets Panel on (called from Player_Death animation)
+    public void EnableDeathPanel() { pauseMenu.ToggleDeathPanel(true); }
+    public void DisableDeathPanel() { pauseMenu.ToggleDeathPanel(false); }
+
+    // Kills the player if they can take damage
     public void Die()
     {
-
-        if (canTakeDamage == true)
+        if (canTakeDamage == true && !dead)
         {
+            dead = true;
             SetControl(false);
             animator.SetTrigger("Dead");
             SoundManager.PlaySound("DEATHOOF");
             gameManager.PlayerDied();
+
+            if(playerRB.IsSleeping())
+            {
+                playerCollider.enabled = false;
+                playerRB.isKinematic = true;
+            }
+            else
+            {
+                // Check if player is moving/in the air - Slower to respond but ensures that player doesn't stay hovering in the air
+                StartCoroutine(DeadAndStoppedMoving());
+            }
         }
     }
 
+    public IEnumerator DeadAndStoppedMoving()
+    {
+        //Wait till player's rigidbody is sleeping and then turn off collider and stop rigidbody
 
-        /*
-        -----------------------------------------------
-        |                                             |
-        |             MOVEMENT HANDLING               |
-        |                                             |
-        -----------------------------------------------
-        */
+        while(!playerRB.IsSleeping())
+        {
+            yield return null;
+        }
 
-        //Moves player according to inputs
+        playerCollider.enabled = false;
+        playerRB.isKinematic = true;
+        yield return null;
+    }
+
+
+    /*
+    -----------------------------------------------
+    |                                             |
+    |             MOVEMENT HANDLING               |
+    |                                             |
+    -----------------------------------------------
+    */
+
+    // Moves player according to inputs
     private void Movement()
     {
  
@@ -241,7 +306,7 @@ public class PlayerControls : MonoBehaviour
    -----------------------------------------------
    */
 
-
+    // Checks an area around Attack-point and Deals damage to them
     private void Attacking()
     {
         if (attackTemp && canAttack)
@@ -261,8 +326,7 @@ public class PlayerControls : MonoBehaviour
                     {
                         Debug.Log("Hit: " + enemy.name);
 
-                    //TÄHÄN FUNKITIO JOKA TEKEE VIHOLLISEEN VAHINKOA
-                    enemy.GetComponent<EnemyHealth>().TakeDamage();
+                        enemy.GetComponent<EnemyHealth>().TakeDamage();
                     }
                 }
             canAttack = false;
@@ -271,7 +335,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    
+    // Sets Cooldown for player abilities
     public IEnumerator Cooldown(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -286,6 +350,7 @@ public class PlayerControls : MonoBehaviour
     
     }
 
+    // Makes the player Invunerable for a duration and Deflects bullets if the Player has the Improved Counter 
     public IEnumerator Invunerable(float seconds)
     {
         canTakeDamage = false;
@@ -304,7 +369,7 @@ public class PlayerControls : MonoBehaviour
    -----------------------------------------------
    */
 
-
+    // Updates the Animators parametres
     private void UpdateAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(movDirTemp * playerSpeed));
@@ -320,7 +385,7 @@ public class PlayerControls : MonoBehaviour
         Flip();
     }
 
-
+    // Flips the player model to face the other way
     private void Flip()
     {
         if (facingRight && movDirTemp < 0)
@@ -345,6 +410,8 @@ public class PlayerControls : MonoBehaviour
    |                                             |
    -----------------------------------------------
    */
+
+    // Draws a visualization of ground checks and attacks radius (ONLY IN EDITOR)
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);

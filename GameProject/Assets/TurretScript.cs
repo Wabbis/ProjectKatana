@@ -37,6 +37,11 @@ public class TurretScript : MonoBehaviour
         if (range == 0)
             range = 30;
 
+
+        linerenderer.SetActive(true);
+        linerenderer.GetComponent<LineRenderer>().startWidth = 0;
+        linerenderer.GetComponent<LineRenderer>().endWidth = 0;
+
     }
 
     // Update is called once per frame
@@ -77,7 +82,7 @@ public class TurretScript : MonoBehaviour
             dir = gameObject.transform.position - player.transform.position;
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-            if (player != null)
+            if (!player.GetComponent<PlayerControls>().getDead())
             {
 
                 if (gameObject.transform.rotation.y == 1 && ((angle > -90f + angleOffset && angle < 0) || (angle < 90f - angleOffset && angle > 0)) && range > dist)
@@ -124,6 +129,11 @@ public class TurretScript : MonoBehaviour
                     yield return null;
                 }
             }
+            else
+            {
+                gameObject.GetComponentInChildren<TurretLineRenderer>().SetFollowingPlayer(false);
+                yield break;
+            }
 
             yield return null;
         }
@@ -139,9 +149,13 @@ public class TurretScript : MonoBehaviour
 
     public void StartShooting()
     {
-        shooting = true;
-        linerenderer.SetActive(true);
-        StartCoroutine(Shoot());
+        if (!dead)
+        {
+            shooting = true;
+            linerenderer.GetComponent<LineRenderer>().startWidth = 0.06f;
+            linerenderer.GetComponent<LineRenderer>().endWidth = 0.06f;
+            StartCoroutine(Shoot());
+        }
     }
 
     public void StopShooting()

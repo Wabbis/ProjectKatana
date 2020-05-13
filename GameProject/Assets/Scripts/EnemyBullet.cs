@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (!counter)
         {
-            dir *= -1;
+            dir = -dir;
             counter = true;
             ChangeLayer();
             Debug.Log("reflect");
@@ -88,7 +88,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.transform.tag == "Environment")
         {
             Debug.Log("Hit wall");
-            //Destroy(this.gameObject);
+            Destroy(gameObject);
 
         }
         if (counter)
